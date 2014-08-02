@@ -132,10 +132,12 @@ Bundle 'ScrollColors'
 " Order also matters for this command because if it comes before the command
 " setting the color for tabs to pink, then the native tab color for the
 " colorsheme will be overridden.
+"
 " colorscheme badwolf
-" colorscheme moss
+" colorscheme eink
+colorscheme moss
 " colorscheme mrkn256
-colorscheme zenburn
+" colorscheme zenburn
 
 " " For tomorrow night blue.
 " hi ColorColumn ctermbg=darkgrey
