@@ -1,0 +1,6 @@
+*.pyc
+*.swp
+*.DS_Store
+*._.
+*.fuse_hidden*
+*.dia~
