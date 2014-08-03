@@ -66,8 +66,8 @@
     # haskellPlatform.ghc
     htop
     i3lock
-    keepassx2
     libreoffice
+    liferea
     mutt
     offlineimap
     pass
@@ -82,6 +82,7 @@
     vim_configurable # This has support for python plugins, which I need for some reason.
     vlc
     weechat
+    youtubeDL
   ];
 
   # List services that you want to enable:
