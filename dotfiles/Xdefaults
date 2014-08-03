@@ -1,0 +1,30 @@
+! urxvt settings
+
+URxvt.scrollBar: false
+
+! Note that changing this from 8x13 to 8x16 was breaking the ability to launch new terminals with xmonad.
+!
+! Start a new terminal from the command line to see the actual error:
+!
+!     urxvt: unable to load base fontset, please specify a valid one using -fn, aborting.
+URxvt.font: 8x13
+
+! http://bastian.rieck.ru/blog/posts/2013/making_urxvt_beautiful/
+urxvt*foreground: white
+urxvt*background: black
+*color0:  #2E3436
+*color1:  #a40000
+*color2:  #4E9A06
+*color3:  #C4A000
+*color4:  #3465A4
+*color5:  #75507B
+*color6:  #ce5c00
+*color7:  #babdb9
+*color8:  #555753
+*color9:  #EF2929
+*color10: #8AE234
+*color11: #FCE94F
+*color12: #729FCF
+*color13: #AD7FA8
+*color14: #fcaf3e
+*color15: #EEEEEC
