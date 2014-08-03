@@ -87,6 +87,7 @@
     i3lock
     libreoffice
     liferea
+    pwgen
     python27
     python27Packages.pyflakes
     python27Packages.virtualenv

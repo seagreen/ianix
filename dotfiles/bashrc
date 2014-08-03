@@ -33,13 +33,13 @@ export GPG_TTY
 
 eval "$(gpg-agent --daemon)"
 
-alias yt='youtube-dl --extract-audio --audio-format vorbis'
-
 # The first git message is special (I believe because it has no parent and
 # so is harder to change) so start project with an empty commit.
 #
 # Idea from here: http://stackoverflow.com/a/22233092
 alias gitinit='git init; git commit --allow-empty -m "Create repo."'
+
+alias password='echo "pwgen --no-capitalize --symbols 50 1"'
 
 # Otherwise backspace wasn't working in vim within urxvt.
 #
@@ -47,6 +47,8 @@ alias gitinit='git init; git commit --allow-empty -m "Create repo."'
 # This is different than the xterm bug -- for that setting backspace=2 in
 # .vimrc alone fixed it.
 stty erase ^?
+
+alias yt='youtube-dl --extract-audio --audio-format vorbis'
 
 
 ###############################################################################
