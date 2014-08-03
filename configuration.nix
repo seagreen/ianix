@@ -49,17 +49,36 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    chromium
-    fasd
+
+    # Terminal
+    rxvt_unicode
+
+    # Text editor
+    vim_configurable # This has support for python plugins, which I need for some reason.
+
+    # Web browsers
     firefoxWrapper
+    chromium
+
+    # Password management
+    pass
+
+    # Email
+    mutt
+    offlineimap
+
+    # Backups
+    tarsnap
+
+    # Other
+
+    fasd
     git
     gnome3.eog
-
     # http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     #
     # must edit gpg-agent.conf for this to work.
     gnupg
-
     gparted
     # haskellPackages.cabal2nix
     # haskellPackages.cabalInstall
@@ -68,21 +87,16 @@
     i3lock
     libreoffice
     liferea
-    mutt
-    offlineimap
-    pass
     python27
     python27Packages.pyflakes
     python27Packages.virtualenv
-    rxvt_unicode
     sloccount
     stdenv # Needed for cabal?
-    tarsnap
     vagrant
-    vim_configurable # This has support for python plugins, which I need for some reason.
     vlc
     weechat
     youtubeDL
+
   ];
 
   # List services that you want to enable:
