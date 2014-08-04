@@ -87,13 +87,14 @@
     i3lock
     libreoffice
     liferea
-    mplayer
+    mplayer # Required for my weechat beep command.
     pwgen
     python27
     python27Packages.pyflakes
     python27Packages.virtualenv
     sloccount
     stdenv # Needed for cabal?
+    tree
     vagrant
     vlc
     weechat
