@@ -82,7 +82,7 @@
     gparted
     # haskellPackages.cabal2nix
     # haskellPackages.cabalInstall
-    # haskellPlatform.ghc
+    haskellPlatform.ghc
     htop
     i3lock
     libreoffice
