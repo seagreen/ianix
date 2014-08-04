@@ -87,6 +87,7 @@
     i3lock
     libreoffice
     liferea
+    mplayer
     pwgen
     python27
     python27Packages.pyflakes

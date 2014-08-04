@@ -134,8 +134,8 @@ Bundle 'ScrollColors'
 " colorsheme will be overridden.
 "
 " colorscheme badwolf
-" colorscheme eink
-colorscheme moss
+colorscheme eink
+" colorscheme moss
 " colorscheme mrkn256
 " colorscheme zenburn
 

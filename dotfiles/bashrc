@@ -31,7 +31,11 @@ alias gpg='gpg2'
 GPG_TTY=$(tty)
 export GPG_TTY
 
-eval "$(gpg-agent --daemon)"
+# TODO: without this wrapper, attempting to switch to root with `su` doesn't work.
+# Additionally, after attempting to do so, `exit` wouldn't work either.
+if [ $(whoami) != "root" ]; then
+    eval "$(gpg-agent --daemon)"
+fi
 
 # The first git message is special (I believe because it has no parent and
 # so is harder to change) so start project with an empty commit.
