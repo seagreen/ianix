@@ -52,6 +52,9 @@ alias password='echo "pwgen --no-capitalize --symbols 50 1"'
 # .vimrc alone fixed it.
 stty erase ^?
 
+# -p[N]    Open N tab pages.  When N is omitted, open one tab page for each file.
+alias vim='vim -p'
+
 alias yt='youtube-dl --extract-audio --audio-format vorbis'
 
 
