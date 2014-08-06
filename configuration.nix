@@ -70,11 +70,15 @@
     # Backups
     tarsnap
 
+    # Screen locking
+    # Use the `slimlock` command (included by default).
+
     # Other
 
     fasd
     git
     gnome3.eog
+    gnome3.gnome-screenshot
     # http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     #
     # must edit gpg-agent.conf for this to work.
@@ -83,7 +87,6 @@
     haskellPackages.cabal2nix
     haskellPlatform.ghc
     htop
-    i3lock
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
