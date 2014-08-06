@@ -4,7 +4,7 @@
 set background=light
 set nonu
 set laststatus=0
-colorscheme northsky
+" colorscheme northsky
 set linespace=8
 set guifont=Source\ Code\ Pro\ Light:h20
 " Let's turn off word wrapping 'text width' for now.

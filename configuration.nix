@@ -80,8 +80,7 @@
     # must edit gpg-agent.conf for this to work.
     gnupg
     gparted
-    # haskellPackages.cabal2nix
-    # haskellPackages.cabalInstall
+    haskellPackages.cabal2nix
     haskellPlatform.ghc
     htop
     i3lock
