@@ -70,9 +70,6 @@
     # Backups
     tarsnap
 
-    # Screen locking
-    # Use the `slimlock` command (included by default).
-
     # Other
 
     fasd
@@ -87,6 +84,7 @@
     haskellPackages.cabal2nix
     haskellPlatform.ghc
     htop
+    i3lock
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.

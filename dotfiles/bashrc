@@ -90,7 +90,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias cal='cal -3'
-
+alias lock='i3lock'
 # grep -I ignores binary files.
 alias mygrep='grep -ri --binary-files=without-match --exclude-dir="active" --exclude-dir="old_code"'
 alias pingit='ping www.google.com'
