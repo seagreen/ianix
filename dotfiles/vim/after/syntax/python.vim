@@ -3,7 +3,7 @@ set shiftwidth=4
 set tabstop=4
 
 " colorscheme oceanblack256
-colorscheme softblue
+colorscheme softbluev2
 
 " This is for 'airblade/vim-gitgutter' with oceanblack256 or softblue.
 "
