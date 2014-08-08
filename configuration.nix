@@ -56,9 +56,8 @@
     # Text editor
     vim_configurable # This has support for python plugins, which I need for some reason.
 
-    # Web browsers
+    # Web browser
     firefoxWrapper
-    chromium
 
     # Password management
     pass
@@ -72,6 +71,7 @@
 
     # Other
 
+    chromium
     fasd
     git
     gnome3.eog
@@ -83,6 +83,7 @@
     go
     gparted
     haskellPackages.cabal2nix
+    haskellPackages.random
     haskellPlatform.ghc
     htop
     i3lock
