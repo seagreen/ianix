@@ -209,3 +209,6 @@ set backspace=2
 
 " Mouse scrolling is unusably buggy in urxvt without this.
 set mouse=a
+
+" Don't create a ~/.vim/.netrwhist file.
+let g:netrw_dirhistmax=0
