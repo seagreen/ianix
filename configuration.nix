@@ -80,6 +80,7 @@
     #
     # must edit gpg-agent.conf for this to work.
     gnupg
+    go
     gparted
     haskellPackages.cabal2nix
     haskellPlatform.ghc

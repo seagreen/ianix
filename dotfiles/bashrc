@@ -73,6 +73,20 @@ export EDITOR=vim
 
 
 ###############################################################################
+# Go
+###############################################################################
+
+
+# http://golang.org/doc/install
+
+export GOPATH=/home/traveller/code/go
+export PATH=$GOPATH/bin:$PATH # Add programs we compile to $PATH.
+
+export GOROOT=/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go
+export PATH=$PATH:$GOROOT/bin
+
+
+###############################################################################
 # Python specific
 ###############################################################################
 
