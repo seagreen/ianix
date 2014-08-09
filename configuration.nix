@@ -96,7 +96,7 @@
 
     # Other Haskell
 
-    # haskellPackages.random
+    haskellPackages.random
     haskellPackages.cabal2nix
 
     # Other
