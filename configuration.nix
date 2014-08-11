@@ -6,17 +6,26 @@
 
 
 {
+
+  ############################################################
+  # Hardware
+  ############################################################
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+
+      # Install VirtualBox.
+      #
+      # Also required on my Asus VivoPC (right after power on):
+      #
+      #   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
+      #
+      # And:
+      #
+      #   usermod -a -G vboxusers traveller # TODO: test if this is necessary.
       <nixos/modules/programs/virtualbox.nix>
     ];
-  # To install VirtualBox on my Asus VivoPC:
-  # Right after power on:
-  # F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
-  #
-  # Also:
-  # usermod -a -G vboxusers traveller # TODO: test if this is necessary.
 
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
@@ -29,21 +38,15 @@
     }
   ];
 
-  networking.hostName = "vivaine"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless.
+  ############################################################
+  # Packages and Services
+  ############################################################
 
-  # Select internationalisation properties.
-  i18n = {
-    consoleFont = "lat9w-16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
-  };
+  nixpkgs.config.allowUnfree = true;
 
   require = [
     ./sets/haskell-dev.nix
   ];
-
-  nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.firefox = {
     enableGoogleTalkPlugin = true;
@@ -89,7 +92,8 @@
     i3lock
     libreoffice
     liferea
-    mplayer # Required for my weechat beep command.
+    # Required for my weechat beep command.
+    mplayer
     pwgen
     python27
     python27Packages.pyflakes
@@ -102,10 +106,7 @@
     youtubeDL
   ];
 
-  # List services that you want to enable:
-
-  # TODO: did this work?
-  services.ntp.enable = true;
+  services.ntp.enable = true; # TODO: did this work?
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -118,10 +119,24 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
 
-  services.xserver.windowManager.xmonad.enable = true;     # installs xmonad and makes it available
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true; # makes xmonad-contrib and xmonad-extras available
-  services.xserver.windowManager.default       = "xmonad"; # sets it as default
-  services.xserver.desktopManager.default      = "none";   # the plain xmonad experience
+  services.xserver.windowManager.xmonad.enable = true;
+  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
+  services.xserver.windowManager.default = "xmonad";
+  services.xserver.desktopManager.default = "none";
+
+  ############################################################
+  # Other Settings
+  ############################################################
+
+  networking.hostName = "vivaine";
+  # networking.wireless.enable = true;
+
+  # Select internationalisation properties.
+  i18n = {
+    consoleFont = "lat9w-16";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.guest = {
