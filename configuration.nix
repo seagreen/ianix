@@ -75,13 +75,12 @@
     # Backups
     tarsnap
 
-    # Other
+    # Utilities
 
     # Must edit gpg-agent.conf for this to work. See here:
     #
     #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     gnupg
-    go
     gparted
     chromium
     fasd
@@ -95,15 +94,20 @@
     # Required for my weechat beep command.
     mplayer
     pwgen
-    python27
-    python27Packages.pyflakes
-    python27Packages.virtualenv
     sloccount
     tree
     vagrant
     vlc
     weechat
     youtubeDL
+
+    # Activities (personal interests like Go others might not be interested in)
+
+    go
+    python27
+    python27Packages.pyflakes
+    python27Packages.virtualenv
+
   ];
 
   services.ntp.enable = true; # TODO: did this work?
