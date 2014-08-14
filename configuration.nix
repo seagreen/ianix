@@ -103,7 +103,9 @@
 
     # Activities (personal interests like Go others might not be interested in)
 
+    fabric
     go
+    haskellPackages.hakyll
     python27
     python27Packages.pyflakes
     python27Packages.virtualenv
