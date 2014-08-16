@@ -30,6 +30,7 @@
 
     # Other Haskell
 
+    haskellPackages.hlint
     haskellPackages.random
     haskellPackages.cabal2nix
 

@@ -106,6 +106,7 @@
     fabric
     go
     haskellPackages.hakyll
+    haskellPackages.xml # for my pwsafe program
     python27
     python27Packages.pyflakes
     python27Packages.virtualenv
