@@ -43,6 +43,12 @@ fi
 # Idea from here: http://stackoverflow.com/a/22233092
 alias gitinit='git init; git commit --allow-empty -m "Create repo."'
 
+# For pass command completion
+#
+# TODO: how to avoid hardcoding this?
+source /nix/store/xzi9k0an1015c055gh8jirdpx7m0rpy0-password-store-1.4.2/etc/bash_completion.d/password-store
+
+# Make a nice password.
 alias password='echo "pwgen --no-capitalize --symbols 50 1"'
 
 # Otherwise backspace wasn't working in vim within urxvt.

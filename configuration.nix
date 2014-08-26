@@ -65,7 +65,7 @@
     # Web browser
     firefoxWrapper
 
-    # Password management
+    # Password manager
     pass
 
     # Email
@@ -95,6 +95,7 @@
     mplayer
     pwgen
     sloccount
+    speedtest_cli
     tree
     vagrant
     vlc
