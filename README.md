@@ -2,6 +2,10 @@
 
 A description in code of my [NixOS](http://nixos.org/) setup.
 
+# Screenshot
+
+![screenshot](screenshot.png)
+
 # Deployment
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
