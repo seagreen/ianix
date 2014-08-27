@@ -4,7 +4,7 @@ A description in code of my [NixOS](http://nixos.org/) setup.
 
 # Screenshot
 
-![screenshot](https://raw.githubusercontent.com/seagreen/vivaine/master/screenshot.png)
+![screenshot](screenshot.png)
 
 # Deployment
 
