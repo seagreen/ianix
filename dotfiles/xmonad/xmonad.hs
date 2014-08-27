@@ -27,5 +27,5 @@ main = do
             }
         `additionalKeysP`
             [ ("M-s", spawn "screenshot")
-            , ("M-s-e", spawn "screenshot-select")
+            , ("M-e", spawn "screenshot-select")
             ]
