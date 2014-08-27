@@ -91,9 +91,9 @@
     i3lock
     libreoffice
     liferea
-    # Required for my weechat beep command.
-    mplayer
+    mplayer # Required for my weechat beep command.
     pwgen
+    scrot # For screenshots.
     sloccount
     speedtest_cli
     tree
