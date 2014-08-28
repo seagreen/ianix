@@ -84,6 +84,7 @@
     gparted
     chromium
     fasd
+    feh
     git
     gnome3.eog
     gnome3.gnome-screenshot

@@ -109,6 +109,9 @@ export PYTHONDONTWRITEBYTECODE=1
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+alias background-center='feh --bg-center'
+alias background-max='feh --bg-max'
+alias background-fill='feh --bg-fill'
 alias cal='cal -3'
 alias lock='i3lock'
 # grep -I ignores binary files.

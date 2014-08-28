@@ -6,6 +6,8 @@ A description in code of my [NixOS](http://nixos.org/) setup.
 
 ![screenshot](https://raw.githubusercontent.com/seagreen/vivaine/master/screenshot.png)
 
+For info on the background image try Googling "Makoto Shinkai The Place Promised in Our Early Days".
+
 # Deployment
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
