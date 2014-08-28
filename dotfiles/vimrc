@@ -134,10 +134,12 @@ Bundle 'ScrollColors'
 " colorsheme will be overridden.
 "
 " colorscheme badwolf
-colorscheme eink
+" colorscheme eink
 " colorscheme moss
 " colorscheme mrkn256
 " colorscheme zenburn
+colorscheme Tomorrow-Night-Blue
+
 
 " " For tomorrow night blue.
 " hi ColorColumn ctermbg=darkgrey

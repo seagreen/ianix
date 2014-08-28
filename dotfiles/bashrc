@@ -130,10 +130,9 @@ alias serve="python -m SimpleHTTPServer"
 ###############################################################################
 
 
-# These settings, not the profile, control what color the prompt is.
-# Used for the Tomorrow theme.
+# These names are close to true for the Tomorrow Night Bright theme, but not
+# quite right. For example, $WHITE shows up as dark gray.
 NORMAL='\[\033[00m\]'
-
 BLACK='\[\033[0;30m\]'
 RED='\[\033[0;31m\]'
 GREEN='\[\033[0;32m\]'
@@ -142,7 +141,6 @@ BLUE='\[\033[0;34m\]'
 PURPLE='\[\033[0;35m\]'
 CYAN='\[\033[0;36m\]'
 LGRAY='\[\033[0;37m\]'
-
 DGRAY='\[\033[1;30m\]'
 LRED='\[\033[1;31m\]'
 LGREEN='\[\033[1;32m\]'
@@ -152,11 +150,25 @@ PINK='\[\033[1;35m\]'
 LCYAN='\[\033[1;36m\]'
 WHITE='\[\033[1;37m\]'
 
+
 # Color tester:
+#
 # PS1="${NORMAL}NORMAL${BLACK}BLACK${RED}RED${GREEN}GREEN${BROWN}BROWN${BLUE}BLUE${PURPLE}PURPLE${CYAN}CYAN${LGRAY}LGRAY${DGRAY}DGRAY${LRED}LRED${LGREEN}LGREEN${YELLOW}YELLOW${LBLUE}LBLUE${PINK}PINK${LCYAN}LCYAN${WHITE}WHITE"
 
-# Prompt for Solarized:
-# PS1="${PINK}[${PINK}\w${PINK}] ${YELLOW}\u ${PINK}\$ ${LCYAN}"
 
-# Prompt for the Tomorrow theme:
-PS1="${LCYAN}[${LCYAN}\w${LCYAN}] ${YELLOW}\u ${LCYAN}\$ ${NORMAL}"
+# The PS1 variable controls the terminal prompt.
+#
+# To see the default PS1, comment out PS1 below, start a new terminal, and run:
+#
+#     echo $PS1
+#
+# The current default is:
+#
+#     \n\[\033[1;32m\][\u@\h:\w]\$\[\033[0m\]
+
+
+# See here for prompt variables:
+#
+#     http://www.gnu.org/software/bash/manual/bashref.html#Printing-a-Prompt
+#
+PS1="${LCYAN}[\w] \u@\h \$${NORMAL} "

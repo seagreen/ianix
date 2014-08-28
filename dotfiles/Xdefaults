@@ -5,28 +5,14 @@
 
 ! To view errors launch a new terminal from the command line instead of xmonad.
 
+! We use .Xdefaults instead of .Xresources, because that's what's detected by
+! NixOS on startup.
+
 URxvt.scrollBar: false
 
 ! Only works with specific combinations.
 URxvt.font: 9x15
 ! URxvt.font: 8x13
 
-! http://bastian.rieck.ru/blog/posts/2013/making_urxvt_beautiful/
-URxvt*foreground: white
-URxvt*background: black
-*color0:  #2E3436
-*color1:  #a40000
-*color2:  #4E9A06
-*color3:  #C4A000
-*color4:  #3465A4
-*color5:  #75507B
-*color6:  #ce5c00
-*color7:  #babdb9
-*color8:  #555753
-*color9:  #EF2929
-*color10: #8AE234
-*color11: #FCE94F
-*color12: #729FCF
-*color13: #AD7FA8
-*color14: #fcaf3e
-*color15: #EEEEEC
+! The tomorrow-theme directory is actually managed by vim's Vundle, so it's not quite right to use it from here.
+#include "/home/traveller/vivaine/vivaine/dotfiles/vim/bundle/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"
