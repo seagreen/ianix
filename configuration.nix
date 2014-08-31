@@ -151,7 +151,11 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  users.mutableUsers = false;
+  # Waiting to set this until passwords are figured out. See here:
+  #
+  #     https://github.com/NixOS/nixpkgs/issues/3788
+  #
+  # users.mutableUsers = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.guest = {
