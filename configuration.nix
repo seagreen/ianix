@@ -77,7 +77,7 @@
 
     # Utilities
 
-    # Must edit gpg-agent.conf for this to work. See here:
+    # Must edit gpg-agent.conf for gpg to work. See here:
     #
     #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     gnupg
@@ -98,9 +98,11 @@
     sloccount
     speedtest_cli
     tree
+    unzip
     vagrant
     vlc
     weechat
+    wget
     youtubeDL
 
     # Activities (personal interests like Go others might not be interested in)
