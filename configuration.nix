@@ -93,10 +93,12 @@
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
+    networkmanagerapplet # Needed for nmapplet, but not nmcli.
     pwgen
     scrot # For screenshots.
     sloccount
     speedtest_cli
+    stalonetray # Fake system tray for programs like nmapplet that require one.
     tree
     unzip
     vagrant
@@ -115,6 +117,12 @@
     python27Packages.virtualenv
 
   ];
+
+  # Enable NetworkManager and OpenVPN.
+  networking.networkmanager.enable = true;
+  users.extraGroups.networkmanager.members = ["root"];
+  # networking.wireless.enable = true;
+  services.openvpn.enable = true;
 
   services.ntp.enable = true; # TODO: did this work?
 
@@ -139,7 +147,6 @@
   ############################################################
 
   networking.hostName = "vivaine";
-  # networking.wireless.enable = true;
 
   # Select internationalisation properties.
   i18n = {

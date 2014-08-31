@@ -1,0 +1,11 @@
+nm-applet    > /dev/null &
+stalonetray  > /dev/null 2>/dev/null
+
+# Originally from here:
+#
+#     https://wiki.archlinux.org/index.php/NetworkManager
+#
+# #!/bin/sh
+# nm-applet    > /dev/null 2>/dev/null &
+# stalonetray  > /dev/null 2>/dev/null
+# killall nm-applet
