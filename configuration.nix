@@ -20,10 +20,6 @@
       # Also required on my Asus VivoPC (right after power on):
       #
       #   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
-      #
-      # And:
-      #
-      #   usermod -a -G vboxusers traveller # TODO: test if this is necessary.
       <nixos/modules/programs/virtualbox.nix>
     ];
 
@@ -155,6 +151,8 @@
     defaultLocale = "en_US.UTF-8";
   };
 
+  users.mutableUsers = false;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.guest = {
     name = "traveller";
@@ -164,5 +162,10 @@
     home = "/home/traveller";
     shell = "/run/current-system/sw/bin/bash";
   };
+  
+  # Was supposedly necessary for the user to use VirtualBox,
+  # but I'm not sure if that's actually the case.
+  #
+  # users.extraGroups.vboxusers.members = ["traveller"];
 
 }
