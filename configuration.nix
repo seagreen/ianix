@@ -109,6 +109,7 @@
     go
     haskellPackages.hakyll
     python27
+    python27Packages.ipython
     python27Packages.pyflakes
     python27Packages.virtualenv
 

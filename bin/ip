@@ -1,0 +1,4 @@
+# Using an external API since `hostname -I` and some of the other usual suggestions
+# aren't working correctly.
+
+curl ipinfo.io/ip
