@@ -1,0 +1,5 @@
+# Tarsnap cache directory
+cachedir ~/.tarsnap-cache
+
+# Tarsnap key file
+keyfile /home/traveller/limited-tarsnap.key
