@@ -116,6 +116,7 @@ alias cal='cal -3'
 alias lock='i3lock'
 # grep -I ignores binary files.
 alias mygrep='grep -ri --binary-files=without-match --exclude-dir="active" --exclude-dir="old_code"'
+alias nix-search='nix-env -qaP | grep -i'
 alias pingit='ping www.google.com'
 alias version='cat /etc/issue'
 alias voldown='amixer set Master unmute 8%-'
