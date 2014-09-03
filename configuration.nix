@@ -17,6 +17,10 @@
 
       # Install VirtualBox.
       #
+      # Also run:
+      #
+      #     usermod -a -G vboxusers traveller
+      #
       # Also required on my Asus VivoPC (right after power on):
       #
       #   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
@@ -152,7 +156,7 @@
     defaultLocale = "en_US.UTF-8";
   };
 
-  # Waiting to set this until passwords are figured out. See here:
+  # Unfortunately this makes password management tricky. See here:
   #
   #     https://github.com/NixOS/nixpkgs/issues/3788
   #
@@ -168,9 +172,4 @@
     shell = "/run/current-system/sw/bin/bash";
   };
   
-  # Was supposedly necessary for the user to use VirtualBox,
-  # but I'm not sure if that's actually the case.
-  #
-  # users.extraGroups.vboxusers.members = ["traveller"];
-
 }
