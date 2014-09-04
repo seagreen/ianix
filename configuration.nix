@@ -127,7 +127,12 @@
   # networking.wireless.enable = true;
   services.openvpn.enable = true;
 
-  services.ntp.enable = true; # TODO: did this work?
+  # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.
+  time.timeZone = "America/New_York";
+  services.ntp = {
+    enable = true;
+    servers = [ "server.local" "0.pool.ntp.org" "1.pool.ntp.org" "2.pool.ntp.org" ];
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
