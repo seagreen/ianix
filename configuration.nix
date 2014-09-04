@@ -111,7 +111,9 @@
 
     fabric
     go
+    haskellPackages.cabal2nix
     haskellPackages.hakyll
+    haskellPackages.hlint
     python27
     python27Packages.ipython
     python27Packages.pyflakes
