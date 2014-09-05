@@ -37,12 +37,12 @@
       ./hardware-configuration.nix
 
       # Web browser
-      ./sets/firefox.nix
+      ./src/firefox/c.nix
 
-      ./sets/networking.nix
+      ./src/networking/c.nix
 
-      ./sets/haskell-dev.nix
-      ./sets/vagrant.nix
+      ./src/haskell_dev/c.nix
+      ./src/vagrant/c.nix
     ];
 
   # List packages installed in system profile.

@@ -1,0 +1,42 @@
+#! /usr/bin/env python
+
+import os
+from os import listdir
+from os.path import join
+
+
+home = os.path.expanduser('~')
+src = "/home/traveller/vivaine/vivaine/src"
+
+
+# A list of absolute paths to dotfiles we need to symlink to.
+dotfiles = []
+
+# A list of tuples. (absolute paths to dotfiles, absolute paths
+# to symlinks we need to create).
+dot_syms = []
+
+
+for program in listdir(src):
+    program_p = join(src, program)
+    if 'dotfiles' in listdir(program_p):
+        dotfiles_dir_p = join(program_p, 'dotfiles')
+        for d in listdir(dotfiles_dir_p):
+            dotfiles.append(join(dotfiles_dir_p, d))
+
+
+for i in dotfiles:
+    symlink = '.' + os.path.basename(i)
+    symlink_p = join(home, symlink)
+    dot_syms.append((i, symlink_p))
+
+
+for i in dot_syms:
+    try:
+        os.symlink(i[0], i[1])
+        print "Created symlink at %s" % i[1]
+    except OSError as e:
+        if e.strerror == 'File exists':
+            print "File exists at %s" % i[1]
+        else:
+            print "OSError: %s" % e.strerror

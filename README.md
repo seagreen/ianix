@@ -14,12 +14,14 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 2. Replace `/etc/nixos/configuration.nix` with `configuration.nix` from this directory. Run `nixos-rebuild switch` from root.
 
-3. Create symlinks in `~` to the files in `dotfiles`.
+3. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. There are also some hardcoded links to this directory, which is `/home/traveller/vivaine/vivaine` on my computer. Fix those as well.
 
-4. Create a symlink in `~` to the `bin` directory in this repo.
+4. `$ ./link_dotfiles`
 
-5. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. Also change the directory where screenshots are stored in `bin/screenshot` and `bin/screenshot-select`. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be.
+5. `$ ./link_bin_files`
 
 6. Load the new `.bashrc` and then run `background-center wallpaper.png`.
 
 7. Move a copy of `.vimrc` and `.vim` to `/root`.
+
+8. `$ mkdir ~/.screenshots`

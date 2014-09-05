@@ -1,0 +1,46 @@
+#! /usr/bin/env python
+
+import os
+from os import listdir
+from os.path import join
+
+
+home_bin = join(os.path.expanduser('~'), 'bin')
+src = "/home/traveller/vivaine/vivaine/src"
+
+
+# A list of absolute paths of executables we need to symlink to.
+execs = []
+
+# A list of tuples. (absolute paths to executables, absolute paths
+# to symlinks we need to create).
+exec_syms = []
+
+
+if not os.path.exists(home_bin):
+    os.mkdir(home_bin)
+
+
+for program in listdir(src):
+    program_p = join(src, program)
+    if 'bin' in listdir(program_p):
+        bin_dir_p = join(program_p, 'bin')
+        for e in listdir(bin_dir_p):
+            execs.append(join(bin_dir_p, e))
+
+
+for i in execs:
+    symlink = os.path.basename(i)
+    symlink_p = join(home_bin, symlink)
+    exec_syms.append((i, symlink_p))
+
+
+for i in exec_syms:
+    try:
+        os.symlink(i[0], i[1])
+        print "Created symlink at %s" % i[1]
+    except OSError as e:
+        if e.strerror == 'File exists':
+            print "File exists at %s" % i[1]
+        else:
+            print "OSError: %s" % e.strerror
