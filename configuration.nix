@@ -28,23 +28,18 @@
   # Packages and Services
   ############################################################
 
+  nixpkgs.config.allowUnfree = true;
+
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
 
+      # Web browser
+      ./sets/firefox.nix
+
+      ./sets/haskell-dev.nix
       ./sets/vagrant.nix
     ];
-
-  nixpkgs.config.allowUnfree = true;
-
-  require = [
-    ./sets/haskell-dev.nix
-  ];
-
-  nixpkgs.config.firefox = {
-    enableGoogleTalkPlugin = true;
-    enableAdobeFlash = true;
-  };
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -54,9 +49,6 @@
 
     # Text editor
     vim_configurable # This has support for python plugins, which I need for some reason.
-
-    # Web browser
-    firefoxWrapper
 
     # Password manager
     pass
