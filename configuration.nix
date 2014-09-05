@@ -36,12 +36,14 @@
     [ # Include the results of the hardware scan. This is required.
       ./hardware-configuration.nix
 
+      # Window manager
+      ./src/xmonad/c.nix
+
       # Web browser
       ./src/firefox/c.nix
 
-      ./src/networking/c.nix
-
       ./src/haskell_dev/c.nix
+      ./src/networking/c.nix
       ./src/vagrant/c.nix
     ];
 
@@ -83,7 +85,6 @@
     liferea
     mplayer # Required for my weechat beep command.
     pwgen
-    scrot # For screenshots.
     sloccount
     speedtest_cli
     tree
@@ -118,9 +119,6 @@
   services.xserver.layout = "us";
   services.xserver.xkbOptions = "eurosign:e";
 
-  services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
-  services.xserver.windowManager.default = "xmonad";
   services.xserver.desktopManager.default = "none";
 
   ############################################################
