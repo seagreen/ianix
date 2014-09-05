@@ -31,7 +31,8 @@
   nixpkgs.config.allowUnfree = true;
 
   # Anything that would require changes to this file in more
-  # than one place gets factored out to become an import.
+  # than one place or has other files associated with it gets
+  # factored out to become an import.
   imports =
     [ # Include the results of the hardware scan. This is required.
       ./hardware-configuration.nix
@@ -39,9 +40,19 @@
       # Window manager
       ./src/xmonad/c.nix
 
+      # Terminal
+      ./src/urxvt/c.nix
+
+      # Text editor
+      ./src/vim/c.nix
+
       # Web browser (Vimperator)
       ./src/firefox/c.nix
 
+      # Backups
+      ./src/tarsnap/c.nix
+
+      ./src/git/c.nix
       ./src/haskell_dev/c.nix
       ./src/networking/c.nix
       ./src/vagrant/c.nix
@@ -49,12 +60,6 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-
-    # Terminal
-    rxvt_unicode
-
-    # Text editor
-    vim_configurable # This has support for python plugins, which I need for some reason.
 
     # Password manager
     pass
@@ -64,15 +69,12 @@
     mutt
     offlineimap
 
-    # Backups
-    tarsnap
-
     # Utilities
 
+    bvi # Hex editor
     chromium
     fasd
     feh
-    git
     gnome3.eog
     # Must edit gpg-agent.conf for gpg to work. See here:
     #
