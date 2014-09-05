@@ -69,16 +69,16 @@
 
     # Utilities
 
-    # Must edit gpg-agent.conf for gpg to work. See here:
-    #
-    #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
-    gnupg
-    gparted
     chromium
     fasd
     feh
     git
     gnome3.eog
+    # Must edit gpg-agent.conf for gpg to work. See here:
+    #
+    #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
+    gnupg
+    gparted
     htop
     i3lock
     libreoffice
