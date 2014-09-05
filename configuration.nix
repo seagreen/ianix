@@ -11,27 +11,13 @@
   # Hardware
   ############################################################
 
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-
-      # Install VirtualBox.
-      #
-      # Also run:
-      #
-      #     usermod -a -G vboxusers traveller
-      #
-      # Also required on my Asus VivoPC (right after power on):
-      #
-      #   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
-      <nixos/modules/programs/virtualbox.nix>
-    ];
-
   # Use the GRUB 2 boot loader.
   boot.loader.grub.enable = true;
   boot.loader.grub.version = 2;
+
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda";
+
   boot.initrd.luks.devices = [
     {
       name = "root"; device = "/dev/sda3"; preLVM = true;
@@ -41,6 +27,13 @@
   ############################################################
   # Packages and Services
   ############################################################
+
+  imports =
+    [ # Include the results of the hardware scan.
+      ./hardware-configuration.nix
+
+      ./sets/vagrant.nix
+    ];
 
   nixpkgs.config.allowUnfree = true;
 
@@ -101,7 +94,6 @@
     stalonetray # Fake system tray for programs like nmapplet that require one.
     tree
     unzip
-    vagrant
     vlc
     weechat
     wget
@@ -127,13 +119,6 @@
   # networking.wireless.enable = true;
   services.openvpn.enable = true;
 
-  # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.
-  time.timeZone = "America/New_York";
-  services.ntp = {
-    enable = true;
-    servers = [ "server.local" "0.pool.ntp.org" "1.pool.ntp.org" "2.pool.ntp.org" ];
-  };
-
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
@@ -155,6 +140,13 @@
   ############################################################
 
   networking.hostName = "vivaine";
+
+  # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.
+  time.timeZone = "America/New_York";
+  services.ntp = {
+    enable = true;
+    servers = [ "server.local" "0.pool.ntp.org" "1.pool.ntp.org" "2.pool.ntp.org" ];
+  };
 
   # Select internationalisation properties.
   i18n = {
