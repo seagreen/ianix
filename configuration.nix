@@ -30,12 +30,16 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  # Anything that would require changes to this file in more
+  # than one place gets factored out to become an import.
   imports =
-    [ # Include the results of the hardware scan.
+    [ # Include the results of the hardware scan. This is required.
       ./hardware-configuration.nix
 
       # Web browser
       ./sets/firefox.nix
+
+      ./sets/networking.nix
 
       ./sets/haskell-dev.nix
       ./sets/vagrant.nix
@@ -78,12 +82,10 @@
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
-    networkmanagerapplet # Needed for nmapplet, but not nmcli.
     pwgen
     scrot # For screenshots.
     sloccount
     speedtest_cli
-    stalonetray # Fake system tray for programs like nmapplet that require one.
     tree
     unzip
     vlc
@@ -104,12 +106,6 @@
     python27Packages.virtualenv
 
   ];
-
-  # Enable NetworkManager and OpenVPN.
-  networking.networkmanager.enable = true;
-  users.extraGroups.networkmanager.members = ["root"];
-  # networking.wireless.enable = true;
-  services.openvpn.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
