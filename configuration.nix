@@ -39,7 +39,7 @@
       # Window manager
       ./src/xmonad/c.nix
 
-      # Web browser
+      # Web browser (Vimperator)
       ./src/firefox/c.nix
 
       ./src/haskell_dev/c.nix

@@ -1,0 +1,21 @@
+noremap ; :
+
+
+""" Set my own standards for going 'back' and 'forward' in history.
+noremap u H
+noremap <C-r> L
+" Disable the standards ways to go 'back' and 'forward'.
+noremap H <nop>
+noremap L <nop>
+
+""" Control closing and reopening tabs.
+" Use 'q' to close the current tab.
+noremap q d
+" Use ':u<ENTER>' to reopen the last closed tab.
+" Disable alternate ways to close tabs.
+noremap d <nop>
+" noremap <C-w> <nop>
+
+""" Set my own standards for 'next tab' and 'previous tab'.
+noremap <c-l> <c-n>
+noremap <c-h> gT
