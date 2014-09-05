@@ -56,6 +56,7 @@
 
     # Password manager
     pass
+    xclip # Let pass access the clipboard.
 
     # Email
     mutt
