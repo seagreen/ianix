@@ -76,7 +76,6 @@
     feh
     git
     gnome3.eog
-    gnome3.gnome-screenshot
     htop
     i3lock
     libreoffice
@@ -158,5 +157,5 @@
     home = "/home/traveller";
     shell = "/run/current-system/sw/bin/bash";
   };
-  
+
 }
