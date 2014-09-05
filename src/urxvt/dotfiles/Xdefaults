@@ -14,5 +14,6 @@ URxvt.scrollBar: false
 URxvt.font: 9x15
 ! URxvt.font: 8x13
 
-! The tomorrow-theme directory is actually managed by vim's Vundle, so it's not quite right to use it from here.
-#include "/home/traveller/vivaine/vivaine/src/vim/dotfiles/vim/bundle/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"
+! The tomorrow-theme directory is actually managed by vim's Vundle, so it's
+! not really right to use it from here.
+#include "/home/traveller/.vim/bundle/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"
