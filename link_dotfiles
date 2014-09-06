@@ -14,17 +14,10 @@ def main():
     # A list of absolute paths to dotfiles we need to symlink to.
     dotfiles = get_files(src, 'dotfiles')
 
-    # A list of tuples. (absolute paths to dotfiles, absolute paths
-    # to symlinks we need to create).
-    dot_syms = []
-
     for i in dotfiles:
         symlink = '.' + os.path.basename(i)
         symlink_path = join(home, symlink)
-        dot_syms.append((i, symlink_path))
-
-    for i in dot_syms:
-        make_symlink(i[0], i[1])
+        make_symlink(i, symlink_path)
 
 
 ###############################################################################

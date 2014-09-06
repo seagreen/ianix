@@ -17,17 +17,10 @@ def main():
     # A list of absolute paths of executables we need to symlink to.
     execs = get_files(src, 'bin')
 
-    # A list of tuples. (absolute paths to executables, absolute paths
-    # to symlinks we need to create).
-    exec_syms = []
-
     for i in execs:
         symlink = os.path.basename(i)
         symlink_path = join(home_bin, symlink)
-        exec_syms.append((i, symlink_path))
-
-    for i in exec_syms:
-        make_symlink(i[0], i[1])
+        make_symlink(i, symlink_path)
 
 
 ###############################################################################
