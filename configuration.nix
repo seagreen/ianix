@@ -108,6 +108,7 @@
     python27Packages.ipython
     python27Packages.pyflakes
     python27Packages.virtualenv
+    stdenv # Includes `gcc` for C programming
 
   ];
 

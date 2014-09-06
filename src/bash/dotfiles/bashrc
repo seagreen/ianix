@@ -17,6 +17,31 @@ fi
 # For Programs
 ###############################################################################
 
+# http://stackoverflow.com/questions/7131670/make-bash-alias-that-takes-parameter
+#
+# Comment:
+#
+# If you are changing an alias to a function, sourceing your .bashrc will add
+# the function but it won't unalias the old alias. Since aliases are higher
+#precedent than functions, it will try to use the alias. You need to either
+# close and reopen your shell, or else call unalias <name>. Perhaps I'll save
+# someone the 5 minutes I just wasted.
+#
+# ---
+#
+# Comment:
+#
+# One time-saving trick I learned at Sun is to just do an exec bash: It will
+# start a new shell, giving you a clean read of your configs, just as if you
+# closed and reopened, but keeping that session's environment variable settings
+# too.
+
+# Using a function because alias doesn't take parameters.
+rungcc() {
+    gcc -o temp.out $1
+    ./temp.out
+    rm temp.out
+}
 
 # Required for fasd.
 eval "$(fasd --init auto)"
