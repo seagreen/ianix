@@ -12,16 +12,11 @@ src = "/home/traveller/vivaine/vivaine/src"
 def main():
 
     # A list of absolute paths to dotfiles we need to symlink to.
-    dotfiles = []
+    dotfiles = get_files(src, 'dotfiles')
 
     # A list of tuples. (absolute paths to dotfiles, absolute paths
     # to symlinks we need to create).
     dot_syms = []
-
-    dotfile_dir_paths = target_dirs(program_dirs(src), 'dotfiles')
-    for i in dotfile_dir_paths:
-        for d in listdir(i):
-            dotfiles.append(join(i, d))
 
     for i in dotfiles:
         symlink = '.' + os.path.basename(i)
@@ -48,28 +43,22 @@ def make_symlink(file_name, link_name):
             print "OSError: %s" % e.strerror
 
 
-def program_dirs(src):
+def get_files(src, target):
     """
-    eg if 'src/' includes the directories 'vim' and 'bash', return
-    a list with the paths to both of them.
+    Return a list of all the files within the directories <src>/*/<target>/
     """
-    dirs = []
-    for p in listdir(src):
-        dirs.append(join(src, p))
-    return dirs
+    files = []
 
+    for program in listdir(src):
+        program_path = join(src, program)
 
-def target_dirs(dirs, target):
-    """
-    eg if called with dirs=['/path/to/vim', '/path/to/bash'] and
-    target='dotfiles', check both the vim and bash directory for a directory
-    called 'dotfiles'. Return a list of paths to the 'dotfiles' directories.
-    """
-    target_list = []
-    for i in dirs:
-        if target in listdir(i):
-            target_list.append(join(i, target))
-    return target_list
+        for i in listdir(program_path):
+            if i == target:
+                target_path = join(program_path, i)
+
+                for j in listdir(target_path):
+                    files.append(join(target_path, j))
+    return files
 
 
 if __name__ == '__main__':
