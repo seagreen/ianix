@@ -9,34 +9,68 @@ home = os.path.expanduser('~')
 src = "/home/traveller/vivaine/vivaine/src"
 
 
-# A list of absolute paths to dotfiles we need to symlink to.
-dotfiles = []
+def main():
 
-# A list of tuples. (absolute paths to dotfiles, absolute paths
-# to symlinks we need to create).
-dot_syms = []
+    # A list of absolute paths to dotfiles we need to symlink to.
+    dotfiles = []
+
+    # A list of tuples. (absolute paths to dotfiles, absolute paths
+    # to symlinks we need to create).
+    dot_syms = []
+
+    dotfile_dir_paths = target_dirs(program_dirs(src), 'dotfiles')
+    for i in dotfile_dir_paths:
+        for d in listdir(i):
+            dotfiles.append(join(i, d))
+
+    for i in dotfiles:
+        symlink = '.' + os.path.basename(i)
+        symlink_path = join(home, symlink)
+        dot_syms.append((i, symlink_path))
+
+    for i in dot_syms:
+        make_symlink(i[0], i[1])
 
 
-for program in listdir(src):
-    program_p = join(src, program)
-    if 'dotfiles' in listdir(program_p):
-        dotfiles_dir_p = join(program_p, 'dotfiles')
-        for d in listdir(dotfiles_dir_p):
-            dotfiles.append(join(dotfiles_dir_p, d))
+###############################################################################
+# mini-library (this code is duplicated in link_bin_files)
+###############################################################################
 
 
-for i in dotfiles:
-    symlink = '.' + os.path.basename(i)
-    symlink_p = join(home, symlink)
-    dot_syms.append((i, symlink_p))
-
-
-for i in dot_syms:
+def make_symlink(file_name, link_name):
     try:
-        os.symlink(i[0], i[1])
-        print "Created symlink at %s" % i[1]
+        os.symlink(file_name, link_name)
+        print "Created symlink at %s" % link_name
     except OSError as e:
         if e.strerror == 'File exists':
-            print "File exists at %s" % i[1]
+            print "File exists at %s" % link_name
         else:
             print "OSError: %s" % e.strerror
+
+
+def program_dirs(src):
+    """
+    eg if 'src/' includes the directories 'vim' and 'bash', return
+    a list with the paths to both of them.
+    """
+    dirs = []
+    for p in listdir(src):
+        dirs.append(join(src, p))
+    return dirs
+
+
+def target_dirs(dirs, target):
+    """
+    eg if called with dirs=['/path/to/vim', '/path/to/bash'] and
+    target='dotfiles', check both the vim and bash directory for a directory
+    called 'dotfiles'. Return a list of paths to the 'dotfiles' directories.
+    """
+    target_list = []
+    for i in dirs:
+        if target in listdir(i):
+            target_list.append(join(i, target))
+    return target_list
+
+
+if __name__ == '__main__':
+    main()

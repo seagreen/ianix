@@ -9,38 +9,71 @@ home_bin = join(os.path.expanduser('~'), 'bin')
 src = "/home/traveller/vivaine/vivaine/src"
 
 
-# A list of absolute paths of executables we need to symlink to.
-execs = []
+def main():
 
-# A list of tuples. (absolute paths to executables, absolute paths
-# to symlinks we need to create).
-exec_syms = []
+    if not os.path.exists(home_bin):
+        os.mkdir(home_bin)
+
+    # A list of absolute paths of executables we need to symlink to.
+    execs = []
+
+    # A list of tuples. (absolute paths to executables, absolute paths
+    # to symlinks we need to create).
+    exec_syms = []
+
+    bin_dir_paths = target_dirs(program_dirs(src), 'bin')
+    for i in bin_dir_paths:
+        for e in listdir(i):
+            execs.append(join(i, e))
+
+    for i in execs:
+        symlink = os.path.basename(i)
+        symlink_path = join(home_bin, symlink)
+        exec_syms.append((i, symlink_path))
+
+    for i in exec_syms:
+        make_symlink(i[0], i[1])
 
 
-if not os.path.exists(home_bin):
-    os.mkdir(home_bin)
+###############################################################################
+# mini-library (this code is duplicated in link_dotfiles)
+###############################################################################
 
 
-for program in listdir(src):
-    program_p = join(src, program)
-    if 'bin' in listdir(program_p):
-        bin_dir_p = join(program_p, 'bin')
-        for e in listdir(bin_dir_p):
-            execs.append(join(bin_dir_p, e))
-
-
-for i in execs:
-    symlink = os.path.basename(i)
-    symlink_p = join(home_bin, symlink)
-    exec_syms.append((i, symlink_p))
-
-
-for i in exec_syms:
+def make_symlink(file_name, link_name):
     try:
-        os.symlink(i[0], i[1])
-        print "Created symlink at %s" % i[1]
+        os.symlink(file_name, link_name)
+        print "Created symlink at %s" % link_name
     except OSError as e:
         if e.strerror == 'File exists':
-            print "File exists at %s" % i[1]
+            print "File exists at %s" % link_name
         else:
             print "OSError: %s" % e.strerror
+
+
+def program_dirs(src):
+    """
+    eg if 'src/' includes the directories 'vim' and 'bash', return
+    a list with the paths to both of them.
+    """
+    dirs = []
+    for p in listdir(src):
+        dirs.append(join(src, p))
+    return dirs
+
+
+def target_dirs(dirs, target):
+    """
+    eg if called with dirs=['/path/to/vim', '/path/to/bash'] and
+    target='dotfiles', check both the vim and bash directory for a directory
+    called 'dotfiles'. Return a list of paths to the 'dotfiles' directories.
+    """
+    target_list = []
+    for i in dirs:
+        if target in listdir(i):
+            target_list.append(join(i, target))
+    return target_list
+
+
+if __name__ == '__main__':
+    main()
