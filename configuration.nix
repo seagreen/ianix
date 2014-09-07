@@ -125,6 +125,13 @@
 
   services.xserver.desktopManager.default = "none";
 
+  # SLiM is the default display manager for NixOS. The line below
+  # just makes that explicit.
+  #
+  # The display manager "provides a graphical login prompt and
+  # manages the X server" (from the NixOS manual).
+  services.xserver.displayManager.slim.enable = true;
+
   ############################################################
   # Other Settings
   ############################################################
