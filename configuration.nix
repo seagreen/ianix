@@ -73,7 +73,7 @@
 
     bvi # Hex editor
     chromium
-    evince # PDF reader.
+    evince
     fasd
     feh
     gnome3.eog
