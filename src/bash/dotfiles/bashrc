@@ -23,7 +23,7 @@ fi
 #
 # If you are changing an alias to a function, sourceing your .bashrc will add
 # the function but it won't unalias the old alias. Since aliases are higher
-#precedent than functions, it will try to use the alias. You need to either
+# precedent than functions, it will try to use the alias. You need to either
 # close and reopen your shell, or else call unalias <name>. Perhaps I'll save
 # someone the 5 minutes I just wasted.
 #
