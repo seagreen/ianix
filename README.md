@@ -16,9 +16,9 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 3. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
 
-From root:
-
     ```
+    # Both commands from root:
+
     nix-channel --add http://nixos.org/channels/nixos-unstable nixos
     nix-channel --update nixos
     ```
