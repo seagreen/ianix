@@ -16,12 +16,14 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 3. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
 
+From root:
+
     ```
     nix-channel --add http://nixos.org/channels/nixos-unstable nixos
     nix-channel --update nixos
     ```
 
-4. `nixos-rebuild switch`
+4. From root: `nixos-rebuild switch`
 
 5. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. There are also some hardcoded links to this directory, which is `/home/traveller/vivaine/vivaine` on my computer. Fix those as well.
 
