@@ -16,10 +16,10 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 3. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
 
-```
-nix-channel --add http://nixos.org/channels/nixos-unstable nixos
-nix-channel --update nixos
-```
+    ```
+    nix-channel --add http://nixos.org/channels/nixos-unstable nixos
+    nix-channel --update nixos
+    ```
 
 4. `nixos-rebuild switch`
 
