@@ -25,3 +25,24 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 7. Move a copy of `.vimrc` and `.vim` to `/root`.
 
 8. `mkdir ~/.screenshots`
+
+# Using Pinned Dependencies
+
+`nixos-rebuild switch` will install the latest versions of the packages listed in `configuration.nix`. To get an install with my exact versions of each package follow the "Deployment" commands, but replace `nixos-rebuild switch` in step two with the commands below.
+
+This may be very slow, so I don't recommend doing it unless you need to.
+
+(commands based on the ones here: https://nixos.org/nixos/community.html)
+
+```
+cat version.txt
+>> 14.04.414.351aec7 (Baboon)
+
+git clone git://github.com/NixOS/nixpkgs.git
+cd nixpkgs
+# Replace 351aec7 below with the appropriate value from the output of 'cat version.txt':
+git checkout 351aec7
+
+# From root:
+nixos-rebuild switch -I nixpkgs=/path/to/my/nixpkgs
+```
