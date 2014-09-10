@@ -51,7 +51,7 @@ cat version.txt
 
 git clone git://github.com/NixOS/nixpkgs.git
 cd nixpkgs
-# Replace 351aec7 below with the appropriate value from the output of 'cat version.txt':
+# Replace 351aec7 below with the appropriate value from the output of `cat version.txt`:
 git checkout 351aec7
 
 # From root:
