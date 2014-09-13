@@ -132,6 +132,13 @@
   # manages the X server" (from the NixOS manual).
   services.xserver.displayManager.slim.enable = true;
 
+  services.redshift = {
+    enable = true;
+    # latitude and longitude are required, but accept empty strings.
+    latitude = "";
+    longitude = "";
+  };
+
   ############################################################
   # Other Settings
   ############################################################
