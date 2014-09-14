@@ -12,7 +12,14 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
-2. Replace `/etc/nixos/configuration.nix` with `configuration.nix` from this directory.
+2.
+
+    ```
+    # Both commands from root:
+
+    cp configuration.nix /etc/nixos/configuration.nix
+    cp -r src /etc/nixos
+    ```
 
 3. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
 
@@ -36,6 +43,8 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 8. Move a copy of `.vimrc` and `.vim` to `/root`.
 
 10. `mkdir ~/.screenshots`
+
+11. (optional) Grep the config files for "cron" and remove any cron jobs you don't want, then rebuild NixOS.
 
 # Using Pinned Dependencies
 
