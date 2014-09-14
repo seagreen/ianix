@@ -12,7 +12,11 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
-2. Switch to the new config files:
+2. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. There are also some hardcoded links to this directory, which is `/home/traveller/vivaine/vivaine` on my computer. Fix those as well.
+
+3. (optional) Grep the config files for "cron" and remove any cron jobs you don't want.
+
+4. Switch to the new config files:
 
     ```
     # Both commands from root:
@@ -21,7 +25,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     cp -r src /etc/nixos
     ```
 
-3. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
+5. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
 
     ```
     # Both commands from root:
@@ -30,21 +34,18 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     nix-channel --update nixos
     ```
 
-4. From root: `nixos-rebuild switch`
+6. From root: `nixos-rebuild switch`
 
-5. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. There are also some hardcoded links to this directory, which is `/home/traveller/vivaine/vivaine` on my computer. Fix those as well.
+7. `./link_dotfiles`
 
-6. `./link_dotfiles`
+8. `./link_bin_files`
 
-7. `./link_bin_files`
+9. Load the new `.bashrc` and then run `background-center wallpaper.png`.
 
-8. Load the new `.bashrc` and then run `background-center wallpaper.png`.
+10. Move a copy of `.vimrc` and `.vim` to `/root`.
 
-8. Move a copy of `.vimrc` and `.vim` to `/root`.
+11. `mkdir ~/.screenshots`
 
-10. `mkdir ~/.screenshots`
-
-11. (optional) Grep the config files for "cron" and remove any cron jobs you don't want, then rebuild NixOS.
 
 # Using Pinned Dependencies
 
