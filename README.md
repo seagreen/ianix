@@ -12,7 +12,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
-2.
+2. Switch to the new config files:
 
     ```
     # Both commands from root:
