@@ -49,7 +49,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 # Using Pinned Dependencies
 
-`nixos-rebuild switch` will install the latest versions of the packages listed in `configuration.nix`. To get an install with my exact versions of each package follow the "Deployment" commands, but replace `nixos-rebuild switch` in step two with the commands below.
+`nixos-rebuild switch` will install the latest versions of the packages listed in `configuration.nix`. To get an install with my exact version of each package follow the "Deployment" commands, but replace the `nixos-rebuild switch` step with the commands below.
 
 This may be very slow, so I don't recommend doing it unless you need to.
 
