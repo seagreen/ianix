@@ -104,6 +104,7 @@
     haskellPackages.cabal2nix
     haskellPackages.hakyll
     haskellPackages.hlint
+    pylint
     python27
     python27Packages.ipython
     python27Packages.pyflakes
