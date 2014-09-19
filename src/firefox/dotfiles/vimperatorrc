@@ -1,21 +1,33 @@
-noremap ; :
+" To load changes without restarting Firefox:
+"
+"     :source ~/.vimperatorrc
+"
+" Note that this will not remove old settings that are not
+" overriden by a new setting.
 
+
+
+noremap ; :
 
 """ Set my own standards for going 'back' and 'forward' in history.
 noremap u H
 noremap <C-r> L
-" Disable the standards ways to go 'back' and 'forward'.
+""" Disable the standards ways to go 'back' and 'forward'.
 noremap H <nop>
 noremap L <nop>
 
 """ Control closing and reopening tabs.
 " Use 'q' to close the current tab.
 noremap q d
-" Use ':u<ENTER>' to reopen the last closed tab.
-" Disable alternate ways to close tabs.
+" Note that you can use ':u<ENTER>' to reopen the last closed tab.
+""" Disable alternate ways to close tabs.
 noremap d <nop>
+" Would like to disable <C-w> as well, but unlike q it can close windows.
 " noremap <C-w> <nop>
 
 """ Set my own standards for 'next tab' and 'previous tab'.
 noremap <c-l> <c-n>
 noremap <c-h> gT
+
+""" Clear the search buffer when you press ,/
+nmap <silent> ,/ :nohlsearch<CR>
