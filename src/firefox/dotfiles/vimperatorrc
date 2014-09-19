@@ -4,6 +4,9 @@
 "
 " Note that this will not remove old settings that are not
 " overriden by a new setting.
+"
+" Also you have to do this once per window, so restarting
+" Firefox may be faster.
 
 
 
