@@ -103,7 +103,8 @@
     go
     haskellPackages.cabal2nix
     (haskellPackages.ghcWithPackages (self : [
-        haskellPackages.mtl # Needed for Control.Monad.Writer
+      haskellPackages.mtl # Needed for Control.Monad.Writer
+      haskellPackages.random
     ]))
     haskellPackages.hakyll
     haskellPackages.hlint
