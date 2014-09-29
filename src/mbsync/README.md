@@ -22,6 +22,6 @@ You would run: `mkdir -p <path_to_maildir>`
 
 # mbsync v. isync
 
-[ from the homepage http://isync.sourceforge.net/]
+From the homepage (http://isync.sourceforge.net/):
 
-While isync is the project name, mbsync is the current executable name; this change was necessary because of massive changes in the user interface. An isync executable still exists; it is a compatibility wrapper around mbsync.
+"While isync is the project name, mbsync is the current executable name; this change was necessary because of massive changes in the user interface. An isync executable still exists; it is a compatibility wrapper around mbsync."
