@@ -46,6 +46,9 @@
       # Text editor
       ./src/vim/c.nix
 
+      # Email
+      ./src/mbsync/c.nix # Download and sync
+
       # Web browser (Vimperator)
       ./src/firefox/c.nix
 
@@ -67,7 +70,7 @@
 
     # Email
     mutt
-    offlineimap
+    notmuch
 
     # Utilities
 
@@ -100,13 +103,14 @@
     # Activities (personal interests like Go others might not be interested in)
 
     fabric
-    go
+    # go
     haskellPackages.cabal2nix
     (haskellPackages.ghcWithPackages (self : [
       haskellPackages.mtl # Needed for Control.Monad.Writer
       haskellPackages.random
     ]))
-    haskellPackages.hakyll
+    # haskellPackages.hakyll -- hakyll is currently broken, but it doesn't matter too much
+    # since it's only needed for initializing new sites
     haskellPackages.hlint
     pylint
     python27

@@ -1,0 +1,4 @@
+plaintext_password_dir=~/passwords
+
+# -n flag = do not output the trailing newline
+echo -n "$(cat $plaintext_password_dir/$1)"
