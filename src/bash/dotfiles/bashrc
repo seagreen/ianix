@@ -43,6 +43,13 @@ rungcc() {
     rm temp.out
 }
 
+# for escoger
+#
+# cd to a directory below you.
+alias ecd='cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)'
+# Customized cd to my code folders.
+alias ec='cd $(find ~/code -maxdepth 2 -type d | escoger)'
+
 # Required for fasd.
 eval "$(fasd --init auto)"
 # Use fasd to open a file with vim.

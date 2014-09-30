@@ -128,26 +128,31 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
+  services.xserver = {
+    # Enable the X11 windowing system.
+    enable = true;
+    layout = "us";
+    xkbOptions = "eurosign:e";
 
-  services.xserver.desktopManager.default = "none";
+    desktopManager.default = "none";
 
-  # SLiM is the default display manager for NixOS. The line below
-  # just makes that explicit.
-  #
-  # The display manager "provides a graphical login prompt and
-  # manages the X server" (from the NixOS manual).
-  services.xserver.displayManager.slim.enable = true;
+    # SLiM is the default display manager for NixOS. The line below
+    # just makes that explicit.
+    #
+    # The display manager "provides a graphical login prompt and
+    # manages the X server" (from the NixOS manual).
+    displayManager.slim.enable = true;
+    displayManager.slim.defaultUser = "traveller";
+  };
 
   services.redshift = {
     enable = true;
-    # latitude and longitude are required, but accept empty strings.
+    # Latitude and longitude are required, but accept empty strings.
     latitude = "";
     longitude = "";
   };
+  # Sudden restarts aren't fun on the eyes.
+  systemd.services.redshift.restartIfChanged = false;
 
   ############################################################
   # Other Settings
