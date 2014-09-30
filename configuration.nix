@@ -75,7 +75,7 @@
     # Utilities
 
     bvi # Hex editor
-    chromium
+    # chromium
     evince
     fasd
     feh
@@ -85,6 +85,7 @@
     #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     gnupg
     gparted
+    haskellPackages.escoger
     htop
     i3lock
     libreoffice
@@ -103,13 +104,13 @@
     # Activities (personal interests like Go others might not be interested in)
 
     fabric
-    # go
+    go
     haskellPackages.cabal2nix
     (haskellPackages.ghcWithPackages (self : [
       haskellPackages.mtl # Needed for Control.Monad.Writer
       haskellPackages.random
     ]))
-    # haskellPackages.hakyll -- hakyll is currently broken, but it doesn't matter too much
+    # haskellPackages.hakyll # hakyll is currently broken, but it doesn't matter too much
     # since it's only needed for initializing new sites
     haskellPackages.hlint
     pylint
