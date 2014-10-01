@@ -50,9 +50,9 @@ alias ecd='cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)
 # Customized cd to my code folders.
 alias ec='cd $(find ~/code -maxdepth 2 -type d | escoger)'
 
-# Required for fasd.
+# This is required for fasd. It runs once per command executed.
 eval "$(fasd --init auto)"
-# Use fasd to open a file with vim.
+# Custom fasd command to open a file with vim.
 alias v='f -e vim'
 
 # Nix's gnupg makes a gpg2 executable.
@@ -74,6 +74,9 @@ fi
 #
 # Idea from here: http://stackoverflow.com/a/22233092
 alias gitinit='git init; git commit --allow-empty -m "Create repo."'
+
+alias nim-search='nix-env -qaP --description | grep -i'
+export NIXPKGS_ALLOW_UNFREE=1
 
 # For pass command completion
 #
@@ -141,23 +144,33 @@ export PYTHONDONTWRITEBYTECODE=1
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
+
 alias background-center='feh --bg-center'
 alias background-max='feh --bg-max'
 alias background-fill='feh --bg-fill'
+
 alias cal='cal -3'
+
 alias lock='i3lock'
+
 # grep -I ignores binary files.
 alias mygrep='grep -ri --binary-files=without-match --exclude-dir="active" --exclude-dir="old_code"'
-alias nix-search='nix-env -qaP --description | grep -i'
+
+
 alias pingit='ping www.google.com'
+
 alias version='cat /etc/issue'
+
 alias voldown='amixer set Master unmute 8%-'
 alias volup='amixer set Master unmute 8%+'
+
 # Run rot13 without args and then enter your text. From here:
 # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
 #
 alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
+
 alias rss="liferea"
+
 alias serve="python -m SimpleHTTPServer"
 
 
