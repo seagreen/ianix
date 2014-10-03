@@ -138,8 +138,8 @@ Bundle 'ScrollColors'
 " colorscheme moss
 " colorscheme mrkn256
 " colorscheme zenburn
-colorscheme Tomorrow-Night-Blue
-
+" colorscheme Tomorrow-Night-Blue
+colorscheme luna
 
 " " For tomorrow night blue.
 " hi ColorColumn ctermbg=darkgrey
@@ -154,7 +154,7 @@ set t_Co=256
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Show line numbers.
-set number
+" set number
 
 Bundle 'gnupg.vim'
 

@@ -15,8 +15,8 @@ def main():
     dotfiles = get_files(src, 'dotfiles')
 
     for i in dotfiles:
-        symlink = '.' + os.path.basename(i)
-        symlink_path = join(home, symlink)
+        symlink_filename = os.path.basename(i)
+        symlink_path = join(home, symlink_filename)
         make_symlink(i, symlink_path)
 
 
