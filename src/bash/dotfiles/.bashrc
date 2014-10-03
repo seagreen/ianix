@@ -160,7 +160,9 @@ alias lock='i3lock'
 # --color=never.  With --color=auto, ls emits color codes only  when  standard  output  is
 # connected  to  a  terminal.  The LS_COLORS environment variable can change the settings.
 # Use the dircolors command to set it.
-alias ls='ls -A --color=auto'
+#
+# LC_COLLATE=C shows dotfiles first, instead of mixed through the output.
+alias ls='LC_COLLATE=C ls -A --color=auto'
 
 # grep -I ignores binary files.
 alias mygrep='grep -ri --binary-files=without-match --exclude-dir="active" --exclude-dir="old_code"'
