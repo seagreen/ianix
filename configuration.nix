@@ -58,7 +58,7 @@
       ./src/git/c.nix
       ./src/haskell_dev/c.nix
       ./src/networking/c.nix
-      ./src/vagrant/c.nix
+      ./src/virtualbox/c.nix
     ];
 
   # List packages installed in system profile.
