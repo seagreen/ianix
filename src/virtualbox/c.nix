@@ -9,8 +9,6 @@
 
   environment.systemPackages = with pkgs; [ vagrant ];
 
-  # Also make sure this is set in `users.extraUsers.guest`:
-  #
-  #     extraGroups = [ "vboxusers" ];
+  users.extraGroups.vboxusers.members = [ "traveller" ];
 
 }

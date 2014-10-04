@@ -12,7 +12,7 @@
   ];
 
   networking.networkmanager.enable = true;
-  users.extraGroups.networkmanager.members = ["root"];
+  users.extraGroups.networkmanager.members = [ "root" ];
 
   # networking.wireless.enable = true;
 
