@@ -184,6 +184,8 @@
   users.extraUsers.guest = {
     name = "traveller";
     group = "users";
+    # For VirtualBox
+    extraGroups = [ "vboxusers" ];
     uid = 1000;
     createHome = true;
     home = "/home/traveller";

@@ -1,16 +1,16 @@
 { config, pkgs, ... }:
 
+# Required on my Asus VivoPC (right after power on):
+#
+#   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
 
 {
   imports = [ <nixos/modules/programs/virtualbox.nix> ];
 
   environment.systemPackages = with pkgs; [ vagrant ];
 
-  # Also run:
+  # Also make sure this is set in `users.extraUsers.guest`:
   #
-  #     usermod -a -G vboxusers traveller
+  #     extraGroups = [ "vboxusers" ];
 
-  # Also required on my Asus VivoPC (right after power on):
-  #
-  #   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
 }
