@@ -141,6 +141,9 @@ Bundle 'ScrollColors'
 " colorscheme Tomorrow-Night-Blue
 colorscheme luna
 
+" Change the color of the 'airblade/vim-gitgutter' column.
+" highlight SignColumn ctermbg=black
+
 " " For tomorrow night blue.
 " hi ColorColumn ctermbg=darkgrey
 
