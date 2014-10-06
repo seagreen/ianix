@@ -1,0 +1,161 @@
+# Be aware that if you recall postponed messages you can send them from
+# the wrong server.
+# E.g. you postpone a message in gmail but when you restart mutt it's
+# set to the webfaction server -- and you send the message from there.
+
+
+###############################################################################
+# ianspiral@gmail.com
+###############################################################################
+
+
+source "~/.mutt/ianspiral"
+folder-hook $folder source ~/.mutt/ianspiral
+folder-hook $folder set pgp_autosign=no
+macro index \Cl 'c ~/mail/ianspiral/Inbox<enter>'
+
+
+###############################################################################
+# ian@fanjam.com
+###############################################################################
+
+# \e is the escape key
+
+source "~/.mutt/fanjam"
+folder-hook $folder source ~/.mutt/fanjam
+folder-hook $folder set pgp_autosign=no
+macro index \e3 'c ~/mail/fanjam/Inbox<enter>'
+
+
+###############################################################################
+# ian@housejeffries.com
+###############################################################################
+# The account whose source command is run last will be the one that opens
+# when you start mutt.
+
+
+source "~/.mutt/ian_house"
+# Folder hooks run a command before switching folders.
+# Hooks take two parameters:
+# folder-hook regex command
+folder-hook $folder source ~/.mutt/ian_house
+# Turn this to 'yes' to enable crypto/gpg.
+folder-hook $folder set pgp_autosign=no
+macro index \Ch 'c ~/mail/ian_house/Inbox<enter>'
+
+
+
+###############################################################################
+# mailing lists for ian@housejeffries.com
+###############################################################################
+
+
+# mailing list notes
+#
+# trilug-announce@trilug.org
+# trilug-announce
+# subscribed
+#
+# trilug@trilug.org
+# trilug
+# subscribed successfully
+#
+# trilug-ontopic@trilug.org
+# trilug-ontopic
+# subscribed
+#
+# trizpug@python.org
+# trizpug
+# subscribed
+#
+# lug@lists.ncsu.edu
+# ncsulug
+# subscribed
+#
+# triembed@triembed.org
+# triembed
+#
+# tent.dev@librelist.com
+# tent
+
+# Tell mutt about the mailing lists I belong to
+#
+# This allows list-reply to work correctly which lets you correctly send
+# mail to the mailing list.
+subscribe trizpug trilug trilug-ontopic lug@lists.ncsu.edu triembed@triembed.org tent.dev@librelist.com chattlab-list@googlegroups.com
+
+folder-hook $HOME/mail/ian_house/trilug-annouce set sort=threads
+folder-hook $HOME/mail/ian_house/trilug         set sort=threads
+folder-hook $HOME/mail/ian_house/trilug-ontopic set sort=threads
+folder-hook $HOME/mail/ian_house/trizpug        set sort=threads
+folder-hook $HOME/mail/ian_house/ncsulug        set sort=threads
+folder-hook $HOME/mail/ian_house/triembed       set sort=threads
+folder-hook $HOME/mail/ian_house/tent           set sort=threads
+folder-hook $HOME/mail/ian_house/chattlab       set sort=threads
+
+
+###############################################################################
+# Other
+###############################################################################
+
+
+set header_cache=~/.mutt_headers_cache
+
+# I believe the --with-ssl compile option enables this setting.
+set certificate_file=~/.mutt/certificates
+
+# Prevent Mutt from asking when you quit:
+# "Move read messages to ~/mbox? ([no]/yes):"
+set move = no
+
+# Ian's vim navigation changes.
+bind pager j next-line
+bind pager k previous-line
+###
+bind index \Cf next-page # was wipe passphrase
+bind index \Cb previous-page
+bind pager \Cf next-page
+bind pager \Cb previous-page
+###
+bind index g noop # was group reply
+bind index gg first-entry
+bind index G last-entry # was retrieve pop mail
+bind pager g noop # Clear key binding for g.
+bind pager gg top
+bind pager G bottom
+
+# Make quitting similar to an actual command
+# so I don't do it on accident.
+bind index q noop
+bind generic \; noop # was apply next command
+                     # to tagged entries. The ;
+                     # is a command separator
+                     # and so has to be escaped.
+bind index \;q quit
+bind pager \;q quit
+
+# Add a "mark as read" command.
+macro index z 'WN'
+
+# Now we need to rebind useful keys we used above:
+bind pager <Space> group-reply
+
+# Automatically include messages in reply.
+set include = yes
+
+# Set colorscheme.
+source ~/.mutt/colors/xoria-miek-gieben/color
+
+# This is where lines go like: image/png; eog %s
+set mailcap_path=~/.mutt/mailcap
+
+set query_command="abook --mutt-query '%s'"
+bind editor <Tab> complete-query
+
+# Set format=flowed
+#
+# See here for explanation: http://joeclark.org/ffaq.html
+set text_flowed = yes
+
+# help fo-table from within vim for more info
+set editor="vim +'set fo+=aw'"

@@ -47,7 +47,9 @@
       ./src/vim/c.nix
 
       # Email
-      ./src/mbsync/c.nix # Download and sync
+      ./src/mbsync/c.nix # IMAP client
+      ./src/mutt/c.nix
+      ./src/msmtp/c.nix # SMTP client
 
       # Web browser (Vimperator)
       ./src/firefox/c.nix
@@ -68,10 +70,6 @@
     pass
     xclip # Let pass access the clipboard.
 
-    # Email
-    mutt
-    notmuch
-
     # Utilities
 
     bvi # Hex editor
@@ -91,6 +89,7 @@
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
+    notmuch
     pwgen
     sloccount
     speedtest_cli

@@ -1,0 +1,58 @@
+# --- colors --- #
+color indicator brightdefault     color239
+color normal    default     default
+color tree      color83     black
+color status    default     color239
+color error     white       red         # lower bar
+color message   default     color239    # lower bar
+
+color signature  brightcolor67        default    # signature
+color attachment yellow   	black      # MIME attachments
+color search     black          color149   # search matches
+color tilde      brightcolor248 default    # ~ at bottom of msg
+color markers    red            default    # + at beginning of wrapped lines
+
+##--- header ---##
+color hdrdefault color67     default # default header lines
+color header     color163    default  "^Subject:"
+color header     color179    default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # email
+color header     color163    default "(http|https|ftp)://[\-\.\,/+=&%~_:?\#a-zA-Z0-9]+" # URL
+
+##--- index ---##
+color index      color67          default  ~F  # Flagged
+#color index	 brightblue	  default  ~P  # From me
+color index 	 color67	  default  ~Q  # replied
+color index      color83     	  default  ~N  # New
+color index      color83     	  default  ~O  # Old
+color index      color83     	  default "~l ~O"  # Old + list
+color index      color163         default  ~T  # Tagged
+color index      color15          color1   ~D  # Deleted
+#color index	 color15     	  black "~N ~D"       # New + Deleted
+#color index	 color83       	  default "~l ~N"
+
+#color index 	 red 	          default "~l ~N ~D"
+
+#color index 	 brightblue	  default "~l ~Q"
+#color index 	 brightcyan 	  default "~l ~T"	
+
+##--- body ---##
+color   quoted          color242  default
+color   quoted1         color182  default
+color   quoted2         color242  default
+color   quoted3         color182  default
+color   quoted4         color242  default
+
+color body color179 default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # email
+color body color163 default "(http|https|ftp)://[\-\.\,/+=&%~_:?\#a-zA-Z0-9]+" # URL
+## not allowed
+#color signature color179 default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # email
+#color signature color163 default "(http|https|ftp)://[\-\.\,/+=&%~_:?\#a-zA-Z0-9]+" # URL
+#color body brightgreen default "(^| |[-.[:alnum:]]+:+)~?\(/[-_.'[:alnum:]]+\)+/?" # Unix file path
+#color body brightgreen  default "(^| +)[[:alpha:]]:[-_.[:alnum:]\]+" # DOS file path
+#color body brightmagenta default "(^|[ '\"]+)\\$[[:alpha:]][-_[:alpha:]]+" # variable
+# in sync with vim's mail syntax
+color body brightdefault default "\\<_[[:alnum:]]+_\\>" # bold _bla_
+color body brightdefault default "\\*[[:alnum:]]+\\*" # bold *bla*
+#color body yellow default "(^| )[;:8o][-^o]?[)>(|/\\]+" # smiley
+#color body red default "[!?]{3,}" # exclamation
+#color body green default "^ *[-+*o] +" # list item

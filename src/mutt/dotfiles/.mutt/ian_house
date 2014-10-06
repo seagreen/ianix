@@ -1,0 +1,23 @@
+###############################################################################
+# General
+###############################################################################
+
+# Reset.
+set sort = date
+
+set mbox_type=Maildir
+set folder=$HOME/mail/ian_house/Inbox
+set spoolfile=+/
+
+###############################################################################
+# Sending
+###############################################################################
+
+set from = "ian@housejeffries.com"
+set realname = "Ian G. Jeffries"
+set record = "~/mail/ian_house/Sent"
+
+set postponed = "~/mail/ian_house/postponed"
+# Set correct folder to save sent messages.
+
+set sendmail="msmtp"
