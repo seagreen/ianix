@@ -34,6 +34,10 @@ Create Both
 SyncState *
 
 
+# Added by me.
+Expunge Both
+
+
 
 
 IMAPAccount fanjam
@@ -72,6 +76,9 @@ Create Both
 SyncState *
 
 
+# Added by me.
+Expunge Both
+
 
 
 IMAPAccount ianspiral
@@ -108,3 +115,7 @@ Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
 Create Both
 # Save the synchronization state files in the relevant directory
 SyncState *
+
+
+# Added by me.
+Expunge Both
