@@ -139,7 +139,7 @@ Bundle 'ScrollColors'
 " colorscheme mrkn256
 " colorscheme zenburn
 " colorscheme Tomorrow-Night-Blue
-colorscheme luna
+colorscheme lucius
 
 " Change the color of the 'airblade/vim-gitgutter' column.
 " highlight SignColumn ctermbg=black

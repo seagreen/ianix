@@ -106,12 +106,17 @@
     go
     haskellPackages.cabal2nix
     (haskellPackages.ghcWithPackages (self : [
+      haskellPackages.aeson
       haskellPackages.mtl # Needed for Control.Monad.Writer
       haskellPackages.random
+      haskellPackages.wreq
     ]))
     # haskellPackages.hakyll # hakyll is currently broken, but it doesn't matter too much
     # since it's only needed for initializing new sites
+    haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
+    haskellPackages.SourceGraph
+    # haskellPlatform
     pylint
     python27
     python27Packages.ipython
