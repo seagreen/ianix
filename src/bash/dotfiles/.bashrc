@@ -152,6 +152,9 @@ alias background-fill='feh --bg-fill'
 
 alias cal='cal -3'
 
+# Print absolute path to file.
+alias full='readlink -f'
+
 alias lock='i3lock'
 
 # -A flag shows dotfiles other than . and ..
@@ -180,10 +183,11 @@ alias volup='amixer set Master unmute 8%+'
 #
 alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
 
-alias rss="liferea"
+alias rss='liferea'
 
-alias serve="python -m SimpleHTTPServer"
+alias serve='python -m SimpleHTTPServer'
 
+alias unixtime='date +%s'
 
 ###############################################################################
 # Prompts and Colors

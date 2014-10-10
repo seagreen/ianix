@@ -4,7 +4,7 @@
 {
   environment.systemPackages = with pkgs; [
     # For screenshots.
-    scrot 
+    scrot
   ];
 
   services.xserver.windowManager.xmonad.enable = true;
