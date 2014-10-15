@@ -77,13 +77,14 @@
     evince
     fasd
     feh
+    ffmpeg # Dep of youtubeDL
     gnome3.eog
     # Must edit gpg-agent.conf for gpg to work. See here:
     #
     #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     gnupg
     gparted
-    graphviz # Provides the `dot` executable.
+    graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
     haskellPackages.escoger
     htop
     i3lock
@@ -99,7 +100,7 @@
     vlc
     weechat
     wget
-    youtubeDL
+    youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
 
     # Activities (personal interests like Go others might not be interested in)
 
@@ -117,7 +118,7 @@
     # since it's only needed for initializing new sites
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
-    haskellPackages.SourceGraph # Must also have pkgs.graphviz installed
+    haskellPackages.SourceGraph # graphviz is a dep
     # haskellPlatform
     pylint
     python27
