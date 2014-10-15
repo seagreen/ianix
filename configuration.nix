@@ -83,6 +83,7 @@
     #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     gnupg
     gparted
+    graphviz # Provides the `dot` executable.
     haskellPackages.escoger
     htop
     i3lock
@@ -116,7 +117,7 @@
     # since it's only needed for initializing new sites
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
-    haskellPackages.SourceGraph
+    haskellPackages.SourceGraph # Must also have pkgs.graphviz installed
     # haskellPlatform
     pylint
     python27
