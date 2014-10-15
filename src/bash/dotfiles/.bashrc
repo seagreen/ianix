@@ -84,7 +84,11 @@ export NIXPKGS_ALLOW_UNFREE=1
 source /nix/store/xzi9k0an1015c055gh8jirdpx7m0rpy0-password-store-1.4.2/etc/bash_completion.d/password-store
 
 # Make a nice password.
-alias password='echo "pwgen --no-capitalize --symbols 50 1"'
+#
+# --symbols : include symbols and use at least one
+# first number : length of password
+# second number : number of passwords to generate
+alias mkpass='pwgen --no-capitalize --symbols 14 1'
 
 # Otherwise backspace wasn't working in vim within urxvt.
 #
