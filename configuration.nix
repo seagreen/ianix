@@ -109,6 +109,7 @@
     haskellPackages.cabal2nix
     (haskellPackages.ghcWithPackages (self : [
       haskellPackages.aeson
+      haskellPackages.aesonPretty
       haskellPackages.errors
       haskellPackages.mtl # Needed for Control.Monad.Writer
       haskellPackages.random
