@@ -75,6 +75,11 @@ fi
 # Idea from here: http://stackoverflow.com/a/22233092
 alias gitinit='git init; git commit --allow-empty -m "Create repo."'
 
+alias runghc='runghc -Wall'
+alias runhaskell='echo "Alias disabled in ~/.bashrc"'
+# Recursive Haskell Linter
+alias rhlint='find . -name "*.hs" | xargs hlint'
+
 alias nim-search='nix-env -qaP --description | grep -i'
 export NIXPKGS_ALLOW_UNFREE=1
 
@@ -186,6 +191,17 @@ alias volup='amixer set Master unmute 8%+'
 # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
 #
 alias rot13="tr '[A-Za-z]' '[N-ZA-Mn-za-m]'"
+
+# Recursive General Linter. Print names of files with trailing whitespace.
+#
+# Discover trailing spaces:
+# http://stackoverflow.com/questions/11210126/bash-find-files-with-trailing-spaces-at-the-end-of-the-lines
+#
+# Skip binary files:
+# http://stackoverflow.com/questions/4767396/linux-command-how-to-find-only-text-files
+#
+# This is a good example of how horrible UNIX commands can get.
+alias rglint='find . -type f | xargs grep -EIl "*" | xargs grep -El ".* +$"'
 
 alias rss='liferea'
 
