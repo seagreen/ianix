@@ -25,7 +25,7 @@
   ];
 
   ############################################################
-  # Packages and Services
+  # Applications
   ############################################################
 
   nixpkgs.config.allowUnfree = true;
@@ -133,9 +133,6 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   services.postgresql =  {
     enable = true;
     package = pkgs.postgresql94;
@@ -147,22 +144,8 @@
       '';
   };
 
-  services.xserver = {
-    # Enable the X11 windowing system.
-    enable = true;
-    layout = "us";
-    xkbOptions = "eurosign:e";
-
-    desktopManager.default = "none";
-
-    # SLiM is the default display manager for NixOS. The line below
-    # just makes that explicit.
-    #
-    # The display manager "provides a graphical login prompt and
-    # manages the X server" (from the NixOS manual).
-    displayManager.slim.enable = true;
-    displayManager.slim.defaultUser = "traveller";
-  };
+  # Enable CUPS to print documents.
+  services.printing.enable = true;
 
   services.redshift = {
     enable = true;
@@ -173,11 +156,28 @@
   # Sudden restarts aren't fun on the eyes.
   systemd.services.redshift.restartIfChanged = false;
 
+  # The display manager "provides a graphical login prompt and
+  # manages the X server" (from the NixOS manual).
+  services.xserver.displayManager = {
+    # SLiM is the default display manager for NixOS. The line below
+    # just makes that explicit.
+    #
+    slim.enable = true;
+    slim.defaultUser = "traveller";
+  };
+
   ############################################################
-  # Other Settings
+  # Infrastructure
   ############################################################
 
   networking.hostName = "vivaine";
+
+  services.xserver.desktopManager.default = "none";
+
+  # Enable the X11 windowing system.
+  services.xserver.enable = true;
+  services.xserver.layout = "us";
+  services.xserver.xkbOptions = "eurosign:e";
 
   # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.
   time.timeZone = "America/New_York";
