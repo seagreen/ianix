@@ -159,10 +159,7 @@
   # The display manager "provides a graphical login prompt and
   # manages the X server" (from the NixOS manual).
   services.xserver.displayManager = {
-    # SLiM is the default display manager for NixOS. The line below
-    # just makes that explicit.
-    #
-    slim.enable = true;
+    slim.enable = true; # Make the default explicit.
     slim.defaultUser = "traveller";
   };
 
