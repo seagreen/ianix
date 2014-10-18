@@ -200,7 +200,7 @@
   # users.mutableUsers = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.extraUsers.guest = {
+  users.extraUsers.traveller = {
     name = "traveller";
     group = "users";
     uid = 1000;
