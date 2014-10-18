@@ -136,6 +136,17 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  services.postgresql =  {
+    enable = true;
+    package = pkgs.postgresql94;
+    port = 5432; # Make the default explicit.
+    authentication = pkgs.lib.mkForce
+      ''
+        local    all all                trust
+        host     all all 127.0.0.1/32   trust
+      '';
+  };
+
   services.xserver = {
     # Enable the X11 windowing system.
     enable = true;
