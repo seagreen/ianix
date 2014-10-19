@@ -75,8 +75,8 @@ fi
 # Idea from here: http://stackoverflow.com/a/22233092
 alias gitinit='git init; git commit --allow-empty -m "Create repo."'
 
-alias runghc='runghc -Wall'
-alias runhaskell='echo "Alias disabled in ~/.bashrc"'
+alias runghc='echo "Alias disabled in ~/.bashrc"'
+alias runhaskell='runhaskell -Wall'
 # Recursive Haskell Linter
 alias rhlint='find . -name "*.hs" | xargs hlint'
 

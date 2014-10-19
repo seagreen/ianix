@@ -91,6 +91,7 @@
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
+    jmtpfs
     notmuch
     pwgen
     sloccount
