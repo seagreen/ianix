@@ -77,8 +77,6 @@ alias gitinit='git init; git commit --allow-empty -m "Create repo."'
 
 alias runghc='echo "Alias disabled in ~/.bashrc"'
 alias runhaskell='runhaskell -Wall'
-# Recursive Haskell Linter
-alias rhlint='find . -name "*.hs" | xargs hlint'
 
 alias nim-search='nix-env -qaP --description | grep -i'
 export NIXPKGS_ALLOW_UNFREE=1
