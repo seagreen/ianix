@@ -157,7 +157,7 @@ alias background-center='feh --bg-center'
 alias background-max='feh --bg-max'
 alias background-fill='feh --bg-fill'
 
-alias cal='cal -3'
+alias cal='cal -3 --monday'
 
 # Print absolute path to file.
 alias full='readlink -f'
