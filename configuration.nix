@@ -88,6 +88,7 @@
     haskellPackages.escoger
     htop
     i3lock
+    jq
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
