@@ -9,8 +9,9 @@
   #     https://nixos.org/wiki/Haskell#Direct_installation
   environment.systemPackages = with pkgs; [
 
-    haskellPackages.ghc783
-
+    (haskellPackages_ghc783.ghcWithPackages (self : [
+      haskellPackages.zlib
+    ]))
 
     haskellPackages.cabalInstall_1_18_0_3 # Earlier versions don't have `cabal sandbox`.
 
