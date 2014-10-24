@@ -85,6 +85,7 @@
     gnupg
     gparted
     graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
+    haskellPackages.aesonPretty
     haskellPackages.escoger
     htop
     i3lock
@@ -109,20 +110,12 @@
     fabric
     go
     haskellPackages.cabal2nix
-    (haskellPackages.ghcWithPackages (self : [
-      haskellPackages.aeson
-      haskellPackages.aesonPretty
-      haskellPackages.errors
-      haskellPackages.mtl # Needed for Control.Monad.Writer
-      haskellPackages.random
-      haskellPackages.wreq
-    ]))
-    # haskellPackages.hakyll # hakyll is currently broken, but it doesn't matter too much
-    # since it's only needed for initializing new sites
+    # hakyll is currently broken, but it doesn't matter too much
+    # since it's only needed for initializing new sites.
+    # haskellPackages.hakyll 
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
     haskellPackages.SourceGraph # graphviz is a dep
-    # haskellPlatform
     pylint
     python27
     python27Packages.ipython
