@@ -18,22 +18,9 @@
 
     haskellPackages.yesodBin
 
-    # Other stuff for Haskell dev via cabal-install sandboxes
-
-    # Required for yesod or one of its dependencies via cabal-install.
     haskellPackages.alex
-
-    # Required for language-javascript-0.5.13 which is needed for yesod.
     haskellPackages.happy
-
-    # Required for yesod via cabal-install.
-    haskellPackages.zlib
-
-    # Maybe needed for `nix-shell` style haskell installs.
-    #
-    # Definitely needed for language-javascript-0.5.13 via cabal-install
-    # (which is needed for yesod). Otherwise you get "The program ar is
-    # required but it could not be found."
+    # Maybe needed for `nix-shell` style haskell installs as well.
     stdenv
 
   ];
