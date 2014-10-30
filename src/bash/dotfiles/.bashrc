@@ -45,10 +45,19 @@ rungcc() {
 
 # for escoger
 #
+# about find
+#
+# -a is and
+# -o is or
+#
+# -prune means don't descend into it if it's a dir
+# -print means output
+#
+#
 # cd to a directory below you.
 alias ecd='cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)'
-# Customized cd to my code folders.
-alias ecode='cd $(find ~/code -maxdepth 2 -type d | escoger)'
+# open file below you in vim
+alias evim='vim $(find * -name .git -a -type d -prune -o -type f -print | escoger)'
 
 # This is required for fasd. It runs once per command executed.
 eval "$(fasd --init auto)"
