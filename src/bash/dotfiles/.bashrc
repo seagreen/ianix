@@ -57,7 +57,7 @@ rungcc() {
 # cd to a directory below you.
 alias ecd='cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)'
 # open file below you in vim
-alias evim='vim $(find * -name .git -a -type d -prune -o -type f -print | escoger)'
+alias ev='vim $(find * -name .git -a -type d -prune -o -type f -print | escoger)'
 
 # This is required for fasd. It runs once per command executed.
 eval "$(fasd --init auto)"
