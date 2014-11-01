@@ -24,12 +24,20 @@
 {
   programs.zsh = {
     enable = true;
+    promptInit =
+      # Changes to the terminal's colorscheme affect how these colors actually appear.
+
+      # http://stackoverflow.com/a/2534676
+      # Surround color codes and non-printable characters with %{....%}.
+
+      # NOTE: yellow is showing up as orange.
+
+      # %~ is show whole path, using ~ for $HOME.
+      ''
+      PS1="%{$fg[cyan]%}[%~]%{$fg[blue]%}%n@%{$fg[blue]%}%m $%{$reset_color%} "
+      '';
     interactiveShellInit =
       ''
-      ##################################################
-      # Zsh specific
-      ##################################################
-
       autoload -U colors && colors
 
       # # For pass command completion
@@ -40,9 +48,13 @@
       # Set zsh to vi mode.
       bindkey -v
 
-      ##################################################
-      # Other
-      ##################################################
+
+
+      ############################################################
+      # Nothing from this point on in the file is Zsh specific.
+      ############################################################
+
+
 
       # This is required for fasd. It runs once per command executed.
       eval "$(fasd --init auto)"
@@ -60,41 +72,28 @@
           eval "$(gpg-agent --daemon)"
       fi
 
-      ##################################################
-      # Environment variables
-      ##################################################
-
-      # For vim-gnupg specifically, but gpg always wants this, see:
-      # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
-      export GPG_TTY=$(tty)
-
-      export NIXPKGS_ALLOW_UNFREE=1
-
-      export EDITOR=vim
-
-      # http://golang.org/doc/install
-      export GOPATH=/home/traveller/code/go
-      export PATH=$GOPATH/bin:$PATH # Add programs we compile to $PATH.
-      export GOROOT=/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go
-      export PATH=$PATH:$GOROOT/bin
-
-      # Don't create .pyc files.
-      export PYTHONDONTWRITEBYTECODE=1
-      '';
-    promptInit =
-      # Changes to the terminal's colorscheme affect how these colors actually appear.
-
-      # http://stackoverflow.com/a/2534676
-      # Surround color codes and non-printable characters with %{....%}.
-
-      # NOTE: yellow is showing up as orange.
-
-      # %~ is show whole path, using ~ for $HOME.
-      ''
-      PS1="%{$fg[cyan]%}[%~]%{$fg[blue]%}%n@%{$fg[blue]%}%m $%{$reset_color%} "
+      # The "$GOPATH" part adds manually compiled Go programs to $PATH."
+      #
+      # I tried to set this is sessionVariables, but it overrode root's $PATH.
+      export PATH="$GOPATH/bin:$GOROOT/bin:$PATH";
       '';
   };
+  environment.sessionVariables = {
+    # For vim-gnupg specifically, but gpg always wants this, see:
+    # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
+    # GPG_TTY = "$(tty)";
 
+    NIXPKGS_ALLOW_UNFREE = "1";
+
+    EDITOR = "vim";
+
+    # http://golang.org/doc/install
+    GOPATH = "/home/traveller/code/go";
+    GOROOT = "/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go";
+
+    # Don't create .pyc files.
+    PYTHONDONTWRITEBYTECODE = "1";
+  };
   # You can bypass aliases by using backslash, eg \ls to run the unaliased ls
   environment.shellAliases = {
 
@@ -131,7 +130,9 @@
     # so is harder to change) so start project with an empty commit.
     #
     # Idea from here: http://stackoverflow.com/a/22233092
-    gitinit = "git init; git commit --allow-empty -m 'Create repo.'";
+    #
+    # * See NOTE_1 for why \" is used.
+    gitinit = "git init; git commit --allow-empty -m \"Create repo.\"";
 
     # Nix's gnupg makes a gpg2 executable.
     gpg = "gpg2";
@@ -167,13 +168,11 @@
     voldown = "amixer set Master unmute 8%-";
     volup   = "amixer set Master unmute 8%+";
 
-    # TODO: zsh gives "no matches found error if enabled on startup."
     # Run rot13 without args and then enter your text. From here:
     # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
     #
     # rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
 
-    # TODO: zsh gives "no matches found error if enabled on startup."
     # Recursive General Linter. Print names of files with trailing whitespace.
     #
     # Discover trailing spaces:
@@ -183,11 +182,14 @@
     # http://stackoverflow.com/questions/4767396/linux-command-how-to-find-only-text-files
     #
     # This is a good example of how horrible UNIX commands can get.
-    # rglint = "find . -type f | xargs grep -EIl '*' | xargs grep -El '.* +$'";
+    #
+    # * See NOTE_1 for why '' and " is used.
+    rglint = ''find . -type f | xargs grep -EIl "*" | xargs grep -El ".* +$"'';
 
     rss = "liferea";
 
-    runghc = "echo 'Alias disabled'";
+    # * See NOTE_1 for why \" is used.
+    runghc = "echo \"Alias disabled\"";
     runhaskell = "runhaskell -Wall";
 
     serve = "python -m SimpleHTTPServer";
@@ -201,5 +203,16 @@
     vim = "vim -p";
 
     yt = "youtube-dl --extract-audio --audio-format vorbis";
+
+
+    # * NOTE_1
+    #
+    # The actual zshrc file generated uses single quotes to surround aliases, eg
+    #
+    #     alias rss='liferea'
+    #
+    # So you want to use \" here, eg
+    #
+    #    runghc = "echo \"Alias disabled\""
   };
 }
