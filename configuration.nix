@@ -43,6 +43,9 @@
       # Terminal
       ./src/urxvt/c.nix
 
+      # Shell
+      ./src/zsh/c.nix
+
       # Text editor
       ./src/vim/c.nix
 
@@ -125,8 +128,6 @@
 
   ];
 
-  programs.bash.enableCompletion = true;
-
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -200,7 +201,7 @@
     uid = 1000;
     createHome = true;
     home = "/home/traveller";
-    shell = "/run/current-system/sw/bin/bash";
+    shell = "${pkgs.zsh}/bin/zsh"; # Requires a restart to detect changes.
   };
 
 }
