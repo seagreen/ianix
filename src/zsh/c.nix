@@ -1,5 +1,10 @@
 {config, pkgs, ... }:
 
+# Use `exec zsh` after nixos-rebuild to load at least some of your zsh changes.
+#
+# From here:
+#
+#
 # http://stackoverflow.com/questions/7131670/make-bash-alias-that-takes-parameter
 #
 # Comment:
@@ -19,7 +24,8 @@
 # closed and reopened, but keeping that session's environment variable settings
 # too.
 
-# Note: this works with `exec zsh` too.
+
+# You can bypass aliases by using backslash, eg \ls to run the unaliased ls
 
 {
   programs.zsh = {
@@ -94,8 +100,8 @@
     # Don't create .pyc files.
     PYTHONDONTWRITEBYTECODE = "1";
   };
-  # You can bypass aliases by using backslash, eg \ls to run the unaliased ls
-  environment.shellAliases = {
+  # Using mkForce to totally override the default settings.
+  environment.shellAliases = pkgs.lib.mkForce {
 
     ".."   = "cd ..";
     "..."  = "cd ../..";
