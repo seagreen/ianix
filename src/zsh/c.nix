@@ -100,10 +100,8 @@
     # Don't create .pyc files.
     PYTHONDONTWRITEBYTECODE = "1";
   };
-  # mkOverride 25 is strong enough to override the default for ls, but weak enough
-  # that we still pick up new programs after `nixos-rebuild --switch` without
-  # having to manually run `exec zsh`.
-  environment.shellAliases = pkgs.lib.mkOverride 25 {
+  # Using mkForce to totally override the default settings.
+  environment.shellAliases = pkgs.lib.mkForce {
 
     ".."   = "cd ..";
     "..."  = "cd ../..";
