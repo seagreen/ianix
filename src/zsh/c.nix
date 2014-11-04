@@ -155,6 +155,8 @@
     # LC_COLLATE=C shows dotfiles first, instead of mixed through the output.
     ls = "LC_COLLATE=C ls -A --color=auto";
 
+    lorem = "xclip ~/vivaine/vivaine/src/utilities/lorem_ipsum.txt";
+
     # Make a nice password.
     #
     # --symbols : include symbols and use at least one
