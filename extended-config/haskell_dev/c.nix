@@ -8,12 +8,11 @@
 {
   environment.systemPackages = with pkgs; [
 
+    haskellPackages.cabalInstall
+
     (haskellPackages_ghc783.ghcWithPackages (self : [
       haskellPackages.zlib
     ]))
-
-    # Earlier versions don't have `cabal sandbox`.
-    haskellPackages.cabalInstall_1_18_0_3
 
     stdenv
 
