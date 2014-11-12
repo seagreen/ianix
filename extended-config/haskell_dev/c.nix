@@ -13,7 +13,7 @@
     ]))
 
     # Earlier versions don't have `cabal sandbox`.
-    haskellPackages.cabalInstall_1_18_0_3 
+    haskellPackages.cabalInstall_1_18_0_3
 
     stdenv
 

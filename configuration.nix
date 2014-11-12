@@ -121,7 +121,7 @@
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
     haskellPackages.hoogleLocal
-    haskellPackages.SourceGraph # graphviz is a dep
+    # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     pylint
     python27
     python27Packages.ipython
