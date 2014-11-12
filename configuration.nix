@@ -38,32 +38,32 @@
       ./hardware-configuration.nix
 
       # Window manager
-      ./src/xmonad/c.nix
+      ./extended-config/xmonad/c.nix
 
       # Terminal
-      ./src/urxvt/c.nix
+      ./extended-config/urxvt/c.nix
 
       # Shell
-      ./src/zsh/c.nix
+      ./extended-config/zsh/c.nix
 
       # Text editor
-      ./src/vim/c.nix
+      ./extended-config/vim/c.nix
 
       # Email
-      ./src/mbsync/c.nix # IMAP client
-      ./src/mutt/c.nix
-      ./src/msmtp/c.nix # SMTP client
+      ./extended-config/mbsync/c.nix # IMAP client
+      ./extended-config/mutt/c.nix
+      ./extended-config/msmtp/c.nix # SMTP client
 
       # Web browser (Vimperator)
-      ./src/firefox/c.nix
+      ./extended-config/firefox/c.nix
 
       # Backups
-      ./src/tarsnap/c.nix
+      ./extended-config/tarsnap/c.nix
 
-      ./src/git/c.nix
-      ./src/haskell_dev/c.nix
-      ./src/networking/c.nix
-      ./src/virtualbox/c.nix
+      ./extended-config/git/c.nix
+      ./extended-config/haskell_dev/c.nix
+      ./extended-config/networking/c.nix
+      ./extended-config/virtualbox/c.nix
     ];
 
   # List packages installed in system profile.

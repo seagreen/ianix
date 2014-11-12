@@ -22,7 +22,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     # Both commands from root:
 
     cp configuration.nix /etc/nixos/configuration.nix
-    cp -r src /etc/nixos
+    cp -r extended-config /etc/nixos
     ```
 
 5. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
