@@ -99,6 +99,7 @@
     jmtpfs
     notmuch
     pwgen
+    silver-searcher
     sloccount
     speedtest_cli
     tree
@@ -113,11 +114,13 @@
     fabric
     go
     haskellPackages.cabal2nix
+    haskellPackages.ghcMod
     # hakyll is currently broken, but it doesn't matter too much
     # since it's only needed for initializing new sites.
     # haskellPackages.hakyll 
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
+    haskellPackages.hoogleLocal
     haskellPackages.SourceGraph # graphviz is a dep
     pylint
     python27
@@ -131,7 +134,7 @@
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
-  services.postgresql =  {
+  services.postgresql = {
     enable = true;
     package = pkgs.postgresql94;
     port = 5432; # Make the default explicit.

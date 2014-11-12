@@ -9,6 +9,7 @@
   environment.systemPackages = with pkgs; [
 
     (haskellPackages_ghc783.ghcWithPackages (self : [
+      haskellPackages.zlib
     ]))
 
     # Earlier versions don't have `cabal sandbox`.
@@ -18,7 +19,6 @@
 
     haskellPackages.alex
     haskellPackages.happy
-    haskellPackages.zlib
 
     # For `yesod devel`.
     haskellPackages.yesodBin
