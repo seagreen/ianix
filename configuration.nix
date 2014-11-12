@@ -115,9 +115,7 @@
     go
     haskellPackages.cabal2nix
     haskellPackages.ghcMod
-    # hakyll is currently broken, but it doesn't matter too much
-    # since it's only needed for initializing new sites.
-    # haskellPackages.hakyll 
+    haskellPackages.hakyll
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
     haskellPackages.hoogleLocal
