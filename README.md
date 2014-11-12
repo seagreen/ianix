@@ -8,7 +8,7 @@ A description in code of my [NixOS](http://nixos.org/) setup.
 
 For info on the background image try Googling "Makoto Shinkai The Place Promised in Our Early Days".
 
-# Deployment
+# Install
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
@@ -25,45 +25,28 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     cp -r extended-config /etc/nixos
     ```
 
-5. Switch to the unstable branch. This is optional but it's what I've done since I want cutting edge versions of packages for development.
+5. Setup nixpkgs
 
     ```
-    # Both commands from root:
+    cat version.txt
+    >> 14.04.414.351aec7 (Baboon)
 
-    nix-channel --add http://nixos.org/channels/nixos-unstable nixos
-    nix-channel --update nixos
+    git clone git://github.com/NixOS/nixpkgs.git
+    cd nixpkgs
+    # Replace 351aec7 below with the appropriate value from the output of `cat version.txt`:
+    git checkout 351aec7
     ```
 
-6. From root: `nixos-rebuild switch`
+6. From root: `nixos-rebuild switch -I nixpkgs=/path/to/my/nixpkgs`
 
-7. `./link_dotfiles`
+# Post-Install
 
-8. `./link_bin_files`
+1. `./link_dotfiles`
 
-9. Load the new `.bashrc` and then run `background-center wallpaper.png`.
+2. `./link_bin_files`
 
-10. Move a copy of `.vimrc` and `.vim` to `/root`.
+3. Load the new `.bashrc` and then run `background-center wallpaper.png`.
 
-11. `mkdir ~/.screenshots`
+4. Move a copy of `.vimrc` and `.vim` to `/root`.
 
-
-# Using Pinned Dependencies
-
-`nixos-rebuild switch` will install the latest versions of the packages listed in `configuration.nix`. To get an install with my exact version of each package follow the "Deployment" commands, but replace the `nixos-rebuild switch` step with the commands below.
-
-This may be very slow, so I don't recommend doing it unless you need to.
-
-(commands based on the ones here: https://nixos.org/nixos/community.html)
-
-```
-cat version.txt
->> 14.04.414.351aec7 (Baboon)
-
-git clone git://github.com/NixOS/nixpkgs.git
-cd nixpkgs
-# Replace 351aec7 below with the appropriate value from the output of `cat version.txt`:
-git checkout 351aec7
-
-# From root:
-nixos-rebuild switch -I nixpkgs=/path/to/my/nixpkgs
-```
+5. `mkdir ~/.screenshots`
