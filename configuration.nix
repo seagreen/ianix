@@ -68,16 +68,10 @@
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-
-    # Password manager
-    pass
-    xclip # Let pass access the clipboard.
-
-    # Utilities
-
     bvi # Hex editor
-    # chromium
+    chromium
     evince
+    fabric
     fasd
     feh
     ffmpeg # Dep of youtubeDL
@@ -86,47 +80,45 @@
     #
     #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
     gnupg
+    go
     gparted
     graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
     haskellPackages.aesonPretty
-    haskellPackages.escoger
-    htop
-    i3lock
-    jq
-    libreoffice
-    liferea
-    mplayer # Required for my weechat beep command.
-    jmtpfs
-    notmuch
-    pwgen
-    silver-searcher
-    sloccount
-    speedtest_cli
-    tree
-    unzip
-    vlc
-    weechat
-    wget
-    youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
-
-    # Activities (personal interests like Go others might not be interested in)
-
-    fabric
-    go
     haskellPackages.cabal2nix
+    haskellPackages.escoger
     haskellPackages.ghcMod
     haskellPackages.hakyll
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
     haskellPackages.hoogleLocal
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
+    htop
+    i3lock
+    jmtpfs
+    jq
+    libreoffice
+    liferea
+    mplayer # Required for my weechat beep command.
+    notmuch
+    pass
+    pwgen
     pylint
     python27
     python27Packages.ipython
     python27Packages.pyflakes
     python27Packages.virtualenv
+    silver-searcher
+    sloccount
+    speedtest_cli
     stdenv # Includes `gcc` for C programming
-
+    strategoPackages.strategoxt # Pretty print .drv file with `pp-aterm -i <file>.drv`
+    tree
+    unzip
+    vlc
+    weechat
+    wget
+    xclip # Let pass access the clipboard.
+    youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
   ];
 
   # Enable the OpenSSH daemon.
