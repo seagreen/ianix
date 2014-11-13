@@ -121,6 +121,26 @@
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
   ];
 
+  # The display manager "provides a graphical login prompt and
+  # manages the X server" (from the NixOS manual).
+  services.xserver.displayManager = {
+    slim.enable = true; # Make the default explicit.
+    slim.defaultUser = "traveller";
+  };
+
+  services.xserver.displayManager.sessionCommands = ''
+    sh /home/traveller/.fehbg
+  '';
+
+  services.redshift = {
+    enable = true;
+    # Latitude and longitude are required, but accept empty strings.
+    latitude = "";
+    longitude = "";
+  };
+  # Sudden restarts aren't fun on the eyes.
+  systemd.services.redshift.restartIfChanged = false;
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
@@ -137,22 +157,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  services.redshift = {
-    enable = true;
-    # Latitude and longitude are required, but accept empty strings.
-    latitude = "";
-    longitude = "";
-  };
-  # Sudden restarts aren't fun on the eyes.
-  systemd.services.redshift.restartIfChanged = false;
-
-  # The display manager "provides a graphical login prompt and
-  # manages the X server" (from the NixOS manual).
-  services.xserver.displayManager = {
-    slim.enable = true; # Make the default explicit.
-    slim.defaultUser = "traveller";
-  };
 
   ############################################################
   # Infrastructure
