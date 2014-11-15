@@ -166,10 +166,11 @@
 
   services.xserver.desktopManager.default = "none";
 
-  # Enable the X11 windowing system.
+  # X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  services.xserver.xkbOptions = "eurosign:e";
+  # xkeyboard-config settings:
+  services.xserver.xkbOptions = "eurosign:e, caps:none";
 
   # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.
   time.timeZone = "America/New_York";
