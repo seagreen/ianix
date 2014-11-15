@@ -6,7 +6,7 @@ from os.path import join
 
 
 home = os.path.expanduser('~')
-src = "/home/traveller/vivaine/vivaine/extended-config"
+src = "/home/traveller/code/vivaine/extended-config"
 
 
 def main():
