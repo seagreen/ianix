@@ -171,8 +171,6 @@
 
     pingit = "ping www.google.com";
 
-    version = "cat /etc/issue";
-
     voldown = "amixer set Master unmute 8%-";
     volup   = "amixer set Master unmute 8%+";
 
