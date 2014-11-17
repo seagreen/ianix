@@ -16,16 +16,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 3. (optional) Grep the config files for "cron" and remove any cron jobs you don't want.
 
-4. Switch to the new config files:
-
-    ```
-    # Both commands from root:
-
-    cp configuration.nix /etc/nixos/configuration.nix
-    cp -r extended-config /etc/nixos
-    ```
-
-5. Setup nixpkgs
+4. Setup nixpkgs
 
     ```
     cat version.txt
@@ -37,7 +28,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     git checkout 351aec7
     ```
 
-6. From root: `nixos-rebuild switch -I nixpkgs=/path/to/my/nixpkgs`
+5. From root: `nixos-rebuild switch -I nixpkgs=/path/to/nixpkgs -I nixos-config=./configuration.nix`
 
 # Post-Install
 
