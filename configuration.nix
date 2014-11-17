@@ -90,6 +90,7 @@
     haskellPackages.hakyll
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
+    # Use: `hoogle search -- "a -> a"`.
     haskellPackages.hoogleLocal
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     htop
