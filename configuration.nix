@@ -100,6 +100,7 @@
     libreoffice
     liferea
     mplayer # Required for my weechat beep command.
+    nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
     pass
     pwgen
