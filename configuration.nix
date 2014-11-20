@@ -90,8 +90,7 @@
     haskellPackages.hakyll
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
-    # Use: `hoogle search -- "a -> a"`.
-    haskellPackages.hoogleLocal
+    haskellPackages.hoogleLocal # Use: `hoogle search -- "a -> a"`
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     htop
     i3lock
@@ -102,6 +101,7 @@
     mplayer # Required for my weechat beep command.
     nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
+    nox
     pass
     pwgen
     pylint
@@ -126,7 +126,7 @@
   # The display manager "provides a graphical login prompt and
   # manages the X server" (from the NixOS manual).
   services.xserver.displayManager = {
-    slim.enable = true; # Make the default explicit.
+    slim.enable = true;
     slim.defaultUser = "traveller";
   };
 
