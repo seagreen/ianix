@@ -1,3 +1,5 @@
+{config, pkgs, ... }:
+
 {
   ############################################################
   # Hardware
@@ -15,4 +17,12 @@
       name = "root"; device = "/dev/sda3"; preLVM = true;
     }
   ];
+
+  imports = [
+      # Include the results of the hardware scan. This is required.
+      ./hardware-configuration.nix
+
+      # Backups
+      ./../extended-config/tarsnap/c.nix
+    ];
 }

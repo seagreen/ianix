@@ -16,10 +16,7 @@
   # Anything that would require changes to this file in more
   # than one place or has other files associated with it gets
   # factored out to become an import.
-  imports =
-    [ # Include the results of the hardware scan. This is required.
-      ./laptop/hardware-configuration.nix
-
+  imports = [
       ./laptop/c.nix
 
       # Window manager
@@ -42,9 +39,6 @@
       # Web browser (Vimperator)
       ./extended-config/firefox/c.nix
 
-      # Backups
-      ./extended-config/tarsnap/c.nix
-
       ./extended-config/git/c.nix
       ./extended-config/haskell_dev/c.nix
       ./extended-config/networking/c.nix
@@ -54,6 +48,7 @@
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     bvi # Hex editor
+    camlistore
     chromium
     evince
     fabric
@@ -61,10 +56,7 @@
     feh
     ffmpeg # Dep of youtubeDL
     gnome3.eog
-    # Must edit gpg-agent.conf for gpg to work. See here:
-    #
-    #     http://lists.gnupg.org/pipermail/gnupg-users/2005-June/026063.html
-    gnupg
+    (gnupg.override { pinentry = pinentry; })
     go
     gparted
     graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
@@ -79,10 +71,12 @@
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     htop
     i3lock
+    ihaskell
     jmtpfs
     jq
     libreoffice
     liferea
+    mpd # Music Player Daemon
     mplayer # Required for my weechat beep command.
     nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
@@ -101,6 +95,7 @@
     strategoPackages.strategoxt # Pretty print .drv file with `pp-aterm -i <file>.drv`
     tree
     unzip
+    vimpc # Vim inspired client for mpd.
     vlc
     weechat
     wget
