@@ -21,11 +21,11 @@ import XMonad.Util.EZConfig
 
 
 main = do
-    xmonad $
-        defaultConfig
-            { terminal = "urxvt"
-            }
-        `additionalKeysP`
-            [ ("M-s", spawn "screenshot")
-            , ("M-e", spawn "screenshot-select")
-            ]
+  xmonad $
+    defaultConfig
+      { terminal = "urxvt"
+      }
+    `additionalKeysP`
+      [ ("M-s", spawn "screenshot")
+      , ("M-e", spawn "screenshot-select")
+      ]

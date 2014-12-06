@@ -11,8 +11,7 @@
 URxvt.scrollBar: false
 
 ! Only works with specific combinations.
-URxvt.font: 9x15
-! URxvt.font: 8x13
+URxvt.font: xft:DejavuSansMono:pixelsize=14
 
 ! The tomorrow-theme directory is actually managed by vim's Vundle, so it's
 ! not really right to use it from here.

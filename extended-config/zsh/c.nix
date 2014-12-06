@@ -30,6 +30,7 @@
 {
   programs.zsh = {
     enable = true;
+
     promptInit =
       # Changes to the terminal's colorscheme affect how these colors actually appear.
 
@@ -42,6 +43,7 @@
       ''
       PS1="%{$fg[cyan]%}[%~]%{$fg[blue]%}%n@%{$fg[blue]%}%m $%{$reset_color%} "
       '';
+
     interactiveShellInit =
       ''
       autoload -U colors && colors
@@ -84,22 +86,24 @@
       export PATH="$GOPATH/bin:$GOROOT/bin:$PATH";
       '';
   };
+
   environment.sessionVariables = {
-    # For vim-gnupg specifically, but gpg always wants this, see:
-    # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
-    # GPG_TTY = "$(tty)";
-
-    NIXPKGS_ALLOW_UNFREE = "1";
-
     EDITOR = "vim";
 
     # http://golang.org/doc/install
     GOPATH = "/home/traveller/code/go";
     GOROOT = "/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go";
 
+    # For vim-gnupg specifically, but gpg always wants this, see:
+    # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
+    # GPG_TTY = "$(tty)";
+
+    NIXPKGS_ALLOW_UNFREE = "1";
+
     # Don't create .pyc files.
     PYTHONDONTWRITEBYTECODE = "1";
   };
+
   # Using mkForce to totally override the default settings.
   environment.shellAliases = pkgs.lib.mkForce {
 

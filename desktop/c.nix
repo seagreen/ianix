@@ -21,8 +21,5 @@
   imports = [
       # Include the results of the hardware scan. This is required.
       ./hardware-configuration.nix
-
-      # Backups
-      ./../extended-config/tarsnap/c.nix
     ];
 }

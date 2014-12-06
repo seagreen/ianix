@@ -17,33 +17,33 @@
   # than one place or has other files associated with it gets
   # factored out to become an import.
   imports = [
-      ./laptop/c.nix
+    ./laptop/c.nix
 
-      # Window manager
-      ./extended-config/xmonad/c.nix
+    # Window manager
+    ./extended-config/xmonad/c.nix
 
-      # Terminal
-      ./extended-config/urxvt/c.nix
+    # Terminal
+    ./extended-config/urxvt/c.nix
 
-      # Shell
-      ./extended-config/zsh/c.nix
+    # Shell
+    ./extended-config/zsh/c.nix
 
-      # Text editor
-      ./extended-config/vim/c.nix
+    # Text editor
+    ./extended-config/vim/c.nix
 
-      # Email
-      ./extended-config/mbsync/c.nix # IMAP client
-      ./extended-config/mutt/c.nix
-      ./extended-config/msmtp/c.nix # SMTP client
+    # Email
+    ./extended-config/mbsync/c.nix # IMAP client
+    ./extended-config/mutt/c.nix
+    ./extended-config/msmtp/c.nix # SMTP client
 
-      # Web browser (Vimperator)
-      ./extended-config/firefox/c.nix
+    # Web browser (Vimperator)
+    ./extended-config/firefox/c.nix
 
-      ./extended-config/git/c.nix
-      ./extended-config/haskell_dev/c.nix
-      ./extended-config/networking/c.nix
-      ./extended-config/virtualbox/c.nix
-    ];
+    ./extended-config/git/c.nix
+    ./extended-config/haskell_dev/c.nix
+    ./extended-config/networking/c.nix
+    ./extended-config/virtualbox/c.nix
+  ];
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
@@ -74,8 +74,10 @@
     ihaskell
     jmtpfs
     jq
-    libreoffice
+    # TODO: broken
+    # libreoffice
     liferea
+    lynx
     mpd # Music Player Daemon
     mplayer # Required for my weechat beep command.
     nix-repl # Basic use: nix-repl '<nixos>'
@@ -122,6 +124,9 @@
   };
   # Sudden restarts aren't fun on the eyes.
   systemd.services.redshift.restartIfChanged = false;
+
+  # Make the default explicit.
+  programs.ssh.startAgent = true;
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;

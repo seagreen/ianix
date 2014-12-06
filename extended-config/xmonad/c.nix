@@ -11,12 +11,3 @@
   services.xserver.windowManager.xmonad.enableContribAndExtras = true;
   services.xserver.windowManager.default = "xmonad";
 }
-
-
-
-
-
-
-
-
-
