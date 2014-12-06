@@ -1,4 +1,4 @@
-src/xmonad/dotfiles/.xmonad/*
-!src/xmonad/dotfiles/.xmonad/xmonad.hs
+extended-config/xmonad/dotfiles/.xmonad/*
+!extended-config/xmonad/dotfiles/.xmonad/xmonad.hs
 
-src/vim/dotfiles/.vim/bundle
+extended-config/vim/dotfiles/.vim/bundle
