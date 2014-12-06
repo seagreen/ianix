@@ -12,6 +12,14 @@
   # Define on which hard drive you want to install Grub.
   boot.loader.grub.device = "/dev/sda";
 
+  ############################################################
+  # Applications
+  ############################################################
+
+  # NOTE: Must fail one log in attempt before entering your correct
+  # password, otherwise it will start an xterm session instead of
+  # an xmonad session.
+
   imports = [
       # Include the results of the hardware scan. This is required.
       ./hardware-configuration.nix
@@ -32,10 +40,4 @@
     xmodmap -e "remove mod4 = Alt_L"
     xmodmap -e "add mod1 = Alt_L"
   '';
-
-  # TODO: having to run:
-  #
-  #     $ TERM="rxvt-256color"
-  #
-  # manually for mutt colors to work.
 }
