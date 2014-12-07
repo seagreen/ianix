@@ -14,8 +14,8 @@
       haskellPackages.zlib
     ]))
 
-    stdenv
-
+    gcc
+    binutils # For the ar executable.
     haskellPackages.alex
     haskellPackages.happy
 
