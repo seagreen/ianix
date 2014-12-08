@@ -4,7 +4,6 @@
 
 { config, pkgs, ... }:
 
-
 {
 
   ############################################################
@@ -105,6 +104,7 @@
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
   ];
 
+  # Changes to this take effect on login.
   environment.sessionVariables = {
     EDITOR = "vim";
 
@@ -207,7 +207,6 @@
     uid = 1000;
     createHome = true;
     home = "/home/traveller";
-    shell = "${pkgs.zsh}/bin/zsh"; # Requires a restart to detect changes.
+    shell = "${pkgs.zsh}/bin/zsh"; # Changes to this take effect on login.
   };
-
 }
