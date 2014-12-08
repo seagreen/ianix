@@ -110,8 +110,8 @@
 
     # http://golang.org/doc/install
     GOPATH = "/home/traveller/code/go";
-    # TODO: Remove hardcoding:
-    GOROOT = "/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go";
+    # NOTE: untested:
+    GOROOT = "${pkgs.go}/share/go";
 
     # For vim-gnupg specifically, but gpg always wants this, see:
     # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
