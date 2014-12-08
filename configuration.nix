@@ -125,8 +125,11 @@
   # Sudden restarts aren't fun on the eyes.
   systemd.services.redshift.restartIfChanged = false;
 
-  # Make the default explicit.
-  programs.ssh.startAgent = true;
+  # Enable ssh-add. On by default.
+  programs.ssh = {
+    startAgent = true;
+    agentTimeout = null; # Keep keys in memory forever.
+  };
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
