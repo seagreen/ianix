@@ -105,6 +105,24 @@
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
   ];
 
+  environment.sessionVariables = {
+    EDITOR = "vim";
+
+    # http://golang.org/doc/install
+    GOPATH = "/home/traveller/code/go";
+    # TODO: Remove hardcoding:
+    GOROOT = "/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go";
+
+    # For vim-gnupg specifically, but gpg always wants this, see:
+    # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
+    # GPG_TTY = "$(tty)";
+
+    NIXPKGS_ALLOW_UNFREE = "1";
+
+    # Don't create .pyc files.
+    PYTHONDONTWRITEBYTECODE = "1";
+  };
+
   # The display manager "provides a graphical login prompt and
   # manages the X server" (from the NixOS manual).
   services.xserver.displayManager = {

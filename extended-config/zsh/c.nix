@@ -60,6 +60,9 @@
 
       ############################################################
       # Nothing from this point on in the file is Zsh specific.
+      #
+      # It's only here as a convenient way to keep it out of root
+      # and nix-shell.
       ############################################################
 
 
@@ -85,144 +88,125 @@
       # I tried to set this is sessionVariables, but it overrode root's $PATH.
       export PATH="$GOPATH/bin:$GOROOT/bin:$PATH";
       '';
-  };
 
-  environment.sessionVariables = {
-    EDITOR = "vim";
+    # Using mkForce to totally override the default settings.
+    shellAliases = pkgs.lib.mkForce {
+      # * NOTE_1
+      #
+      # The actual zshrc file generated uses single quotes to surround aliases, eg
+      #
+      #     alias rss='liferea'
+      #
+      # So you want to use \" here, eg
+      #
+      #    runghc = "echo \"Alias disabled\""
 
-    # http://golang.org/doc/install
-    GOPATH = "/home/traveller/code/go";
-    GOROOT = "/nix/store/mrnlp871pmhlp9m5almm52faq3v8s3q5-go-1.2.1/share/go";
+      ".."   = "cd ..";
+      "..."  = "cd ../..";
+      "...." = "cd ../../..";
 
-    # For vim-gnupg specifically, but gpg always wants this, see:
-    # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
-    # GPG_TTY = "$(tty)";
+      background-center = "feh --bg-center";
+      background-max    = "feh --bg-max";
+      background-fill   = "feh --bg-fill";
 
-    NIXPKGS_ALLOW_UNFREE = "1";
+      cal= "cal -3 --monday";
 
-    # Don't create .pyc files.
-    PYTHONDONTWRITEBYTECODE = "1";
-  };
+      # for escoger
+      #
+      # about find
+      #
+      # -a is and
+      # -o is or
+      #
+      # -prune means don't descend into it if it's a dir
+      # -print means output
+      #
+      #
+      # cd to a directory below you.
+      ecd = "cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)";
+      # open file below you in vim
+      ev = "vim $(find * -name .git -a -type d -prune -o -type f -print | escoger)";
 
-  # Using mkForce to totally override the default settings.
-  environment.shellAliases = pkgs.lib.mkForce {
+      # Print absolute path to file.
+      full = "readlink -f";
 
-    ".."   = "cd ..";
-    "..."  = "cd ../..";
-    "...." = "cd ../../..";
+      # The first git message is special (I believe because it has no parent and
+      # so is harder to change) so start project with an empty commit.
+      #
+      # Idea from here: http://stackoverflow.com/a/22233092
+      #
+      # * See NOTE_1 for why \" is used.
+      gitinit = "git init; git commit --allow-empty -m \"Create repo.\"";
 
-    background-center = "feh --bg-center";
-    background-max    = "feh --bg-max";
-    background-fill   = "feh --bg-fill";
+      # Nix's gnupg makes a gpg2 executable.
+      gpg = "gpg2";
 
-    cal= "cal -3 --monday";
+      lock = "i3lock";
 
-    # for escoger
-    #
-    # about find
-    #
-    # -a is and
-    # -o is or
-    #
-    # -prune means don't descend into it if it's a dir
-    # -print means output
-    #
-    #
-    # cd to a directory below you.
-    ecd = "cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)";
-    # open file below you in vim
-    ev = "vim $(find * -name .git -a -type d -prune -o -type f -print | escoger)";
+      # -A flag shows dotfiles other than . and ..
+      #
+      # Using   color   to  distinguish  file  types  is  disabled  both  by  default  and  with
+      # --color=never.  With --color=auto, ls emits color codes only  when  standard  output  is
+      # connected  to  a  terminal.  The LS_COLORS environment variable can change the settings.
+      # Use the dircolors command to set it.
+      #
+      # LC_COLLATE=C shows dotfiles first, instead of mixed through the output.
+      ls = "LC_COLLATE=C ls -A --color=auto";
 
-    # Print absolute path to file.
-    full = "readlink -f";
+      lorem = "xclip ~/vivaine/vivaine/extended-config/utilities/lorem_ipsum.txt";
 
-    # The first git message is special (I believe because it has no parent and
-    # so is harder to change) so start project with an empty commit.
-    #
-    # Idea from here: http://stackoverflow.com/a/22233092
-    #
-    # * See NOTE_1 for why \" is used.
-    gitinit = "git init; git commit --allow-empty -m \"Create repo.\"";
+      # Make a nice password.
+      #
+      # --symbols : include symbols and use at least one
+      # first number : length of password
+      # second number : number of passwords to generate
+      mkpass = "pwgen --no-capitalize --symbols 14 1";
 
-    # Nix's gnupg makes a gpg2 executable.
-    gpg = "gpg2";
+      # grep -I ignores binary files.
+      mygrep = "grep -ri --binary-files=without-match --exclude-dir='active' --exclude-dir='old_code'";
 
-    lock = "i3lock";
+      nim-search = "nix-env -qaP --description | grep -i";
 
-    # -A flag shows dotfiles other than . and ..
-    #
-    # Using   color   to  distinguish  file  types  is  disabled  both  by  default  and  with
-    # --color=never.  With --color=auto, ls emits color codes only  when  standard  output  is
-    # connected  to  a  terminal.  The LS_COLORS environment variable can change the settings.
-    # Use the dircolors command to set it.
-    #
-    # LC_COLLATE=C shows dotfiles first, instead of mixed through the output.
-    ls = "LC_COLLATE=C ls -A --color=auto";
+      pingit = "ping www.google.com";
 
-    lorem = "xclip ~/vivaine/vivaine/extended-config/utilities/lorem_ipsum.txt";
+      voldown = "amixer set Master unmute 8%-";
+      volup   = "amixer set Master unmute 8%+";
 
-    # Make a nice password.
-    #
-    # --symbols : include symbols and use at least one
-    # first number : length of password
-    # second number : number of passwords to generate
-    mkpass = "pwgen --no-capitalize --symbols 14 1";
+      # Run rot13 without args and then enter your text. From here:
+      # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
+      #
+      # rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
 
-    # grep -I ignores binary files.
-    mygrep = "grep -ri --binary-files=without-match --exclude-dir='active' --exclude-dir='old_code'";
+      # Recursive General Linter. Print names of files with trailing whitespace.
+      #
+      # Discover trailing spaces:
+      # http://stackoverflow.com/questions/11210126/bash-find-files-with-trailing-spaces-at-the-end-of-the-lines
+      #
+      # Skip binary files:
+      # http://stackoverflow.com/questions/4767396/linux-command-how-to-find-only-text-files
+      #
+      # This is a good example of how horrible UNIX commands can get.
+      #
+      # * See NOTE_1 for why '' and " is used.
+      rglint = ''find . -type f | xargs grep -EIl "*" | xargs grep -El ".* +$"'';
 
-    nim-search = "nix-env -qaP --description | grep -i";
+      rss = "liferea";
 
-    pingit = "ping www.google.com";
+      # * See NOTE_1 for why \" is used.
+      runghc = "echo \"Alias disabled\"";
+      runhaskell = "runhaskell -Wall";
 
-    voldown = "amixer set Master unmute 8%-";
-    volup   = "amixer set Master unmute 8%+";
+      serve = "python -m SimpleHTTPServer";
 
-    # Run rot13 without args and then enter your text. From here:
-    # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
-    #
-    # rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
+      unixtime = "date +%s";
 
-    # Recursive General Linter. Print names of files with trailing whitespace.
-    #
-    # Discover trailing spaces:
-    # http://stackoverflow.com/questions/11210126/bash-find-files-with-trailing-spaces-at-the-end-of-the-lines
-    #
-    # Skip binary files:
-    # http://stackoverflow.com/questions/4767396/linux-command-how-to-find-only-text-files
-    #
-    # This is a good example of how horrible UNIX commands can get.
-    #
-    # * See NOTE_1 for why '' and " is used.
-    rglint = ''find . -type f | xargs grep -EIl "*" | xargs grep -El ".* +$"'';
+      # Custom fasd command to open a file with vim.
+      v = "f -e vim";
 
-    rss = "liferea";
+      # -p[N]    Open N tab pages.  When N is omitted, open one tab page for each file.
+      vim = "vim -p";
 
-    # * See NOTE_1 for why \" is used.
-    runghc = "echo \"Alias disabled\"";
-    runhaskell = "runhaskell -Wall";
-
-    serve = "python -m SimpleHTTPServer";
-
-    unixtime = "date +%s";
-
-    # Custom fasd command to open a file with vim.
-    v = "f -e vim";
-
-    # -p[N]    Open N tab pages.  When N is omitted, open one tab page for each file.
-    vim = "vim -p";
-
-    yt = "youtube-dl --extract-audio --audio-format vorbis";
-
-
-    # * NOTE_1
-    #
-    # The actual zshrc file generated uses single quotes to surround aliases, eg
-    #
-    #     alias rss='liferea'
-    #
-    # So you want to use \" here, eg
-    #
-    #    runghc = "echo \"Alias disabled\""
+      yt = "youtube-dl --extract-audio --audio-format vorbis";
+    };
   };
 }
