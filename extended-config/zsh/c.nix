@@ -163,7 +163,7 @@
       mkpass = "pwgen --no-capitalize --symbols 14 1";
 
       # grep -I ignores binary files.
-      mygrep = "grep -ri --binary-files=without-match --exclude-dir='active' --exclude-dir='old_code'";
+      mygrep = "grep -ri --binary-files=without-match;
 
       nim-search = "nix-env -qaP --description | grep -i";
 
@@ -176,19 +176,6 @@
       # http://www.commandlinefu.com/commands/view/1792/rot13-using-the-tr-command
       #
       # rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
-
-      # Recursive General Linter. Print names of files with trailing whitespace.
-      #
-      # Discover trailing spaces:
-      # http://stackoverflow.com/questions/11210126/bash-find-files-with-trailing-spaces-at-the-end-of-the-lines
-      #
-      # Skip binary files:
-      # http://stackoverflow.com/questions/4767396/linux-command-how-to-find-only-text-files
-      #
-      # This is a good example of how horrible UNIX commands can get.
-      #
-      # * See NOTE_1 for why '' and " is used.
-      rglint = ''find . -type f | xargs grep -EIl "*" | xargs grep -El ".* +$"'';
 
       rss = "liferea";
 
