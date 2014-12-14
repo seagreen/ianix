@@ -59,6 +59,7 @@
     go
     gparted
     graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
+    guix
     haskellPackages.aesonPretty
     haskellPackages.cabal2nix
     haskellPackages.escoger
