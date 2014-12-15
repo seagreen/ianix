@@ -1,60 +1,84 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Setup Vundle
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-" To install new bundles (1) add the bundle below (2) restart vim, and (3) run:
-" :BundleInstall
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" Python
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+" Tab scrolls down lists, not up
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" "Haskell
+" Plugin 'scrooloose/syntastic'
+
+" Non-language specific appearance
+Plugin 'flazz/vim-colorschemes'
+Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Plugin 'Pychimp/vim-luna'
+Plugin 'git@bitbucket.org:kisom/eink.vim.git'
+" Type :SCROLL or :COLORS to start. Use arrows to navigate. Hit ESC to stop.
+Plugin 'ScrollColors'
+
+" Other
+Plugin 'gnupg.vim'
+" Distraction-free writing in Vim. Recommended here for use with Markdown files:
 "
-" Use :BundleInstall! to update.
+"     https://news.ycombinator.com/item?id=6978563
 "
-" Use :BundleClean to remove unused bundles.
+" The same author also wrote this:
+"
+"     https://github.com/bilalq/lite-dfm
+"
+" which he uses for coding (it doesn't line up as well but keeps support for
+" vsplits uncrippled.
+Plugin "junegunn/goyo.vim"
+Plugin 'airblade/vim-gitgutter'
 
-set nocompatible               " be iMproved
-filetype off                   " required!
+"    " The following are examples of different formats supported.
+"    " Keep Plugin commands between vundle#begin/end.
+"    " plugin on GitHub repo
+"    Plugin 'tpope/vim-fugitive'
+"    " plugin from http://vim-scripts.org/vim/scripts.html
+"    Plugin 'L9'
+"    " Git plugin not hosted on GitHub
+"    Plugin 'git://git.wincent.com/command-t.git'
+"    " git repos on your local machine (i.e. when working on your own plugin)
+"    Plugin 'file:///home/gmarik/path/to/plugin'
+"    " The sparkup vim script is in a subdirectory of this repo called vim.
+"    " Pass the path to set the runtimepath properly.
+"    Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+"    " Avoid a name conflict with L9
+"    Plugin 'user/L9', {'name': 'newL9'}
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" let Vundle manage Vundle
-" required!
-Bundle 'gmarik/vundle'
-
-filetype plugin indent on     " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
 "
 " Brief help
-" :BundleList          - list configured bundles
-" :BundleInstall(!)    - install(update) bundles
-" :BundleSearch(!) foo - search(or refresh cache first) for foo
-" :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 "
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
-
-""" Syntax Examples
-"
-""" original repos on github
-" Bundle 'tpope/vim-fugitive'
-""" vim-scripts repos (this refers to the 'vim-scripts' user on GitHub.)
-" Bundle 'FuzzyFinder'
-""" non github repos
-" bundle 'git://git.wincent.com/command-t.git'
-""" git repos on your local machine (ie. when working on your own plugin)
-" bundle 'file:///users/gmarik/path/to/plugin'
+" Put your non-Plugin stuff after this line
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Python
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Bundle 'davidhalter/jedi-vim'
-Bundle 'ervandew/supertab'
-" Tab scrolls down lists, not up
-let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Command to quickly print pretty JSON.
-:command Jd :normal i
-    \import json;
-    \ print json.dumps(<OBJ>, sort_keys=True, indent=2, separators=(',', ': '))
-    \<ENTER><ESC>:w<ENTER>
 
 " Creates the command :Ip which adds a line invoking ipdb and saves.
 "
@@ -91,12 +115,6 @@ au FileType go au BufWritePre <buffer> Fmt
 let g:gofmt_command="goimports"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Haskell
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" Bundle 'scrooloose/syntastic'
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other Filetype Specific Changes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -121,17 +139,6 @@ autocmd filetype html,xml set listchars-=tab:>.
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Univeral appearance
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-Bundle 'flazz/vim-colorschemes'
-
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
-
-Bundle 'Pychimp/vim-luna'
-
-Bundle 'git@bitbucket.org:kisom/eink.vim.git'
-
-" Type :SCROLL or :COLORS to start. Use arrows to navigate. Hit ESC to stop.
-Bundle 'ScrollColors'
 
 " This should come after the bundle which installs the colorscheme.
 "
@@ -188,8 +195,6 @@ nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":tabnew")<cr>
 " Show line numbers.
 " set number
 
-Bundle 'gnupg.vim'
-
 set autoindent
 
 set expandtab
@@ -218,20 +223,6 @@ noremap k gk
 " Make searches case-insensative except when you include uppercase characters.
 set ignorecase
 set smartcase
-
-" Distraction-free writing in Vim. Recommended here for use with Markdown files:
-"
-"     https://news.ycombinator.com/item?id=6978563
-"
-" The same author also wrote this:
-"
-"     https://github.com/bilalq/lite-dfm
-"
-" which he uses for coding (it doesn't line up as well but keeps support for
-" vsplits uncrippled.
-Bundle "junegunn/goyo.vim"
-
-Bundle 'airblade/vim-gitgutter'
 
 autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 
