@@ -19,7 +19,8 @@ Plugin 'ervandew/supertab'
 " Tab scrolls down lists, not up
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
-" "Haskell
+" Haskell
+Plugin 'Twinside/vim-hoogle'
 " Plugin 'scrooloose/syntastic'
 
 " Non-language specific appearance
@@ -27,6 +28,7 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'Pychimp/vim-luna'
 Plugin 'git@bitbucket.org:kisom/eink.vim.git'
+Plugin 'junegunn/seoul256.vim'
 " Type :SCROLL or :COLORS to start. Use arrows to navigate. Hit ESC to stop.
 Plugin 'ScrollColors'
 
@@ -42,7 +44,7 @@ Plugin 'gnupg.vim'
 "
 " which he uses for coding (it doesn't line up as well but keeps support for
 " vsplits uncrippled.
-Plugin "junegunn/goyo.vim"
+Plugin 'junegunn/goyo.vim'
 Plugin 'airblade/vim-gitgutter'
 
 "    " The following are examples of different formats supported.
