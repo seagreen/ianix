@@ -178,7 +178,7 @@
   # X11 windowing system.
   services.xserver.enable = true;
   services.xserver.layout = "us";
-  # xkeyboard-config settings:
+  # setxkbmap settings:
   services.xserver.xkbOptions = "eurosign:e, caps:none";
 
   # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.

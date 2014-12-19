@@ -4,3 +4,5 @@
 *._.
 *.fuse_hidden*
 *.dia~
+.cabal-sandbox
+cabal.sandbox.config

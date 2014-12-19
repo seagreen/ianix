@@ -109,7 +109,7 @@
       background-max    = "feh --bg-max";
       background-fill   = "feh --bg-fill";
 
-      cal= "cal -3 --monday";
+      cal = "cal -3 --monday";
 
       # for escoger
       #
@@ -129,6 +129,8 @@
 
       # Print absolute path to file.
       full = "readlink -f";
+
+      ghci-sandbox = "ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
 
       # The first git message is special (I believe because it has no parent and
       # so is harder to change) so start project with an empty commit.
@@ -163,7 +165,7 @@
       mkpass = "pwgen --no-capitalize --symbols 14 1";
 
       # grep -I ignores binary files.
-      mygrep = "grep -ri --binary-files=without-match;
+      mygrep = "grep -ri --binary-files=without-match";
 
       nim-search = "nix-env -qaP --description | grep -i";
 

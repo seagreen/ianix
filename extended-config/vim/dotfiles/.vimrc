@@ -178,7 +178,7 @@ set t_Co=256
 "
 " Run a given vim command on the results of fuzzy selecting from a given shell
 " command. See usage below.
-function! SelectaCommand(choice_command, selecta_args, vim_command)
+function! EscogerCommand(choice_command, selecta_args, vim_command)
   try
     let selection = system(a:choice_command . " | escoger " . a:selecta_args)
   catch /Vim:Interrupt/
@@ -190,12 +190,11 @@ function! SelectaCommand(choice_command, selecta_args, vim_command)
   redraw!
   exec a:vim_command . " " . selection
 endfunction
-" Find all files in all non-dot directories starting in the working directory.
-" Fuzzy select one of those. Open the selected file with :e.
-nnoremap <leader>f :call SelectaCommand("find * -type f", "", ":tabnew")<cr>
+nnoremap <leader>f :call EscogerCommand("find * -name .git -a -type d -prune -o -name bower_components -a -type d -prune -o -name node_modules -a -type d -prune -o -name .cabal-sandbox -prune -o -name dist -prune -o -name .sass-cache -prune -o -name _site -prune -o -name _cache -prune -o -name '*.hi' -prune -o -name '*.o' -prune -o -type f -print", "", ":edit")<cr>
+nnoremap <leader>t :call EscogerCommand("find * -name .git -a -type d -prune -o -name bower_components -a -type d -prune -o -name node_modules -a -type d -prune -o -name .cabal-sandbox -prune -o -name dist -prune -o -name .sass-cache -prune -o -name _site -prune -o -name _cache -prune -o -name '*.hi' -prune -o -name '*.o' -prune -o -type f -print", "", ":tabedit")<cr>
 
 " Show line numbers.
-" set number
+set number
 
 set autoindent
 
