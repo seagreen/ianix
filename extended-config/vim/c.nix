@@ -8,6 +8,6 @@
     #
     # Additionally pasting into vim via the middle mouse key
     # may not work with the plain "vim" package.
-    vim_configurable
+    vimHugeX
   ];
 }

@@ -181,10 +181,6 @@
 
       rss = "liferea";
 
-      # * See NOTE_1 for why \" is used.
-      runghc = "echo \"Alias disabled\"";
-      runhaskell = "runhaskell -Wall";
-
       serve = "python -m SimpleHTTPServer";
 
       unixtime = "date +%s";
