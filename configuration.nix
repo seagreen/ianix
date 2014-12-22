@@ -16,7 +16,7 @@
   # than one place or has other files associated with it gets
   # factored out to become an import.
   imports = [
-    ./laptop/c.nix
+    ./desktop/c.nix
 
     # Window manager
     ./extended-config/xmonad/c.nix
@@ -170,8 +170,6 @@
   ############################################################
   # Infrastructure
   ############################################################
-
-  networking.hostName = "vivaine";
 
   services.xserver.desktopManager.default = "none";
 

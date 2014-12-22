@@ -1,5 +1,4 @@
-{config, pkgs, ... }:
-
+{ config, pkgs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -8,7 +7,6 @@
 
     # Fake system tray for nmapplet.
     stalonetray 
-
   ];
 
   networking.networkmanager.enable = true;

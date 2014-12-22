@@ -38,8 +38,10 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 2. `./link_bin_files`
 
-3. Make sure your shell aliases are loaded with `exec zsh`, then run `background-fill wallpaper.png`.
+3. `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
 
-4. Move a copy of `.vimrc` and `.vim` to `/root`.
+4. Make sure your shell aliases are loaded with `exec zsh`, then run `background-fill wallpaper.png`.
 
-5. `mkdir ~/screenshots`
+5. Move a copy of `.vimrc` and `.vim` to `/root`.
+
+6. `mkdir ~/screenshots`

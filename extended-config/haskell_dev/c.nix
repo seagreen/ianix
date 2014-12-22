@@ -1,4 +1,4 @@
-{config, pkgs, ... }:
+{ config, pkgs, ... }:
 
 # Basics for Haskell dev via cabal-install sandboxes
 #
