@@ -25,6 +25,4 @@ set record = "~/sent"
 
 set postponed = "~/mail/ianspiral/postponed"
 
-# set smtp_url = "smtp://ianspiral@smtp.gmail.com:587/"
-# set smtp_pass = `pass-plain ianspiral`
 set sendmail="msmtp"

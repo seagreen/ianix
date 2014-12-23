@@ -159,3 +159,6 @@ set text_flowed = yes
 
 # help fo-table from within vim for more info
 set editor="vim +'set fo+=aw'"
+
+# Add an "open in browser" shortcut for attachments.
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"

@@ -48,10 +48,7 @@
       ''
       autoload -U colors && colors
 
-      # # For pass command completion
-      # #
-      # # TODO: how to avoid hardcoding this?
-      # source /nix/store/xzi9k0an1015c055gh8jirdpx7m0rpy0-password-store-1.4.2/etc/bash_completion.d/password-store
+      autoload -U compinit && compinit
 
       # Set zsh to vi mode.
       bindkey -v
