@@ -50,46 +50,16 @@ macro index \Ch 'c ~/mail/ian_house/Inbox<enter>'
 ###############################################################################
 
 
-# mailing list notes
-#
-# trilug-announce@trilug.org
-# trilug-announce
-# subscribed
-#
-# trilug@trilug.org
-# trilug
-# subscribed successfully
-#
-# trilug-ontopic@trilug.org
-# trilug-ontopic
-# subscribed
-#
-# trizpug@python.org
-# trizpug
-# subscribed
-#
-# lug@lists.ncsu.edu
-# ncsulug
-# subscribed
-#
-# triembed@triembed.org
-# triembed
-#
-# tent.dev@librelist.com
-# tent
-
 # Tell mutt about the mailing lists I belong to
 #
 # This allows list-reply to work correctly which lets you correctly send
 # mail to the mailing list.
-subscribe trizpug trilug trilug-ontopic lug@lists.ncsu.edu triembed@triembed.org tent.dev@librelist.com chattlab-list@googlegroups.com
+subscribe trilug trilug-ontopic lug@lists.ncsu.edu tent.dev@librelist.com chattlab-list@googlegroups.com
 
 folder-hook $HOME/mail/ian_house/trilug-annouce set sort=threads
 folder-hook $HOME/mail/ian_house/trilug         set sort=threads
 folder-hook $HOME/mail/ian_house/trilug-ontopic set sort=threads
-folder-hook $HOME/mail/ian_house/trizpug        set sort=threads
 folder-hook $HOME/mail/ian_house/ncsulug        set sort=threads
-folder-hook $HOME/mail/ian_house/triembed       set sort=threads
 folder-hook $HOME/mail/ian_house/tent           set sort=threads
 folder-hook $HOME/mail/ian_house/chattlab       set sort=threads
 
@@ -161,4 +131,10 @@ set text_flowed = yes
 set editor="vim +'set fo+=aw'"
 
 # Add an "open in browser" shortcut for attachments.
-macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html && rm ~/.cache/mutt/mail.html<enter>"
+macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html<enter>"
+
+# Gmail names its folders weird (in this case `[Gmail]/.Sent Mail`).
+# This plays badly with Mutt, which doesn't show dotfiles in the mailbox search menu.
+# Mutt also doesn't like spaces in mailbox names.
+# This command lets us get around that (not that it uses tab completion).
+macro index gs "<change-folder> =../[Gmail]/.Sent<tab><enter>" "Go to sent mail"

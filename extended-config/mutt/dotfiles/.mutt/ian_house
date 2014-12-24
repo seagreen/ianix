@@ -2,7 +2,7 @@
 # General
 ###############################################################################
 
-# Reset.
+# Reset in case this had been switched to threads, etc.
 set sort = date
 
 set mbox_type=Maildir
@@ -18,6 +18,5 @@ set realname = "Ian G. Jeffries"
 set record = "~/mail/ian_house/Sent"
 
 set postponed = "~/mail/ian_house/postponed"
-# Set correct folder to save sent messages.
 
 set sendmail="msmtp"

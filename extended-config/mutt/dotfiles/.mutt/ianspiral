@@ -2,7 +2,7 @@
 # General
 ###############################################################################
 
-# Reset.
+# Reset in case this had been switched to threads, etc.
 set sort = date
 
 set mbox_type=Maildir
@@ -16,12 +16,10 @@ set spoolfile=+/
 set from = "ianspiral@gmail.com"
 set realname = "Ian Jeffries"
 # Gmail saves messages automatically that come through its SMTP server
-# so we don't need to mess with that. Here we're just making sure the
-# record variable stays the default:
+# so we don't need to mess with that.
 #
-# TODO: so would it be better not to save these ourselves at all and just let 
-# gmail do it?
-set record = "~/sent"
+# Update: but it doesn't seem to be storing msmtp messages, so we have to.
+set record = "~/mail/ianspiral/Sent"
 
 set postponed = "~/mail/ianspiral/postponed"
 
