@@ -64,6 +64,8 @@
     haskellPackages.cabal2nix
     haskellPackages.escoger
     haskellPackages.ghcMod
+    # Provides the `hakyll-init` executable, but not the Hakyll library
+    # used by site.hs.
     haskellPackages.hakyll
     haskellPackages.haddock # Not necessary for `cabal haddock`.
     haskellPackages.hlint
@@ -105,7 +107,7 @@
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
   ];
 
-  # Changes to this take effect on login.
+  # NOTE: changes to this take effect on login.
   environment.sessionVariables = {
     EDITOR = "vim";
 
@@ -117,6 +119,12 @@
     # For vim-gnupg specifically, but gpg always wants this, see:
     # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
     # GPG_TTY = "$(tty)";
+
+    # TODO: Should this also list "nixos=..." ?
+    NIX_PATH = pkgs.lib.mkForce [
+      "nixpkgs=/home/traveller/code/nixpkgs"
+      "nixos-config=/home/traveller/code/vivaine/configuration.nix"
+    ];
 
     NIXPKGS_ALLOW_UNFREE = "1";
 
