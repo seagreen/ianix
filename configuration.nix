@@ -113,7 +113,6 @@
 
     # http://golang.org/doc/install
     GOPATH = "/home/traveller/code/go";
-    # NOTE: untested:
     GOROOT = "${pkgs.go}/share/go";
 
     # For vim-gnupg specifically, but gpg always wants this, see:
