@@ -140,6 +140,8 @@
       # Nix's gnupg makes a gpg2 executable.
       gpg = "gpg2";
 
+      linth = "hlint --hint=/home/traveller/.hlint.hs";
+
       lock = "i3lock";
 
       # -A flag shows dotfiles other than . and ..

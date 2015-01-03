@@ -117,6 +117,31 @@ au FileType go au BufWritePre <buffer> Fmt
 let g:gofmt_command="goimports"
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Haskell
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" From here: http://vim.wikia.com/wiki/Remove_unwanted_spaces
+"
+" It would be cool to use a general function to preserve cursor position,
+" such as:
+"
+"     http://technotales.wordpress.com/2010/03/31/preserve-a-vim-function-that-keeps-your-state/
+"
+" ...but you would have to leave the Z mark in anyway because it's used to
+" see if the text has changed.
+function StripTrailingWhitespace()
+  normal mZ
+  let l:chars = col("$")
+  %s/\s\+$//e
+  if (line("'Z") != line(".")) || (l:chars != col("$"))
+    echo "Trailing whitespace stripped\n"
+  endif
+  normal `Z
+:endfunction
+
+" autocmd FileType haskell autocmd BufWritePre * :call StripTrailingWhitespace()
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other Filetype Specific Changes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
