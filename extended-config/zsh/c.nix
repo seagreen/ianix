@@ -53,6 +53,21 @@
       # Set zsh to vi mode.
       bindkey -v
 
+      # Allow function execution in prompt.
+      setopt prompt_subst
+
+      function cabal_sandbox_info() {
+          cabal_files=(*.cabal(N))
+          if [ $#cabal_files -gt 0 ]; then
+              if [ -f cabal.sandbox.config ]; then
+                  echo "%{$fg[green]%}sandboxed%{$reset_color%}"
+              else
+                  echo "%{$fg[red]%}not sandboxed%{$reset_color%}"
+              fi
+          fi
+      }
+      RPROMPT="\$(cabal_sandbox_info) $RPROMPT"
+
 
 
       ############################################################
@@ -66,6 +81,10 @@
 
       # This is required for fasd. It runs once per command executed.
       eval "$(fasd --init auto)"
+
+      hgl() {
+          hoogle search --count=15 -- $1
+      }
 
       # Using a function because alias doesn't take parameters.
       rungcc() {
@@ -127,7 +146,9 @@
       # Print absolute path to file.
       full = "readlink -f";
 
+      ghc-sandbox = "ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
       ghci-sandbox = "ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
+      runhaskell-sandbox = "runhaskell -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
 
       # The first git message is special (I believe because it has no parent and
       # so is harder to change) so start project with an empty commit.

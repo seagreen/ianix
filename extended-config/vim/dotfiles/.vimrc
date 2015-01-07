@@ -20,7 +20,9 @@ Plugin 'ervandew/supertab'
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Haskell
-Plugin 'Twinside/vim-hoogle'
+Plugin 'bitc/vim-hdevtools'
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 " Plugin 'scrooloose/syntastic'
 
 " Non-language specific appearance
@@ -129,7 +131,7 @@ let g:gofmt_command="goimports"
 "
 " ...but you would have to leave the Z mark in anyway because it's used to
 " see if the text has changed.
-function StripTrailingWhitespace()
+function StripTrailingWhitespaceHaskell()
   normal mZ
   let l:chars = col("$")
   %s/\s\+$//e
@@ -138,8 +140,10 @@ function StripTrailingWhitespace()
   endif
   normal `Z
 :endfunction
+" autocmd FileType haskell autocmd BufWritePre * :call StripTrailingWhitespaceHaskell()
 
-" autocmd FileType haskell autocmd BufWritePre * :call StripTrailingWhitespace()
+" A nice way to run https://github.com/jaspervdj/stylish-haskell from Vim.
+:command StylishHaskell :normal :%!stylish-haskell<ENTER>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Other Filetype Specific Changes

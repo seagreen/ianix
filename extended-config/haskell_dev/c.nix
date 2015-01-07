@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 
-# Basics for Haskell dev via cabal-install sandboxes
+# Basics for Haskell dev via cabal-install sandboxes.
 #
 # This is the "Direct Install" strategy discussed here:
 #
@@ -22,5 +22,11 @@
     # For `yesod devel`.
     haskellPackages.yesodBin
 
+    # Tooling
+    haskellPackages.ghcMod
+    haskellPackages.hdevtools
+    haskellPackages.hlint
+    haskellPackages.hoogleLocal
+    haskellPackages.stylishHaskell
   ];
 }

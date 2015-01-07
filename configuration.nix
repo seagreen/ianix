@@ -63,13 +63,9 @@
     haskellPackages.aesonPretty
     haskellPackages.cabal2nix
     haskellPackages.escoger
-    haskellPackages.ghcMod
     # Provides the `hakyll-init` executable, but not the Hakyll library
     # used by site.hs.
     haskellPackages.hakyll
-    haskellPackages.haddock # Not necessary for `cabal haddock`.
-    haskellPackages.hlint
-    haskellPackages.hoogleLocal # Use: `hoogle search -- "a -> a"`
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     htop
     i3lock
