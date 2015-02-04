@@ -20,5 +20,5 @@
   swapDevices =[ ];
 
   nix.maxJobs = 1;
-  services.virtualbox.enable = true;
+  services.virtualboxGuest.enable = true;
 }

@@ -16,16 +16,6 @@ import           XMonad.Util.EZConfig
 --     $ xmonad --recompile
 
 
--- See this example config file for lots of good ideas:
---
---     https://github.com/vicfryzel/xmonad-config
-
-
--- For info on adding keybindings:
---
---     http://www.haskell.org/haskellwiki/Xmonad/General_xmonad.hs_config_tips#Adding_your_own_keybindings
-
-
 hotkeysToWorkspaces =
   [ ("1", "1")
   , ("2", "2")
@@ -45,6 +35,8 @@ main = do
       { borderWidth = 5
       , terminal = "urxvt"
       , workspaces = snd <$> hotkeysToWorkspaces
+      -- , normalBorderColor = "#7c7c7c"
+      -- , focusedBorderColor = "#ffb6b0"
       }
     `additionalKeysP`
       ( [ ("M-s", spawn "screenshot")

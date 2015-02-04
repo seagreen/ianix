@@ -7,4 +7,3 @@
 .cabal-sandbox
 cabal.sandbox.config
 dist
-Setup.hs
