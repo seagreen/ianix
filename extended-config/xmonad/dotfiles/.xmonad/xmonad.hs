@@ -49,8 +49,8 @@ main = do
       , layoutHook = myLayout
       , terminal = "urxvt"
       , workspaces = snd <$> hotkeysToWorkspaces
-      -- , normalBorderColor = "#7c7c7c"
-      -- , focusedBorderColor = "#ffb6b0"
+      , normalBorderColor = "#000000"
+      , focusedBorderColor = "#000080"
       }
     `additionalKeysP`
       ( [ ("M-s", spawn "screenshot")

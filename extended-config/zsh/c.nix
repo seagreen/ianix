@@ -148,7 +148,8 @@
 
       ghc-sandbox = "ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
       ghci-sandbox = "ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
-      runhaskell-sandbox = "runhaskell -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
+      # NOTE: used to have an asterisk instead of the x86_64... part, but it didn't seem to actually work
+      runhaskell-sandbox = "runhaskell -no-user-package-db -package-db=.cabal-sandbox/x86_64-linux-ghc-7.8.3-packages.conf.d";
 
       # The first git message is special (I believe because it has no parent and
       # so is harder to change) so start project with an empty commit.
