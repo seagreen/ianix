@@ -3,6 +3,13 @@
 # E.g. you postpone a message in gmail but when you restart mutt it's
 # set to the webfaction server -- and you send the message from there.
 
+# Configuration options: http://www.mutt.org/doc/manual/manual-6.html#ss6.3
+
+# `push` allows us to use a function name or function names in macros
+# instead of the keys bound to those functions. This makes code less
+# fragile. E.g.
+#
+#     macro index j "<enter-command>push <sync-mailbox><next-entry><enter>"
 
 ###############################################################################
 # ianspiral@gmail.com
@@ -79,6 +86,8 @@ set certificate_file=~/.mutt/certificates
 set move = no
 
 # Ian's vim navigation changes.
+bind index j next-entry # Make the default explicit.
+bind index k previous-entry # Make the default explicit.
 bind pager j next-line
 bind pager k previous-line
 ###
