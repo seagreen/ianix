@@ -8,9 +8,13 @@
 {
   environment.systemPackages = with pkgs; [
 
-    haskellPackages.cabalInstall
+    # https://hackage.haskell.org/package/Cabal
+    # haskellPackages.cabalInstall
+    haskellPackages.cabalInstall_1_22_0_0
+    # supposed to fix ghc mod problem
+    # haskellPackages.cabalInstall_1_20_0_6
 
-    (haskellPackages_ghc783.ghcWithPackages (self : [
+    (haskellPackages_ghc784.ghcWithPackages (self : [
       haskellPackages.zlib
     ]))
 

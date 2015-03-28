@@ -75,6 +75,8 @@ folder-hook $HOME/mail/ian_house/chattlab       set sort=threads
 # Other
 ###############################################################################
 
+# Remove the "No subject, abort? ([yes]/no)" message.
+set abort_nosubject=no
 
 set header_cache=~/.mutt_headers_cache
 

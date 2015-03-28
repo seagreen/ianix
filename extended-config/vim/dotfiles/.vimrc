@@ -36,6 +36,9 @@ Plugin 'ScrollColors'
 
 " Other
 Plugin 'gnupg.vim'
+" \di to enter drawit mode; select box in visual mode; \b to make box; \ds to
+" leave drawit mode
+Plugin 'DrawIt'
 " Distraction-free writing in Vim. Recommended here for use with Markdown files:
 "
 "     https://news.ycombinator.com/item?id=6978563

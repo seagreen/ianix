@@ -49,6 +49,8 @@
     bvi # Hex editor
     camlistore
     chromium
+    darcs
+    dia
     evince
     fabric
     fasd
@@ -67,13 +69,14 @@
     # used by site.hs.
     haskellPackages.hakyll
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
+    # (pkgs.haskellPackages.callPackage ./extended-nixpkgs/SourceGraph {})
+    haskellPackages.packdeps
     htop
     i3lock
     ihaskell
     jmtpfs
     jq
-    # TODO: broken
-    # libreoffice
+    libreoffice
     liferea
     lynx
     mpd # Music Player Daemon
@@ -88,6 +91,7 @@
     python27Packages.ipython
     python27Packages.pyflakes
     python27Packages.virtualenv
+    redis
     silver-searcher
     sloccount
     speedtest_cli
@@ -206,6 +210,7 @@
   users.extraUsers.traveller = {
     name = "traveller";
     group = "users";
+    extraGroups = [ "wheel" ];
     uid = 1000;
     createHome = true;
     home = "/home/traveller";

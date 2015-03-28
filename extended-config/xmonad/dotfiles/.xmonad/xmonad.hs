@@ -45,12 +45,10 @@ hotkeysToWorkspaces =
 main = do
   xmonad $
     defaultConfig
-      { borderWidth = 5
+      { borderWidth = 1
       , layoutHook = myLayout
       , terminal = "urxvt"
       , workspaces = snd <$> hotkeysToWorkspaces
-      , normalBorderColor = "#000000"
-      , focusedBorderColor = "#000080"
       }
     `additionalKeysP`
       ( [ ("M-s", spawn "screenshot")

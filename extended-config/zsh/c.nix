@@ -46,6 +46,10 @@
 
     interactiveShellInit =
       ''
+      # TODO: remove this soon, it's a temporary workaround to get colors in prompt:
+      # https://github.com/NixOS/nixpkgs/issues/5571
+      export FPATH=/nix/store/x9a29ypq4rpiwfskh5rha51ijib13cvj-zsh-5.0.7/share/zsh/5.0.7/functions:FPATH
+
       autoload -U colors && colors
 
       autoload -U compinit && compinit
@@ -81,6 +85,10 @@
 
       # This is required for fasd. It runs once per command executed.
       eval "$(fasd --init auto)"
+
+      arch() {
+          firefox -new-window "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=$1&go=Go" > /dev/null 2>&1
+      }
 
       hgl() {
           hoogle search --count=15 -- $1
@@ -146,6 +154,7 @@
       # Print absolute path to file.
       full = "readlink -f";
 
+      ci = "cabal install --only-dependencies --enable-tests";
       ghc-sandbox = "ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
       ghci-sandbox = "ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
       # NOTE: used to have an asterisk instead of the x86_64... part, but it didn't seem to actually work

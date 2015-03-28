@@ -3,5 +3,5 @@ filename="$HOME/screenshots/$(date --utc +%FT%TZ).png"
 
 # Order matters in these commands so eog doesn't block cp.
 scrot -m "$filename"
-cp "$filename" "$HOME/screenshots/latest.png"
+cp "$filename" "$HOME/screenshots/screenshot.png"
 eog "$filename"

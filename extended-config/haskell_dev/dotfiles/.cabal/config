@@ -7,8 +7,11 @@
 -- Be careful with spaces and indentation because they are
 -- used to indicate layout for nested sections.
 
+-- Cabal library version: 1.22.0.0
+-- cabal-install version: 1.22.0.0
 
-require-sandbox: True
+
+-- require-sandbox: False
 -- ignore-sandbox: False
 remote-repo: hackage.haskell.org:http://hackage.haskell.org/packages/archive
 remote-repo-cache: /home/traveller/.cabal/packages
@@ -19,36 +22,40 @@ world-file: /home/traveller/.cabal/world
 -- compiler: ghc
 -- with-compiler:
 -- with-hc-pkg:
--- scratchdir:
 -- program-prefix: 
 -- program-suffix: 
 -- library-vanilla: True
--- library-profiling: False
+-- library-profiling:
 -- shared:
 -- executable-dynamic: False
--- executable-profiling: False
+-- profiling:
 -- optimization: True
--- library-for-ghci: False
+-- debug-info: False
+-- library-for-ghci:
 -- split-objs: False
 -- executable-stripping: True
 -- library-stripping: True
+-- configure-option:
 -- user-install: True
 -- package-db:
 -- flags:
 -- extra-include-dirs:
 -- extra-lib-dirs:
 extra-prog-path: /home/traveller/.cabal/bin
+-- instantiate-with:
 -- tests: False
--- library-coverage: False
+-- library-coverage:
+-- coverage: False
 -- exact-configuration: False
 -- benchmarks: False
+-- relocatable: False
 -- cabal-lib-version:
 -- constraint:
 -- preference:
 -- solver: choose
 -- allow-newer: False
 -- documentation: False
--- doc-index-file: $datadir/doc/index.html
+-- doc-index-file: $datadir/doc/$arch-$os-$compiler/index.html
 -- max-backjumps: 2000
 -- reorder-goals: False
 -- shadow-installed-packages: False
@@ -62,6 +69,7 @@ extra-prog-path: /home/traveller/.cabal/bin
 build-summary: /home/traveller/.cabal/logs/build.log
 -- build-log:
 remote-build-reporting: anonymous
+-- report-planning-failure: False
 -- one-shot: False
 -- run-tests:
 jobs: $ncpus
@@ -87,11 +95,11 @@ install-dirs user
   -- prefix: /home/traveller/.cabal
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
-  -- libsubdir: $arch-$os-$compiler/$pkgid
+  -- libsubdir: $abi/$pkgkey
   -- libexecdir: $prefix/libexec
   -- datadir: $prefix/share
-  -- datasubdir: $arch-$os-$compiler/$pkgid
-  -- docdir: $datadir/doc/$arch-$os-$compiler/$pkgid
+  -- datasubdir: $abi/$pkgid
+  -- docdir: $datadir/doc/$abi/$pkgid
   -- htmldir: $docdir/html
   -- haddockdir: $htmldir
   -- sysconfdir: $prefix/etc
@@ -100,11 +108,11 @@ install-dirs global
   -- prefix: /usr/local
   -- bindir: $prefix/bin
   -- libdir: $prefix/lib
-  -- libsubdir: $arch-$os-$compiler/$pkgid
+  -- libsubdir: $abi/$pkgkey
   -- libexecdir: $prefix/libexec
   -- datadir: $prefix/share
-  -- datasubdir: $arch-$os-$compiler/$pkgid
-  -- docdir: $datadir/doc/$arch-$os-$compiler/$pkgid
+  -- datasubdir: $abi/$pkgid
+  -- docdir: $datadir/doc/$abi/$pkgid
   -- htmldir: $docdir/html
   -- haddockdir: $htmldir
   -- sysconfdir: $prefix/etc
@@ -114,10 +122,11 @@ program-locations
   -- ar-location:
   -- c2hs-location:
   -- cpphs-location:
-  -- ffihugs-location:
   -- gcc-location:
   -- ghc-location:
   -- ghc-pkg-location:
+  -- ghcjs-location:
+  -- ghcjs-pkg-location:
   -- greencard-location:
   -- haddock-location:
   -- happy-location:
@@ -127,12 +136,10 @@ program-locations
   -- hpc-location:
   -- hsc2hs-location:
   -- hscolour-location:
-  -- hugs-location:
   -- jhc-location:
   -- ld-location:
   -- lhc-location:
   -- lhc-pkg-location:
-  -- nhc98-location:
   -- pkg-config-location:
   -- strip-location:
   -- tar-location:
@@ -143,10 +150,11 @@ program-default-options
   -- ar-options:
   -- c2hs-options:
   -- cpphs-options:
-  -- ffihugs-options:
   -- gcc-options:
   -- ghc-options:
   -- ghc-pkg-options:
+  -- ghcjs-options:
+  -- ghcjs-pkg-options:
   -- greencard-options:
   -- haddock-options:
   -- happy-options:
@@ -156,12 +164,10 @@ program-default-options
   -- hpc-options:
   -- hsc2hs-options:
   -- hscolour-options:
-  -- hugs-options:
   -- jhc-options:
   -- ld-options:
   -- lhc-options:
   -- lhc-pkg-options:
-  -- nhc98-options:
   -- pkg-config-options:
   -- strip-options:
   -- tar-options:
