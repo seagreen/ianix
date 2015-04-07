@@ -85,6 +85,8 @@
     notmuch
     nox
     pass
+    pkgconfig # For fanjam-api
+    imagemagick # For fanjam-api
     pwgen
     pylint
     python27

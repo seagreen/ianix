@@ -155,6 +155,7 @@
       full = "readlink -f";
 
       ci = "cabal install --only-dependencies --enable-tests";
+      crm = "cabal sandbox -- hc-pkg unregister";
       ghc-sandbox = "ghc -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
       ghci-sandbox = "ghci -no-user-package-db -package-db .cabal-sandbox/*-packages.conf.d";
       # NOTE: used to have an asterisk instead of the x86_64... part, but it didn't seem to actually work
