@@ -74,6 +74,7 @@
     htop
     i3lock
     ihaskell
+    inkscape # Edit pdfs
     jmtpfs
     jq
     libreoffice
@@ -81,12 +82,15 @@
     lynx
     mpd # Music Player Daemon
     mplayer # Required for my weechat beep command.
+    mumble
     nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
     nox
     pass
     pkgconfig # For fanjam-api
     imagemagick # For fanjam-api
+    yajl # For fanjam-api
+    httpie # for fanjam
     pwgen
     pylint
     python27
@@ -106,6 +110,7 @@
     weechat
     wget
     xclip # Let pass access the clipboard.
+    xvidcap # Video screenshots
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
   ];
 
