@@ -46,10 +46,6 @@
 
     interactiveShellInit =
       ''
-      # TODO: remove this soon, it's a temporary workaround to get colors in prompt:
-      # https://github.com/NixOS/nixpkgs/issues/5571
-      export FPATH=/nix/store/x9a29ypq4rpiwfskh5rha51ijib13cvj-zsh-5.0.7/share/zsh/5.0.7/functions:FPATH
-
       autoload -U colors && colors
 
       autoload -U compinit && compinit
