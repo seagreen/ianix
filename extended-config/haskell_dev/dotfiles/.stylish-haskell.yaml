@@ -31,7 +31,7 @@ steps:
       # - none: Do not perform any alignment.
       #
       # Default: global.
-      align: global
+      align: file
 
   # Language pragmas
   - language_pragmas:
