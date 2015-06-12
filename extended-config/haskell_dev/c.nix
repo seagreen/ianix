@@ -10,11 +10,11 @@
 
     # https://hackage.haskell.org/package/Cabal
     # haskellPackages.cabalInstall
-    haskellPackages.cabalInstall_1_22_0_0
+    haskellPackages.cabal-install
     # supposed to fix ghc mod problem
     # haskellPackages.cabalInstall_1_20_0_6
 
-    (haskellPackages_ghc784.ghcWithPackages (self : [
+    (haskell.packages.ghc7101.ghcWithPackages (self : [
       haskellPackages.zlib
     ]))
 
@@ -24,13 +24,15 @@
     haskellPackages.happy
 
     # For `yesod devel`.
-    haskellPackages.yesodBin
+    haskellPackages.yesod-bin
 
     # Tooling
-    haskellPackages.ghcMod
+
+    # BROKEN
+    # haskellPackages.ghc-mod
     haskellPackages.hdevtools
     haskellPackages.hlint
-    haskellPackages.hoogleLocal
-    haskellPackages.stylishHaskell
+    haskellPackages.hoogle
+    haskellPackages.stylish-haskell
   ];
 }

@@ -4,7 +4,9 @@
 
 { config, pkgs, ... }:
 
-{
+let
+  escoger = pkgs.haskellPackages.callPackage ./extended-nixpkgs/escoger { };
+in {
 
   ############################################################
   # Applications
@@ -42,6 +44,9 @@
     ./extended-config/haskell_dev/c.nix
     ./extended-config/networking/c.nix
     ./extended-config/virtualbox/c.nix
+
+    # From here: http://www.auntieneo.net/2014/12/14/reverse-ssh-tunnel-on-nixos-with-systemd/
+    ./extended-config/ssh-phone-home.nix
   ];
 
   # List packages installed in system profile.
@@ -51,6 +56,7 @@
     chromium
     darcs
     dia
+    escoger
     evince
     fabric
     fasd
@@ -61,10 +67,8 @@
     go
     gparted
     graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
-    guix
-    haskellPackages.aesonPretty
+    haskellPackages.aeson-pretty
     haskellPackages.cabal2nix
-    haskellPackages.escoger
     # Provides the `hakyll-init` executable, but not the Hakyll library
     # used by site.hs.
     haskellPackages.hakyll
@@ -73,9 +77,7 @@
     haskellPackages.packdeps
     htop
     i3lock
-    ihaskell
     inkscape # Edit pdfs
-    jmtpfs
     jq
     libreoffice
     liferea
@@ -91,6 +93,7 @@
     imagemagick # For fanjam-api
     yajl # For fanjam-api
     httpie # for fanjam
+    gnuplot
     pwgen
     pylint
     python27
@@ -165,7 +168,20 @@
   };
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    # passwordAuthentication = false;
+  };
+
+  # Enable the "SSH phone home" service for SSH reverse tunneling
+  services.ssh-phone-home = {
+    enable = true;
+    localUser = "traveller";
+    remoteUser = "traveller";
+    remoteHostname = "traveller.webfactional.com";
+    remotePort = 22;
+    bindPort = 28474;
+  };
 
   services.postgresql = {
     enable = true;
@@ -181,6 +197,8 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  virtualisation.docker.enable = true;
+
   ############################################################
   # Infrastructure
   ############################################################
@@ -193,7 +211,6 @@
   # setxkbmap settings:
   services.xserver.xkbOptions = "eurosign:e, caps:none";
 
-  # TODO: Is it good to have the TZ hardcoded? Also make sure ntp is working.
   time.timeZone = "America/New_York";
   services.ntp = {
     enable = true;
@@ -222,5 +239,8 @@
     createHome = true;
     home = "/home/traveller";
     shell = "${pkgs.zsh}/bin/zsh"; # Changes to this take effect on login.
+    openssh.authorizedKeys.keyFiles = [
+      "/home/traveller/.ssh/id_rsa.pub"
+    ];
   };
 }
