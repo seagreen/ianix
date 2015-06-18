@@ -24,4 +24,15 @@
       # Backups
       ./../extended-config/tarsnap/c.nix
     ];
+
+  networking.interfaces.enp3s0.ip4 = [ { address = "10.1.101.27"; prefixLength = 24; } ];
+  networking.defaultGateway = "10.1.101.1";
+  networking.nameservers = [ "66.18.32.2" "66.18.32.3" ];
+
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
+
 }

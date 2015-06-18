@@ -45,8 +45,6 @@ in {
     ./extended-config/networking/c.nix
     ./extended-config/virtualbox/c.nix
 
-    # From here: http://www.auntieneo.net/2014/12/14/reverse-ssh-tunnel-on-nixos-with-systemd/
-    ./extended-config/ssh-phone-home.nix
   ];
 
   # List packages installed in system profile.
@@ -82,6 +80,7 @@ in {
     libreoffice
     liferea
     lynx
+    mosh
     mpd # Music Player Daemon
     mplayer # Required for my weechat beep command.
     mumble
@@ -141,6 +140,29 @@ in {
     PYTHONDONTWRITEBYTECODE = "1";
   };
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql94;
+    port = 5432; # Make the default explicit.
+    authentication = pkgs.lib.mkForce
+      ''
+        local    all all                trust
+        host     all all 127.0.0.1/32   trust
+      '';
+  };
+
+  ############################################################
+  # Infrastructure
+  ############################################################
+
+  services.xserver.desktopManager.default = "none";
+
+  # X11 windowing system.
+  services.xserver.enable = true;
+  services.xserver.layout = "us";
+  # setxkbmap settings:
+  services.xserver.xkbOptions = "eurosign:e, caps:none";
+
   # The display manager "provides a graphical login prompt and
   # manages the X server" (from the NixOS manual).
   services.xserver.displayManager = {
@@ -151,6 +173,13 @@ in {
   services.xserver.displayManager.sessionCommands = ''
     sh /home/traveller/.fehbg
   '';
+
+  # Select internationalisation properties.
+  i18n = {
+    consoleFont = "lat9w-16";
+    consoleKeyMap = "us";
+    defaultLocale = "en_US.UTF-8";
+  };
 
   services.redshift = {
     enable = true;
@@ -167,61 +196,10 @@ in {
     agentTimeout = null; # Keep keys in memory forever.
   };
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    # passwordAuthentication = false;
-  };
-
-  # Enable the "SSH phone home" service for SSH reverse tunneling
-  services.ssh-phone-home = {
-    enable = true;
-    localUser = "traveller";
-    remoteUser = "traveller";
-    remoteHostname = "traveller.webfactional.com";
-    remotePort = 22;
-    bindPort = 28474;
-  };
-
-  services.postgresql = {
-    enable = true;
-    package = pkgs.postgresql94;
-    port = 5432; # Make the default explicit.
-    authentication = pkgs.lib.mkForce
-      ''
-        local    all all                trust
-        host     all all 127.0.0.1/32   trust
-      '';
-  };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
-  virtualisation.docker.enable = true;
-
-  ############################################################
-  # Infrastructure
-  ############################################################
-
-  services.xserver.desktopManager.default = "none";
-
-  # X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # setxkbmap settings:
-  services.xserver.xkbOptions = "eurosign:e, caps:none";
-
   time.timeZone = "America/New_York";
   services.ntp = {
     enable = true;
     servers = [ "server.local" "0.pool.ntp.org" "1.pool.ntp.org" "2.pool.ntp.org" ];
-  };
-
-  # Select internationalisation properties.
-  i18n = {
-    consoleFont = "lat9w-16";
-    consoleKeyMap = "us";
-    defaultLocale = "en_US.UTF-8";
   };
 
   # Unfortunately this makes password management tricky. See here:
