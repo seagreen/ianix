@@ -138,8 +138,12 @@ bind editor <Tab> complete-query
 # See here for explanation: http://joeclark.org/ffaq.html
 set text_flowed = yes
 
-# help fo-table from within vim for more info
-set editor="vim +'set fo+=aw'"
+# This prevents vim's mail settings from kicking in when I write messages in mutt.
+# They include hard wrapping lines. I don't want to hard wrap lines.
+#
+# TODO: look into overriding the mail settings or possibly not reading the system
+# vimrc at all.
+set editor="vim +'set filetype=text'"
 
 # Add an "open in browser" shortcut for attachments.
 macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html<enter>"
