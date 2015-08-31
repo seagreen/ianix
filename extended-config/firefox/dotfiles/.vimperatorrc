@@ -34,3 +34,5 @@ noremap <c-h> gT
 
 """ Clear the search buffer when you press ,/
 nmap <silent> ,/ :nohlsearch<CR>
+
+set editor="urxvt -e vim"

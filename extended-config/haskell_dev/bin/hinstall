@@ -1,0 +1,15 @@
+# ls -l `which postgres`
+# lrwxrwxrwx 1 root nixbld 76 Dec 31  1969 /run/current-system/sw/bin/postgres -> /nix/store/nhja8qswmwx2wbwvlkyzp7afw3k7nvhd-postgresql-9.4beta2/bin/postgres
+
+# ls /nix/store/*zlib-1*
+
+scr_zlib="/nix/store/q8hsj6q5vbzn64c0fydvyaa18gzgdavz-zlib-1.2.8"
+scr_postgres="/nix/store/v6lsa9f297msgyx3w8x0h8p3p74mnzmk-postgresql-9.4.4"
+
+cabal install \
+    --only-dependencies \
+    --enable-tests \
+    --force-reinstalls \
+    --extra-include-dirs=${scr_zlib}/include/ \
+    --extra-lib-dirs=${scr_zlib}/lib \
+    --extra-include-dirs=${scr_postgres}/include

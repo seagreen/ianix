@@ -54,6 +54,8 @@ in {
     chromium
     darcs
     dia
+    dropbox
+    dropbox-cli
     escoger
     evince
     fabric
@@ -67,13 +69,12 @@ in {
     graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
     haskellPackages.aeson-pretty
     haskellPackages.cabal2nix
-    # Provides the `hakyll-init` executable, but not the Hakyll library
-    # used by site.hs.
-    haskellPackages.hakyll
+    haskellPackages.idris
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     # (pkgs.haskellPackages.callPackage ./extended-nixpkgs/SourceGraph {})
     haskellPackages.packdeps
     htop
+    httpie
     i3lock
     inkscape # Edit pdfs
     jq
@@ -87,11 +88,11 @@ in {
     nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
     nox
+    pandoc
     pass
     pkgconfig # For fanjam-api
     imagemagick # For fanjam-api
     yajl # For fanjam-api
-    httpie # for fanjam
     gnuplot
     pwgen
     pylint
@@ -105,6 +106,12 @@ in {
     speedtest_cli
     stdenv # Includes `gcc` for C programming
     strategoPackages.strategoxt # Pretty print .drv file with `pp-aterm -i <file>.drv`
+    # Pandoc doesn't allow outputing of .pdfs without this as a dep. See here:
+    #     https://nixos.org/wiki/TexLive_HOWTO
+    #
+    # Removed simply because is was building slow:
+    # (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
+    (transmission.override { enableGTK3 = true;})
     tree
     unzip
     vimpc # Vim inspired client for mpd.
@@ -171,7 +178,8 @@ in {
   };
 
   services.xserver.displayManager.sessionCommands = ''
-    sh /home/traveller/.fehbg
+    sh /home/traveller/.fehbg &
+    dropbox &
   '';
 
   # Select internationalisation properties.

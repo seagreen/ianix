@@ -15,13 +15,13 @@
     # haskellPackages.cabalInstall_1_20_0_6
 
     (haskell.packages.ghc7101.ghcWithPackages (self : [
-      haskellPackages.zlib
     ]))
 
     gcc
     binutils # For the ar executable.
     haskellPackages.alex
     haskellPackages.happy
+    haskellPackages.zlib
 
     # For `yesod devel`.
     haskellPackages.yesod-bin

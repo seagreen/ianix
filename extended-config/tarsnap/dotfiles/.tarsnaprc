@@ -3,3 +3,5 @@ cachedir ~/.tarsnap-cache
 
 # Tarsnap key file
 keyfile /home/traveller/limited-tarsnap.key
+
+exclude ".cabal-sandbox/*"

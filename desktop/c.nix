@@ -29,6 +29,10 @@
   networking.defaultGateway = "10.1.101.1";
   networking.nameservers = [ "66.18.32.2" "66.18.32.3" ];
 
+  # networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [ 22 60000 ];
+  networking.firewall.allowedUDPPorts = [ 22 60000 ];
+
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;

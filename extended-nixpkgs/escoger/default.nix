@@ -4,6 +4,7 @@
 , vector-algorithms, vty
 ,fetchFromGitHub }:
 mkDerivation {
+  jailbreak = true;
   pname = "escoger";
   version = "0.1.0.0";
   src = fetchFromGitHub {

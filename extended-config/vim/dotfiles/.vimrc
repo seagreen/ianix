@@ -189,7 +189,7 @@ autocmd filetype html,xml set listchars-=tab:>.
 " colorscheme lucius
 " colorscheme paintbox
 " colorscheme jelleybeans
-colorscheme Tomorrow-Night-Blue
+colorscheme summerfruit256
 
 " Change the color of the 'airblade/vim-gitgutter' column.
 " highlight SignColumn ctermbg=black
