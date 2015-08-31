@@ -5,7 +5,7 @@
 #   F2 > Advanced > CPU Configuration > Intel Virtualization Technology > Enabled
 
 {
-  services.virtualboxHost.enable = true;
+  virtualisation.virtualbox.host.enable = true;
 
   # NOTE: Getting this message:
   #
