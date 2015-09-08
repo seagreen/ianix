@@ -53,7 +53,6 @@ in {
     camlistore
     chromium
     darcs
-    dia
     dropbox
     dropbox-cli
     escoger

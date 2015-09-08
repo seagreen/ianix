@@ -31,6 +31,7 @@ Plugin 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Plugin 'Pychimp/vim-luna'
 Plugin 'git@bitbucket.org:kisom/eink.vim.git'
 Plugin 'junegunn/seoul256.vim'
+Plugin 'gilgigilgil/anderson.vim'
 " Type :SCROLL or :COLORS to start. Use arrows to navigate. Hit ESC to stop.
 Plugin 'ScrollColors'
 
