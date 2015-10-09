@@ -1,9 +1,9 @@
 *.pyc
 *.swp
-*.DS_Store
 *._.
 *.fuse_hidden*
 *.dia~
+.DS_Store
 .cabal-sandbox
 cabal.sandbox.config
 dist

@@ -72,6 +72,7 @@ in {
     # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
     # (pkgs.haskellPackages.callPackage ./extended-nixpkgs/SourceGraph {})
     haskellPackages.packdeps
+    haskellPackages.stack
     htop
     httpie
     i3lock

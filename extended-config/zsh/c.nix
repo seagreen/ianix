@@ -172,7 +172,7 @@
 
       linth = "hlint --hint=/home/traveller/.hlint.hs";
 
-      lock = "systemctl suspend & i3lock";
+      lock = "i3lock"; # "systemctl suspend & i3lock";
 
       # -A flag shows dotfiles other than . and ..
       #
@@ -209,8 +209,6 @@
       # rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
 
       rss = "liferea";
-
-      serve = "python -m SimpleHTTPServer";
 
       unixtime = "date +%s";
 

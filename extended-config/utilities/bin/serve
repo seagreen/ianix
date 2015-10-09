@@ -1,0 +1,18 @@
+#!env python
+
+import SimpleHTTPServer
+import SocketServer
+import mimetypes
+
+PORT = 8000
+
+Handler = SimpleHTTPServer.SimpleHTTPRequestHandler
+
+# NOTE: Without this SVG images don't display correctly.
+# From here: http://gotmetoo.blogspot.fr/2013/07/python-simple-http-server-with-svg.html
+Handler.extensions_map['.svg']='image/svg+xml'
+
+httpd = SocketServer.TCPServer(("", PORT), Handler)
+
+print "serving at port", PORT
+httpd.serve_forever()#!/usr/bin/python
