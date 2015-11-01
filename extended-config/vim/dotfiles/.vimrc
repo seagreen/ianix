@@ -23,7 +23,9 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 Plugin 'bitc/vim-hdevtools'
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
-" Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/syntastic'
+Plugin 'eagletmt/neco-ghc'
+
 
 " Non-language specific appearance
 Plugin 'flazz/vim-colorschemes'
@@ -126,6 +128,11 @@ let g:gofmt_command="goimports"
 " Haskell
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+" Disable haskell-vim omnifunc
+let g:haskellmode_completion_ghc = 0
+let g:necoghc_debug = 0
+autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+
 " From here: http://vim.wikia.com/wiki/Remove_unwanted_spaces
 "
 " It would be cool to use a general function to preserve cursor position,
@@ -181,18 +188,18 @@ autocmd filetype html,xml set listchars-=tab:>.
 " setting the color for tabs to pink, then the native tab color for the
 " colorsheme will be overridden.
 "
-" colorscheme badwolf
-" colorscheme eink
-" colorscheme moss
-" colorscheme mrkn256
-" colorscheme zenburn
-" colorscheme Tomorrow-Night-Blue
-" colorscheme lucius
-" colorscheme paintbox
-" colorscheme jelleybeans
-" colorscheme summerfruit256
-" colorscheme paintbox
-colorscheme CodeFactoryv3
+" colo badwolf
+" colo eink
+" colo moss
+" colo mrkn256
+" colo zenburn
+" colo Tomorrow-Night-Blue
+" colo lucius
+" colo paintbox
+colo jelleybeans
+" colo summerfruit256
+" colo CodeFactoryv3
+" colo Tomorrow
 
 " Change the color of the 'airblade/vim-gitgutter' column.
 " highlight SignColumn ctermbg=black

@@ -13,6 +13,4 @@
   users.extraGroups.networkmanager.members = [ "root" ];
 
   # networking.wireless.enable = true;
-
-  services.openvpn.enable = true;
 }

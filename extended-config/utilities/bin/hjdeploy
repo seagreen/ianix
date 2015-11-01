@@ -1,0 +1,9 @@
+#/usr/bin/env sh
+
+rsync \
+  --delete \
+  --archive \
+  --rsh ssh \
+  --verbose \
+  /home/traveller/code/mine/hjexec/_site/ \
+  webfaction:/home/traveller/webapps/housejeffries_static

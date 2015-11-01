@@ -57,7 +57,6 @@ in {
     dropbox-cli
     escoger
     evince
-    fabric
     fasd
     feh
     ffmpeg # Dep of youtubeDL
@@ -69,8 +68,7 @@ in {
     haskellPackages.aeson-pretty
     haskellPackages.cabal2nix
     haskellPackages.idris
-    # haskellPackages.SourceGraph # graphviz is a dep # BROKEN
-    # (pkgs.haskellPackages.callPackage ./extended-nixpkgs/SourceGraph {})
+    haskellPackages.SourceGraph # graphviz is a dep
     haskellPackages.packdeps
     haskellPackages.stack
     htop
