@@ -48,26 +48,13 @@
       ''
       autoload -U colors && colors
 
+      fpath=(${pkgs.pass}/share/zsh/site-functions $fpath)
       autoload -U compinit && compinit
 
       # Set zsh to vi mode.
       bindkey -v
 
-      # Allow function execution in prompt.
-      setopt prompt_subst
-
-      function cabal_sandbox_info() {
-          cabal_files=(*.cabal(N))
-          if [ $#cabal_files -gt 0 ]; then
-              if [ -f cabal.sandbox.config ]; then
-                  echo "%{$fg[green]%}sandboxed%{$reset_color%}"
-              else
-                  echo "%{$fg[red]%}not sandboxed%{$reset_color%}"
-              fi
-          fi
-      }
-      RPROMPT="\$(cabal_sandbox_info) $RPROMPT"
-
+      plugins=(pass)
 
 
       ############################################################
