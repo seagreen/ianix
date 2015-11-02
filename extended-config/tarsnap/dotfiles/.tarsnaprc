@@ -5,3 +5,4 @@ cachedir ~/.tarsnap-cache
 keyfile /home/traveller/limited-tarsnap.key
 
 exclude ".cabal-sandbox/*"
+exclude "/home/traveller/.stack"

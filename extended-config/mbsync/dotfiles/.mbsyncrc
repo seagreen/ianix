@@ -1,6 +1,6 @@
 # Notes
 #
-# UseIMAPS -- Turn on SSL.
+# SSLType - Select the connection security/encryption method.
 # Path -- The trailing "/" is important.
 # Expunge Both -- Added by me.
 # Patterns * -- Include everything. Use for non-Gmail accounts.
@@ -16,7 +16,7 @@ IMAPAccount ian_house
 Host mail.webfaction.com
 User ian_inbox
 PassCmd "pass-plain ian_house"
-UseIMAPS yes
+SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-bundle.crt
 
 IMAPStore ian_house-remote
@@ -41,7 +41,7 @@ IMAPAccount fanjam
 Host imap.gmail.com
 User ian@fanjam.com
 PassCmd "pass-plain fanjam-gmail"
-UseIMAPS yes
+SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-bundle.crt
 
 IMAPStore fanjam-remote
@@ -65,7 +65,7 @@ IMAPAccount ianspiral
 Host imap.gmail.com
 User ianspiral@gmail.com
 PassCmd "pass-plain ianspiral"
-UseIMAPS yes
+SSLType IMAPS
 CertificateFile /etc/ssl/certs/ca-bundle.crt
 
 IMAPStore ianspiral-remote
