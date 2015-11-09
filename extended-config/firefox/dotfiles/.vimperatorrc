@@ -8,7 +8,9 @@
 " Also you have to do this once per window, so restarting
 " Firefox may be faster.
 
-
+" To delete search engines:
+"
+" :dialog searchengines
 
 noremap ; :
 
