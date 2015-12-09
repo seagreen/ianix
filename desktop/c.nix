@@ -27,7 +27,7 @@
 
   networking.interfaces.enp3s0.ip4 = [ { address = "10.1.101.27"; prefixLength = 24; } ];
   networking.defaultGateway = "10.1.101.1";
-  networking.nameservers = [ "66.18.32.2" "66.18.32.3" ];
+  networking.nameservers = [ "8.8.8.8" ];
 
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 22 60000 ];

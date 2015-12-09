@@ -86,6 +86,7 @@ in {
     nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
     nox
+    openvpn
     pandoc
     pass
     pkgconfig # For fanjam-api
@@ -116,6 +117,7 @@ in {
     vlc
     weechat
     wget
+    xboard
     xclip # Let pass access the clipboard.
     xvidcap # Video screenshots
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
