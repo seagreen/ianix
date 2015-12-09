@@ -10,6 +10,6 @@ cabal install \
     --only-dependencies \
     --enable-tests \
     --force-reinstalls \
-    --extra-include-dirs=${scr_zlib}/include/ \
+    --extra-include-dirs=${scr_zlib}/include \
     --extra-lib-dirs=${scr_zlib}/lib \
     --extra-include-dirs=${scr_postgres}/include

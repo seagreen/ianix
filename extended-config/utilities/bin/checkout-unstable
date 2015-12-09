@@ -1,5 +1,8 @@
 #!/usr/bin/env sh
 
-hash=$(git ls-remote https://github.com/NixOS/nixpkgs-channels | grep nixos-unstable | grep -v nixos-unstable-small | head -c 7)
+# Set up using nixos-checkout
+# https://nixos.org/nixos/manual/index.html#ch-development
 cd ~/code/nixpkgs
-git checkout $hash
+git fetch origin
+git fetch channels
+git pull channels nixos-unstable

@@ -5,6 +5,7 @@ import "hint" HLint.HLint
 ignore "Reduce duplication"
 ignore "Redundant do"
 ignore "Use if"
-ignore "Use infix"
+ignore "Use import/export shortcut"
+ignore "use infix"
 ignore "Use isNothing"
 ignore "Redundant as"
