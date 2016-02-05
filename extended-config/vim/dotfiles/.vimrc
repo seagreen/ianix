@@ -197,8 +197,8 @@ autocmd filetype html,xml set listchars-=tab:>.
 " colo Tomorrow-Night-Blue
 " colo lucius
 " colo paintbox
-colo jelleybeans
-" colo summerfruit256
+" colo jelleybeans
+colo summerfruit256
 " colo CodeFactoryv3
 " colo Tomorrow
 
@@ -278,8 +278,10 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " http://vimdoc.sourceforge.net/htmldoc/options.html#%27backspace%27
 set backspace=2
 
-" Mouse scrolling is unusably buggy in urxvt without this.
-" set mouse=a
+" Allow you to scroll using the mouse.
+"
+" This setting needs to be turned off when using Vim over SSH.
+set mouse=a
 
 " Don't create a ~/.vim/.netrwhist file.
 let g:netrw_dirhistmax=0

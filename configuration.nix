@@ -52,6 +52,7 @@ in {
     bvi # Hex editor
     camlistore
     chromium
+    cloc
     darcs
     dropbox
     dropbox-cli
@@ -63,14 +64,11 @@ in {
     gnome3.eog
     (gnupg.override { pinentry = pinentry; })
     go
+    gnumake
     gparted
-    graphviz # Provides the `dot` executable. Dep of haskellPackages.SourceGraph
+    graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
-    haskellPackages.cabal2nix
     haskellPackages.idris
-    haskellPackages.SourceGraph # graphviz is a dep
-    haskellPackages.packdeps
-    haskellPackages.stack
     htop
     httpie
     i3lock
@@ -101,10 +99,8 @@ in {
     python27Packages.virtualenv
     redis
     silver-searcher
-    sloccount
     speedtest_cli
     stdenv # Includes `gcc` for C programming
-    strategoPackages.strategoxt # Pretty print .drv file with `pp-aterm -i <file>.drv`
     # Pandoc doesn't allow outputing of .pdfs without this as a dep. See here:
     #     https://nixos.org/wiki/TexLive_HOWTO
     #
@@ -179,7 +175,8 @@ in {
 
   services.xserver.displayManager.sessionCommands = ''
     sh /home/traveller/.fehbg &
-    dropbox &
+    xmobar                    &
+    dropbox                   &
   '';
 
   # Select internationalisation properties.
@@ -191,9 +188,17 @@ in {
 
   services.redshift = {
     enable = true;
-    # Latitude and longitude are required, but accept empty strings.
-    latitude = "";
-    longitude = "";
+    # http://jonls.dk/redshift/
+    #
+    # When you specify a location manually, note that a location south of equator
+    # has a negative latitude and a location west of Greenwich (e.g the Americas)
+    # has a negative longitude.
+    latitude = "35";
+    longitude = "-82";
+    temperature = {
+      day = 5500;
+      night = 1500;
+    };
   };
   # Sudden restarts aren't fun on the eyes.
   systemd.services.redshift.restartIfChanged = false;
@@ -202,6 +207,17 @@ in {
   programs.ssh = {
     startAgent = true;
     agentTimeout = null; # Keep keys in memory forever.
+  };
+
+  services.openvpn.servers = {
+    # systemctl start openvpn-east
+    east = {
+      config = ''
+          cd /home/traveller/code/notes_vivaine/vpn
+          config "/home/traveller/code/notes_vivaine/vpn/US East.ovpn"
+      '';
+      autoStart = false;
+    };
   };
 
   time.timeZone = "America/New_York";

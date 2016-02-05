@@ -94,6 +94,9 @@
       #
       # I tried to set this is sessionVariables, but it overrode root's $PATH.
       export PATH="$GOPATH/bin:$GOROOT/bin:$PATH";
+
+      export POSTGRES_PATH="${pkgs.postgresql}";
+      export ZLIB_PATH="${pkgs.zlib}";
       '';
 
     # Using mkForce to totally override the default settings.

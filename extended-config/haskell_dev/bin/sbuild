@@ -1,10 +1,6 @@
 #/usr/bin/env sh
 
-# see hinstall for how to derive these:
-scr_zlib="/nix/store/q8hsj6q5vbzn64c0fydvyaa18gzgdavz-zlib-1.2.8"
-scr_postgres="/nix/store/v6lsa9f297msgyx3w8x0h8p3p74mnzmk-postgresql-9.4.4"
-
 stack build \
-    --extra-include-dirs=${scr_zlib}/include/ \
-    --extra-lib-dirs=${scr_zlib}/lib \
-    --extra-include-dirs=${scr_postgres}/include
+    --extra-include-dirs=${ZLIB_PATH}/include/ \
+    --extra-lib-dirs=${ZLIB_PATH}/lib \
+    --extra-include-dirs=${POSTGRES_PATH}/include
