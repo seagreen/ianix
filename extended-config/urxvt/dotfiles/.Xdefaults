@@ -10,11 +10,7 @@
 
 URxvt.scrollBar: false
 
-! I prefer this, but there is a bug where underscores are invisible:
-! URxvt.font: xft:DejavuSansMono:pixelsize=14
-
 URxvt.font: xft:LiberationMono:pixelsize=15
 
-! The tomorrow-theme directory is actually managed by vim's Vundle, so it's
-! not really right to use it from here.
-#include "/home/traveller/.vim/bundle/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"
+! Syntax for colorschemes:
+#include "/home/traveller/code/mine/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"

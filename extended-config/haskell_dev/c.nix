@@ -10,7 +10,9 @@
 
     haskellPackages.cabal-install
 
-    (haskell.packages.ghc7102.ghcWithPackages (self : [
+    (haskell.packages.lts-5_1.ghcWithPackages (self : [
+      self.hlint # ghc-mod installs it anyway
+      self.ghc-mod
     ]))
 
     gcc
@@ -26,9 +28,6 @@
 
     # Tooling
     haskellPackages.cabal2nix
-    haskellPackages.ghc-mod
-    haskellPackages.hdevtools
-    haskellPackages.hlint
     haskellPackages.hoogle
     haskellPackages.packdeps
     haskellPackages.stylish-haskell

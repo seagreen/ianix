@@ -4,29 +4,20 @@ import os
 from os import listdir
 from os.path import join
 
-
 home_bin = join(os.path.expanduser('~'), 'bin')
-src = "/home/traveller/code/vivaine/extended-config"
-
+source = "/home/traveller/code/vivaine/extended-config"
 
 def main():
-
     if not os.path.exists(home_bin):
         os.mkdir(home_bin)
 
     # A list of absolute paths of executables we need to symlink to.
-    execs = get_files(src, 'bin')
+    for i in get_files(source, 'bin'):
+        make_symlink(i, join(home_bin, os.path.basename(i)))
 
-    for i in execs:
-        symlink = os.path.basename(i)
-        symlink_path = join(home_bin, symlink)
-        make_symlink(i, symlink_path)
-
-
-###############################################################################
+############################################################
 # mini-library (this code is duplicated in link_dotfiles)
-###############################################################################
-
+############################################################
 
 def make_symlink(file_name, link_name):
     try:
@@ -37,7 +28,6 @@ def make_symlink(file_name, link_name):
             print "File exists at %s" % link_name
         else:
             print "OSError: %s" % e.strerror
-
 
 def get_files(src, target):
     """
@@ -55,7 +45,6 @@ def get_files(src, target):
                 for j in listdir(target_path):
                     files.append(join(target_path, j))
     return files
-
 
 if __name__ == '__main__':
     main()

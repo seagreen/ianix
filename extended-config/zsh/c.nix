@@ -135,7 +135,7 @@
       # cd to a directory below you.
       ecd = "cd $(find * -name .git -a -type d -prune -o -type d -print | escoger)";
       # open file below you in vim
-      ev = "vim $(find * -name .git -a -type d -prune -o -type f -print | escoger)";
+      ev = "nvim $(find * -name .git -a -type d -prune -o -type f -print | escoger)";
 
       # Print absolute path to file.
       full = "readlink -f";
@@ -174,6 +174,8 @@
       # LC_COLLATE=C shows dotfiles first, instead of mixed through the output.
       ls = "LC_COLLATE=C ls -A --color=auto";
 
+      tree = "tree -a";
+
       lorem = "xclip ~/vivaine/vivaine/extended-config/utilities/lorem_ipsum.txt";
 
       # Make a nice password.
@@ -198,15 +200,19 @@
       #
       # rot13 = "tr '[A-Za-z]' '[N-ZA-Mn-za-m]'";
 
-      rss = "liferea";
-
       unixtime = "date +%s";
 
       # Custom fasd command to open a file with vim.
-      v = "f -e vim";
+      v = "f -e nvim";
 
-      # -p[N]    Open N tab pages.  When N is omitted, open one tab page for each file.
-      vim = "vim -p";
+      # When given multiple filepaths as arguments to vim, open each
+      # in a separate tab.
+      vi = "nvim";
+      vim = "nvim";
+      nvim = "nvim -p";
+      vimdiff = "\\nvim -d"; # Because `nvim -dp` just opens the two files as tabs without diffing.
+                             # NOTE: The double backslash escapces to a single backslash, which
+                             # bypasses the previous alias of `nvim=nvim -p`.
 
       yt = "youtube-dl --extract-audio --audio-format vorbis";
     };

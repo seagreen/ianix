@@ -1,0 +1,33 @@
+# See here:
+# http://docs.webfaction.com/user-guide/email.html#automatically-filtering-email
+
+:0:
+* ^X-Spam-Level: \*\*\*\*\*
+.ian_junk/
+
+# I tried to put mailing lists in ~/Mail/ian_house/Mailing_Lists/list
+# but I don't think procmailrc wanted to go 2 deep (Mailing_lists/list)
+
+:0:
+* ^TO_trilug-announce@trilug.org
+.trilug-announce/
+
+:0:
+* ^TO_trilug@trilug.org
+.trilug/
+
+:0:
+* ^TO_trilug-ontopic@trilug.org
+.trilug-ontopic/
+
+:0:
+* ^TO_lug@lists.ncsu
+.ncsulug/
+
+:0:
+* ^TO_tent.dev@librelist.com
+.tent/
+
+:0:
+* ^TO_camlistore@googlegroups.com
+.camlistore/

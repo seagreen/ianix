@@ -36,10 +36,8 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 2. `./link_bin_files`
 
-3. `git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim`
+3. Download the urxvt colorscheme you'd like to use, update the path to it in ~/.Xdefaults, and reload .Xdefaults (reload instructions are in a comment at the top of the file).
 
 4. Make sure your shell aliases are loaded with `exec zsh`, then run `background-fill wallpaper.png`.
 
-5. Move a copy of `.vimrc` and `.vim` to `/root`.
-
-6. `mkdir ~/screenshots`
+5. `mkdir ~/screenshots`

@@ -29,14 +29,14 @@
   # networking.defaultGateway = "10.1.101.1";
   networking.nameservers = [ "8.8.8.8" ];
 
-  # networking.firewall.enable = false;
-  # networking.firewall.allowedTCPPorts = [ 22 60000 ];
-  # networking.firewall.allowedUDPPorts = [ 22 60000 ];
+  networking.firewall.enable = false;
+  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedUDPPorts = [ 22 ];
 
-  # # Enable the OpenSSH daemon.
-  # services.openssh = {
-  #   enable = true;
-  #   passwordAuthentication = false;
-  # };
+  # Enable the OpenSSH daemon.
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = false;
+  };
 
 }

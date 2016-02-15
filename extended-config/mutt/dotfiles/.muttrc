@@ -51,7 +51,6 @@ folder-hook $folder set pgp_autosign=no
 macro index \Ch 'c ~/mail/ian_house/Inbox<enter>'
 
 
-
 ###############################################################################
 # mailing lists for ian@housejeffries.com
 ###############################################################################
@@ -61,14 +60,17 @@ macro index \Ch 'c ~/mail/ian_house/Inbox<enter>'
 #
 # This allows list-reply to work correctly which lets you correctly send
 # mail to the mailing list.
-subscribe trilug trilug-ontopic lug@lists.ncsu.edu tent.dev@librelist.com chattlab-list@googlegroups.com
+#
+# http://www.mutt.org/doc/manual/manual-3.html#lists
+# > Specify as much of the address as you need to to remove ambiguity.
+subscribe trilug trilug-ontopic lug@lists.ncsu.edu tent.dev@librelist.com camlistore
 
 folder-hook $HOME/mail/ian_house/trilug-annouce set sort=threads
 folder-hook $HOME/mail/ian_house/trilug         set sort=threads
 folder-hook $HOME/mail/ian_house/trilug-ontopic set sort=threads
 folder-hook $HOME/mail/ian_house/ncsulug        set sort=threads
 folder-hook $HOME/mail/ian_house/tent           set sort=threads
-folder-hook $HOME/mail/ian_house/chattlab       set sort=threads
+folder-hook $HOME/mail/ian_house/camlistore     set sort=threads
 
 
 ###############################################################################
@@ -143,7 +145,7 @@ set text_flowed = yes
 #
 # TODO: look into overriding the mail settings or possibly not reading the system
 # vimrc at all.
-set editor="vim +'set filetype=text'"
+set editor="nvim +'set filetype=text'"
 
 # Add an "open in browser" shortcut for attachments.
 macro attach 'V' "<pipe-entry>cat >~/.cache/mutt/mail.html && firefox ~/.cache/mutt/mail.html<enter>"

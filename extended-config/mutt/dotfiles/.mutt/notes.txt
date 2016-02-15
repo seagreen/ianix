@@ -1,0 +1,18 @@
+~~~~~
+To subscribe to a new list:
+
+1. Subscribe
+
+for google groups email <groupname>+subscribe@googlegroups.com
+from here: http://webapps.stackexchange.com/a/15593
+
+2. Change .muttrc
+
+3. Change procmailrc and upload it to webfaction
+
+Webfaction Control Panel > E-MAILS > Mailboxes > ian_inbox
+
+~~~~~
+Folder deletions don't propogate from local --> remove, so you have to delete the folders manually through webfaction's email webapp.
+
+~~~~~

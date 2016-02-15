@@ -49,7 +49,6 @@ in {
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    bvi # Hex editor
     camlistore
     chromium
     cloc
@@ -75,7 +74,6 @@ in {
     inkscape # Edit pdfs
     jq
     libreoffice
-    liferea
     lynx
     mosh
     mpd # Music Player Daemon
@@ -84,7 +82,6 @@ in {
     nix-repl # Basic use: nix-repl '<nixos>'
     notmuch
     nox
-    openvpn
     pandoc
     pass
     pkgconfig # For fanjam-api
@@ -121,7 +118,7 @@ in {
 
   # NOTE: changes to this take effect on login.
   environment.sessionVariables = {
-    EDITOR = "vim";
+    EDITOR = "nvim";
 
     # http://golang.org/doc/install
     GOPATH = "/home/traveller/code/go";
@@ -194,10 +191,10 @@ in {
     # has a negative latitude and a location west of Greenwich (e.g the Americas)
     # has a negative longitude.
     latitude = "35";
-    longitude = "-82";
+    longitude = "-90"; # Actually about -82, but I wanted redshift to start later.
     temperature = {
       day = 5500;
-      night = 1500;
+      night = 2500;
     };
   };
   # Sudden restarts aren't fun on the eyes.
@@ -213,8 +210,8 @@ in {
     # systemctl start openvpn-east
     east = {
       config = ''
-          cd /home/traveller/code/notes_vivaine/vpn
-          config "/home/traveller/code/notes_vivaine/vpn/US East.ovpn"
+        cd /home/traveller/code/notes_vivaine/vpn
+        config "/home/traveller/code/notes_vivaine/vpn/US East.ovpn"
       '';
       autoStart = false;
     };

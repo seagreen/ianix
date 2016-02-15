@@ -1,0 +1,17 @@
+" https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/vim-utils.nix
+"
+" Dependencies: you must have the vim2nix vim plugin installed.
+"
+" Example use:
+"
+" 1. Open the `plugins-to-create` file and list the official names
+" of the plugins you want in it (you can fine a list of names
+" here: http://vam.mawercer.de/).
+"
+" 2. From that file (in Vim) run `:source vim2nix-script`.
+
+let opts = {}
+let opts.path_to_nixpkgs = '~/code/nixpkgs'
+let opts.cache_file = '/tmp/export-vim-plugin-for-nix-cache-file'
+let opts.plugin_dictionaries = map(readfile("plugins-to-create"), 'eval(v:val)')
+call nix#ExportPluginsForNix(opts)

@@ -4,26 +4,34 @@ import os
 from os import listdir
 from os.path import join
 
-
 home = os.path.expanduser('~')
-src = "/home/traveller/code/vivaine/extended-config"
-
+source = "/home/traveller/code/vivaine/extended-config"
 
 def main():
+    dot_config = join(home, ".config")
+    if not os.path.exists(dot_config):
+        os.mkdir(dot_config)
 
-    # A list of absolute paths to dotfiles we need to symlink to.
-    dotfiles = get_files(src, 'dotfiles')
+    # Not all dotfiles are stored in /home/user
+    #
+    # Some are stored in /home/user/.config.
+    #
+    # In order to handle this we've abstracted out the symlinking
+    # process so that we can makes links from ~ to all the files
+    # in "dotfiles" directories and from ~/.config to all the files
+    # in "configfiles" directories.
+    make_links(home, "dotfiles")
+    make_links(dot_config, "configfiles")
 
-    for i in dotfiles:
-        symlink_filename = os.path.basename(i)
-        symlink_path = join(home, symlink_filename)
-        make_symlink(i, symlink_path)
+def make_links(link_dir, dir_name):
+    source_files = get_files(source, dir_name)
 
+    for i in source_files:
+        make_symlink(i, join(link_dir, os.path.basename(i)))
 
-###############################################################################
+############################################################
 # mini-library (this code is duplicated in link_bin_files)
-###############################################################################
-
+############################################################
 
 def make_symlink(file_name, link_name):
     try:
@@ -34,7 +42,6 @@ def make_symlink(file_name, link_name):
             print "File exists at %s" % link_name
         else:
             print "OSError: %s" % e.strerror
-
 
 def get_files(src, target):
     """
@@ -52,7 +59,6 @@ def get_files(src, target):
                 for j in listdir(target_path):
                     files.append(join(target_path, j))
     return files
-
 
 if __name__ == '__main__':
     main()
