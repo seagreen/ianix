@@ -10,6 +10,8 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 # Install
 
+(NOTE: This will usually be out of date if I haven't done a fresh install in a while)
+
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
 2. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. There are also some hardcoded links to this directory, which is `/home/traveller/vivaine/vivaine` on my computer. Fix those as well.
