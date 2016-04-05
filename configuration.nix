@@ -52,7 +52,6 @@ in {
     camlistore
     chromium
     cloc
-    darcs
     dropbox
     dropbox-cli
     escoger
@@ -67,7 +66,6 @@ in {
     gparted
     graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
-    haskellPackages.idris
     htop
     httpie
     i3lock
@@ -76,7 +74,6 @@ in {
     libreoffice
     lynx
     mosh
-    mpd # Music Player Daemon
     mplayer # Required for my weechat beep command.
     mumble
     nix-repl # Basic use: nix-repl '<nixos>'
@@ -84,9 +81,6 @@ in {
     nox
     pandoc
     pass
-    pkgconfig # For fanjam-api
-    imagemagick # For fanjam-api
-    yajl # For fanjam-api
     gnuplot
     pwgen
     pylint
@@ -106,7 +100,6 @@ in {
     (transmission.override { enableGTK3 = true;})
     tree
     unzip
-    vimpc # Vim inspired client for mpd.
     vlc
     weechat
     wget
