@@ -215,6 +215,8 @@
                              # bypasses the previous alias of `nvim=nvim -p`.
 
       yt = "youtube-dl --extract-audio --audio-format vorbis";
+
+      srebuild = "stack build --ghc-options=\"-fforce-recomp\"";
     };
   };
 }

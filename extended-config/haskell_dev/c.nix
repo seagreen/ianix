@@ -10,7 +10,9 @@
 
     haskellPackages.cabal-install
 
-    (haskell.packages.lts-5_9.ghcWithPackages (self : [
+
+    # haskellPackages_ghc783
+    (haskell.packages.ghc801.ghcWithPackages (self : [
       self.hlint # ghc-mod installs it anyway
       self.ghc-mod
     ]))
@@ -32,16 +34,16 @@
     haskellPackages.packdeps
     haskellPackages.stylish-haskell
 
-    # for the ihaskell-notebook executable, used with
-    #
-    # stack exec -- ihaskell-notebook
-    #
-    # The idea is to use this command when I want to run ihaskell
-    # with extra packages (either mine or others) and to use
-    # `servies.ihaskell.enable, which will always start first
-    # and take port 8888, when I want to use vanilla ihaskell.
-    ihaskell
+    # # for the ihaskell-notebook executable, used with
+    # #
+    # # stack exec -- ihaskell-notebook
+    # #
+    # # The idea is to use this command when I want to run ihaskell
+    # # with extra packages (either mine or others) and to use
+    # # `servies.ihaskell.enable, which will always start first
+    # # and take port 8888, when I want to use vanilla ihaskell.
+    # ihaskell
   ];
 
-  services.ihaskell.enable = true;
+  # services.ihaskell.enable = true;
 }

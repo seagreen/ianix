@@ -25,18 +25,18 @@
       # ./../extended-config/tarsnap/c.nix
     ];
 
-  # networking.interfaces.enp3s0.ip4 = [ { address = "10.1.101.27"; prefixLength = 24; } ];
-  # networking.defaultGateway = "10.1.101.1";
   networking.nameservers = [ "8.8.8.8" ];
 
-  networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  networking.firewall.allowedUDPPorts = [ 22 ];
+  networking.firewall.enable = true;
+  # Note that when openssh is enabled port 22 is opened automatically.
+  networking.firewall.allowedTCPPorts = [ 2213 62213 62214 ];
+  networking.firewall.allowedUDPPorts = [ 2213 62213 62214 ];
 
   # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     passwordAuthentication = false;
+    ports = [ 2213 ];
   };
 
 }

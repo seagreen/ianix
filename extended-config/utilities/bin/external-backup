@@ -1,0 +1,7 @@
+destination="/run/media/traveller/yingyang/backupTravellerLessMassive/"
+date=`date "+%Y-%m-%dT%H:%M:%S"`
+
+# To do a dry run add --dry-run to rsync and comment out the last two lines.
+rsync -av --exclude-from "/home/traveller/code/vivaine/extended-config/utilities/exclude.conf" --link-dest=${destination}current /home/traveller/ ${destination}${date}
+unlink ${destination}current
+ln -s ${destination}${date} ${destination}current

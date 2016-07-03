@@ -1,7 +1,6 @@
 import "hint" HLint.HLint
--- import "hint" HLint.Default
--- import "hint" HLint.Dollar
 
+ignore "Avoid lambda"
 ignore "Reduce duplication"
 ignore "Redundant do"
 ignore "Use if"

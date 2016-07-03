@@ -3,8 +3,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 set expandtab
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 set autoindent
 
@@ -109,10 +109,10 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " See here for a discussion on deterministic JSON with jq:
 " https://github.com/stedolan/jq/issues/79
 "
-" I'm not sure if the current FormatJSON is deterministic,
+" I'm not sure if the current function is deterministic,
 " but adding -c (for compact JSON without spaces) would make
 " it so.
-command FormatJSON :%!jq --sort-keys '.'
+command JSONFormat :%!jq --indent 2 --sort-keys '.'
 
 " nvie.com/posts/how-i-boosted-my-vim/
 "

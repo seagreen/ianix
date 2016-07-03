@@ -77,21 +77,21 @@ in {
     mplayer # Required for my weechat beep command.
     mumble
     nix-repl # Basic use: nix-repl '<nixos>'
+    nmap
     notmuch
     nox
     pandoc
     pass
     gnuplot
     pwgen
-    pylint
     python27
     python27Packages.ipython
-    python27Packages.pyflakes
-    python27Packages.virtualenv
     redis
+    shotwell
     silver-searcher
     speedtest_cli
     stdenv # Includes `gcc` for C programming
+    tmux
     # Pandoc doesn't allow outputing of .pdfs without this as a dep. See here:
     #     https://nixos.org/wiki/TexLive_HOWTO
     #
