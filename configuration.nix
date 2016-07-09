@@ -58,6 +58,7 @@ in {
     evince
     fasd
     feh
+    file
     ffmpeg # Dep of youtubeDL
     gnome3.eog
     (gnupg.override { pinentry = pinentry; })
