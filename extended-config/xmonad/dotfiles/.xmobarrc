@@ -11,7 +11,6 @@ Config { font = "xft:Hack:pixelsize=12"
                     , Run ThermalZone 0 [] 500
                     , Run ThermalZone 1 [] 500
                     , Run ThermalZone 2 [] 500
-                    , Run Com "nvidia-settings" ["-q", "gpucoretemp", "-t"] "gt" 50
                     , Run Com "uname" ["-s","-r"] "" 36000
                     , Run CoreTemp ["-t", "CPU:<core0>|<core1>|<core2>|<core3>°C"
                                    ,"-L", "40", "-H", "60"
@@ -19,5 +18,5 @@ Config { font = "xft:Hack:pixelsize=12"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %multicpu% | %memory% }{ %coretemp% GPU: %gt%°C SYS: %thermal0% %thermal1% %thermal2% | <fc=white> %uname% </fc>"
+       , template = " %multicpu% | %memory% }{ %coretemp% SYS: %thermal0% %thermal1% %thermal2% | <fc=white> %uname% </fc>"
        }

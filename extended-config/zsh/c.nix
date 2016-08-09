@@ -86,9 +86,9 @@
 
       # TODO: without this wrapper, attempting to switch to root with `su` doesn't work.
       # Additionally, after attempting to do so, `exit` wouldn't work either.
-      if [ $(whoami) != "root" ]; then
-          eval "$(gpg-agent --daemon)"
-      fi
+      # if [ $(whoami) != "root" ]; then
+      #     eval "$(gpg-agent --daemon)"
+      # fi
 
       # The "$GOPATH" part adds manually compiled Go programs to $PATH."
       #

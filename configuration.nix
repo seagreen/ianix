@@ -55,7 +55,6 @@ in {
     dropbox
     dropbox-cli
     escoger
-    evince
     fasd
     feh
     file
@@ -108,6 +107,7 @@ in {
     xclip # Let pass access the clipboard.
     xvidcap # Video screenshots
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
+    zathura
   ];
 
   # NOTE: changes to this take effect on login.

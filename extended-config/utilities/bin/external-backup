@@ -1,4 +1,5 @@
-destination="/run/media/traveller/yingyang/backupTravellerLessMassive/"
+# Note: changed to yingyang1 !
+destination="/run/media/traveller/yingyang1/backupTravellerLessMassive/"
 date=`date "+%Y-%m-%dT%H:%M:%S"`
 
 # To do a dry run add --dry-run to rsync and comment out the last two lines.

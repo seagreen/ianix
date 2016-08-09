@@ -114,6 +114,8 @@ autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} set filetype=markdown
 " it so.
 command JSONFormat :%!jq --indent 2 --sort-keys '.'
 
+command JSONPretty :%!jq --indent 2 '.'
+
 " nvie.com/posts/how-i-boosted-my-vim/
 "
 " Show tab characters, trailing whitespace and invisible spaces.
