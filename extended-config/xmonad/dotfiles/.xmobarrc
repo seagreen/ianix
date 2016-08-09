@@ -1,22 +1,23 @@
-Config { font = "xft:Hack:pixelsize=12"
-       , border = NoBorder
-       , borderWidth = 2
-       , position = BottomSize C 100 25
-       , lowerOnStart = True
-       , persistent = False
-       , hideOnStart = False
-       , commands = [ Run MultiCpu ["-L","3","-H","50","--normal","white","--high","blue"
-                                   ,"-t", "CPU: <autobar>"] 10
-                    , Run Memory ["-L","3","-H","50","--normal","white","--high","blue", "-t","Mem: <usedbar>"] 10
-                    , Run ThermalZone 0 [] 500
-                    , Run ThermalZone 1 [] 500
-                    , Run ThermalZone 2 [] 500
-                    , Run Com "uname" ["-s","-r"] "" 36000
-                    , Run CoreTemp ["-t", "CPU:<core0>|<core1>|<core2>|<core3>°C"
-                                   ,"-L", "40", "-H", "60"
-                                   ,"-l", "white", "-n", "gray90", "-h", "blue"] 50
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = " %multicpu% | %memory% }{ %coretemp% SYS: %thermal0% %thermal1% %thermal2% | <fc=white> %uname% </fc>"
-       }
+Config
+    { font = "xft:Hack:pixelsize=12"
+    , border = NoBorder
+    , borderWidth = 2
+    , position = BottomSize C 100 25
+    , lowerOnStart = True
+    , persistent = False
+    , hideOnStart = False
+    , commands = [ Run MultiCpu ["-L","3","-H","50","--normal","white","--high","blue"
+                                ,"-t", "CPU: <autobar>"] 10
+                 , Run Memory ["-L","3","-H","50","--normal","white","--high","blue", "-t","Mem: <usedbar>"] 10
+                 , Run ThermalZone 0 [] 500
+                 , Run ThermalZone 1 [] 500
+                 , Run ThermalZone 2 [] 500
+                 , Run Com "uname" ["-s","-r"] "" 36000
+                 , Run CoreTemp ["-t", "CPU:<core0>|<core1>|<core2>|<core3>°C"
+                                ,"-L", "40", "-H", "60"
+                                ,"-l", "white", "-n", "gray90", "-h", "blue"] 50
+                 ]
+    , sepChar = "%"
+    , alignSep = "}{"
+    , template = " %multicpu% | %memory% }{ %coretemp% SYS: %thermal0% %thermal1% %thermal2% | <fc=white> %uname% </fc>"
+    }
