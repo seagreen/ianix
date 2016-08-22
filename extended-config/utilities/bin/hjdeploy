@@ -6,5 +6,6 @@ rsync \
   --rsh ssh \
   --verbose \
   --checksum \
-  /home/traveller/code/mine/hjexec/_site/ \
+  --exclude='.git/' \
+  /home/traveller/code/mine/housejeffries/ \
   webfaction:/home/traveller/webapps/housejeffries_static

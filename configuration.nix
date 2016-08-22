@@ -54,6 +54,7 @@ in {
     cloc
     dropbox
     dropbox-cli
+    emacs
     escoger
     fasd
     feh
@@ -69,6 +70,7 @@ in {
     htop
     httpie
     i3lock
+    imagemagick
     inkscape # Edit pdfs
     jq
     libreoffice
@@ -91,6 +93,7 @@ in {
     silver-searcher
     speedtest_cli
     stdenv # Includes `gcc` for C programming
+    telnet
     tmux
     # Pandoc doesn't allow outputing of .pdfs without this as a dep. See here:
     #     https://nixos.org/wiki/TexLive_HOWTO

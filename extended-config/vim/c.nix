@@ -29,6 +29,26 @@
               dependencies = [];
             };
 
+            # intero = vimUtils.buildVimPluginFrom2Nix {
+            #   name = "intero";
+            #   src = fetchgit {
+            #     url = "git://github.com/myfreeweb/intero.nvim";
+            #     rev = "2ab44a0dd4d34bc7c210b8b7db8b01a28827a28f";
+            #     sha256 = "1rycsppq5m06bqnd4zi9k969iapddf7yq1dnaphpzf1zj710pbzx";
+            #   };
+            #   dependencies = [];
+            # };
+
+            intero-neovim = vimUtils.buildVimPluginFrom2Nix {
+              name = "intero-neovim";
+              src = fetchgit {
+                url = "git://github.com/parsonsmatt/intero-neovim";
+                rev = "113543022504364b0173f68b67141170c6aef0d1";
+                sha256 = "1c15cnwcpvfy94rx3vcs5n8i7pyz1rr0h0gpic9iqsgxawvw8arr";
+              };
+              dependencies = [];
+            };
+
           });
 
           # There's a list of available plugins here:
@@ -58,6 +78,8 @@
             { name = "vimproc"; } # Required by ghcmod.
             # A completion plugin for haskell using ghc-mod:
             { name = "neco-ghc"; ft_regex = "^haskell\$"; }
+
+            # { name = "intero-neovim"; }
 
             { name = "vim2nix"; }
             { name = "exampleCustomPackage"; }

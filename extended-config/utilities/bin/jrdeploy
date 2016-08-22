@@ -1,0 +1,10 @@
+#/usr/bin/env sh
+
+rsync \
+  --delete \
+  --archive \
+  --rsh ssh \
+  --verbose \
+  --checksum \
+  /home/traveller/code/mine/jrexec/site/ \
+  webfaction:/home/traveller/webapps/juniorschematics_static
