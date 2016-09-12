@@ -23,9 +23,6 @@
 
     haskellPackages.stack
 
-    # For `yesod devel`.
-    haskellPackages.yesod-bin
-
     # Tooling
     haskellPackages.cabal2nix
     haskellPackages.hoogle

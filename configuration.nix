@@ -67,6 +67,7 @@ in {
     gparted
     graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
+    haskellPackages.bench
     htop
     httpie
     i3lock
@@ -89,6 +90,7 @@ in {
     python27
     python27Packages.ipython
     redis
+    rsync
     shotwell
     silver-searcher
     speedtest_cli
@@ -187,6 +189,8 @@ in {
   # Test if this is working with:
   #
   #     `echo "a = []\nwhile True: a.append(' ' * 50)" | python`
+  #
+  # NOTE: Changes take effect on login.
   security.pam.loginLimits = [{
     domain = "*";
     type = "hard";
