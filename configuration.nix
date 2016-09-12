@@ -180,6 +180,20 @@ in {
     defaultLocale = "en_US.UTF-8";
   };
 
+  # Use ulimit to prevent runaway programs from freezing the computer.
+  #
+  # View ulimit settings with `ulimit -a`.
+  #
+  # Test if this is working with:
+  #
+  #     `echo "a = []\nwhile True: a.append(' ' * 50)" | python`
+  security.pam.loginLimits = [{
+    domain = "*";
+    type = "hard";
+    item = "as";
+    value = "4000000";
+  }];
+
   services.redshift = {
     enable = true;
     # http://jonls.dk/redshift/
