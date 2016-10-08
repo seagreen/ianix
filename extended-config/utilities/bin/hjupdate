@@ -1,0 +1,4 @@
+#/usr/bin/env sh
+
+git -C ~/code/mine/housejeffries add -A
+git -C ~/code/mine/housejeffries commit -m "Automatic update on deploy."
