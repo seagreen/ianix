@@ -116,6 +116,8 @@ command JSONFormat :%!jq --indent 2 --sort-keys '.'
 
 command JSONPretty :%!jq --indent 2 '.'
 
+command JSONCanonical :%!jq --compact-output --sort-keys '.'
+
 " nvie.com/posts/how-i-boosted-my-vim/
 "
 " Show tab characters, trailing whitespace and invisible spaces.

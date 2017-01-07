@@ -52,6 +52,7 @@ in {
     camlistore
     chromium
     cloc
+    coq
     dropbox
     dropbox-cli
     emacs
@@ -85,6 +86,7 @@ in {
     nox
     pandoc
     pass
+    pciutils # for lspci
     gnuplot
     pwgen
     python27

@@ -1,8 +1,11 @@
-# Note: changed to silver !
-destination="/run/media/traveller/silver/backupTravellerLessMassive/"
+# Note: changed to yingyang !
+destination="/run/media/traveller/yingyang/backupTravellerLessMassive/"
 date=`date "+%Y-%m-%dT%H:%M:%S"`
 
 # To do a dry run add --dry-run to rsync and comment out the last two lines.
+# -a is archive mode (explained here: http://serverfault.com/a/141778)
+# -v is verbose
+# --link-dest hardlinks to files in <target> when unchanged.
 rsync -av --exclude-from "/home/traveller/code/vivaine/extended-config/utilities/exclude.conf" --link-dest=${destination}current /home/traveller/ ${destination}${date}
 unlink ${destination}current
 ln -s ${destination}${date} ${destination}current

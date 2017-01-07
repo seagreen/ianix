@@ -202,6 +202,9 @@
 
       unixtime = "date +%s";
 
+      # No easy way to view TAI on linux, can do it here:
+      # https://www.timeanddate.com/worldclock/other/tai
+
       # Custom fasd command to open a file with vim.
       v = "f -e nvim";
 
