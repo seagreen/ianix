@@ -55,6 +55,10 @@
           # https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/vim-plugin-names
           pluginDictionaries = [
 
+            ##################################################
+            # general
+            ##################################################
+
             { name = "vim-colorschemes"; }
             { name = "neomake"; }
             { name = "supertab"; } # Tab completion.
@@ -74,12 +78,23 @@
             # vsplits uncrippled.
             { name = "goyo"; }
 
+
+            ##################################################
+            # haskell
+            ##################################################
+
+            { name = "syntastic"; }
+
             { name = "ghcmod"; ft_regex = "^haskell\$"; }
             { name = "vimproc"; } # Required by ghcmod.
             # A completion plugin for haskell using ghc-mod:
             { name = "neco-ghc"; ft_regex = "^haskell\$"; }
 
             # { name = "intero-neovim"; }
+
+            ##################################################
+            # other
+            ##################################################
 
             { name = "vim2nix"; }
             { name = "exampleCustomPackage"; }
