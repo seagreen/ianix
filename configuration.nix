@@ -80,6 +80,7 @@ in {
     mosh
     mplayer # Required for my weechat beep command.
     mumble
+    nano
     nix-repl # Basic use: nix-repl '<nixos>'
     nmap
     notmuch
