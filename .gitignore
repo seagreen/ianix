@@ -1,8 +1,2 @@
-extended-config/haskell_dev/dotfiles/.ghc/*
-!extended-config/haskell_dev/dotfiles/.ghc/ghci.conf
-
-extended-config/haskell_dev/dotfiles/.cabal/*
-!extended-config/haskell_dev/dotfiles/.cabal/config
-
 extended-config/xmonad/dotfiles/.xmonad/*
 !extended-config/xmonad/dotfiles/.xmonad/xmonad.hs

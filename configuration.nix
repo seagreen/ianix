@@ -41,7 +41,7 @@ in {
     ./extended-config/firefox/c.nix
 
     ./extended-config/git/c.nix
-    ./extended-config/haskell_dev/c.nix
+    ./extended-config/haskell/c.nix
     ./extended-config/networking/c.nix
     ./extended-config/virtualbox/c.nix
 
