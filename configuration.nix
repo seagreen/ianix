@@ -69,6 +69,7 @@ in {
     graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
     haskellPackages.bench
+    haskellPackages.purescript_0_10_5
     htop
     httpie
     i3lock
@@ -132,8 +133,8 @@ in {
 
     NIX_PATH = pkgs.lib.mkForce [
       "nixpkgs=/home/traveller/code/nixpkgs"
-      "nixos=/home/traveller/code/vivaine" # Needed for `nix-repl '<nixos>'`, TODO: does this work?
-      "nixos-config=/home/traveller/code/vivaine/configuration.nix"
+      "nixos=/home/traveller/config" # Needed for `nix-repl '<nixos>'`, TODO: does this work?
+      "nixos-config=/home/traveller/config/configuration.nix"
     ];
 
     NIXPKGS_ALLOW_UNFREE = "1";
@@ -228,8 +229,8 @@ in {
     # systemctl start openvpn-east
     east = {
       config = ''
-        cd /home/traveller/code/notes_vivaine/vpn
-        config "/home/traveller/code/notes_vivaine/vpn/US East.ovpn"
+        cd /home/traveller/code/confignotes/vpn
+        config "/home/traveller/code/confignotes/vpn/US East.ovpn"
       '';
       autoStart = false;
     };

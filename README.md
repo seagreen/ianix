@@ -4,7 +4,7 @@ A description in code of my [NixOS](http://nixos.org/) setup.
 
 # Screenshot
 
-![screenshot](https://raw.githubusercontent.com/seagreen/vivaine/master/screenshot.png)
+![screenshot](https://raw.githubusercontent.com/seagreen/ianix/master/screenshot.png)
 
 For info on the background image try Googling "Makoto Shinkai The Place Promised in Our Early Days".
 
@@ -14,11 +14,13 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
-2. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. There are also some hardcoded links to this directory, which is `/home/traveller/vivaine/vivaine` on my computer. Fix those as well.
+2. Download this repo and symlink `~/config` to it.
 
-3. (optional) Grep the config files for "cron" and remove any cron jobs you don't want.
+3. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be.
 
-4. Setup nixpkgs:
+4. (optional) Grep the config files for "cron" and remove any cron jobs you don't want.
+
+5. Setup nixpkgs:
 
     ```
     cat version.txt
@@ -30,7 +32,7 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     git checkout 351aec7
     ```
 
-5. From root: `nixos-rebuild switch -I nixpkgs=./nixpkgs -I nixos-config=./configuration.nix`
+6. From root: `nixos-rebuild switch -I nixpkgs=./nixpkgs -I nixos-config=./configuration.nix`
 
 # Post-Install
 

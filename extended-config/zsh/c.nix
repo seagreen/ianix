@@ -176,7 +176,7 @@
 
       tree = "tree -a";
 
-      lorem = "xclip ~/vivaine/vivaine/extended-config/utilities/lorem_ipsum.txt";
+      lorem = "xclip ~/config/extended-config/utilities/lorem_ipsum.txt";
 
       # Make a nice password.
       #

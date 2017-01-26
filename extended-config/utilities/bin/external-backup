@@ -6,6 +6,6 @@ date=`date "+%Y-%m-%dT%H:%M:%S"`
 # -a is archive mode (explained here: http://serverfault.com/a/141778)
 # -v is verbose
 # --link-dest hardlinks to files in <target> when unchanged.
-rsync -av --exclude-from "/home/traveller/code/vivaine/extended-config/utilities/exclude.conf" --link-dest=${destination}current /home/traveller/ ${destination}${date}
+rsync -av --exclude-from "/home/traveller/config/extended-config/utilities/exclude.conf" --link-dest=${destination}current /home/traveller/ ${destination}${date}
 unlink ${destination}current
 ln -s ${destination}${date} ${destination}current
