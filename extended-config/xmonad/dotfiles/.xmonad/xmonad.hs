@@ -1,7 +1,8 @@
 -- | Make changes to this file go live:
 --     mod+q
 --
--- If you need more error information:
+-- If you need more error information (this doesn't seem to make changes
+-- go live though):
 --     $ xmonad --recompile
 
 module Main where
@@ -67,7 +68,15 @@ myConfig =
         (  [ ("M-s", spawn "screenshot")
            , ("M-e", spawn "screenshot-select")
            ]
-        <> ((\(x,y) -> ("M-" <> x, windows $ W.view y)) <$> hotkeysToWorkspaces)
+           -- @W.greedyView@ means that if you have two monitors A and B with
+           -- A focused and workspace 2 open in B, and you switch to
+           -- workspace 2, the workspaces will switch so that 2 is now
+           -- shown in monitor A.
+           --
+           -- This is usually better if you have a central, main monitor.
+           -- If you're using multiple monitors equally you may want
+           -- @W.view@.
+        <> ((\(x,y) -> ("M-" <> x, windows $ W.greedyView y)) <$> hotkeysToWorkspaces)
         <> ((\(x,y) -> ("M-S-" <> x, windows $ W.shift y)) <$> hotkeysToWorkspaces)
         )
 
