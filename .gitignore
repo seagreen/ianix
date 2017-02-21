@@ -1,2 +1,2 @@
-extended-config/xmonad/dotfiles/.xmonad/*
-!extended-config/xmonad/dotfiles/.xmonad/xmonad.hs
+src/xmonad/dotfiles/.xmonad/*
+!src/xmonad/dotfiles/.xmonad/xmonad.hs

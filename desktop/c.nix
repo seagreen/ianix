@@ -22,7 +22,7 @@
       ./hardware-configuration.nix
 
       # Backups
-      # ./../extended-config/tarsnap/c.nix
+      # ./../src/tarsnap/c.nix
     ];
 
   networking.nameservers = [ "8.8.8.8" ];

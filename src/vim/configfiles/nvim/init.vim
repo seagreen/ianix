@@ -139,16 +139,15 @@ autocmd filetype html,xml set listchars-=tab:>.
 "
 " colo badwolf
 " colo eink
-" colo moss
 " colo mrkn256
 " colo zenburn
 " colo Tomorrow-Night-Blue
 " colo lucius
-" colo paintbox
 " colo jelleybeans
-colo summerfruit256
 " colo CodeFactoryv3
 " colo Tomorrow
+colo paintbox
+" colo summerfruit256
 
 " Change the color of the 'airblade/vim-gitgutter' column.
 " highlight SignColumn ctermbg=black

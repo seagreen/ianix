@@ -21,29 +21,29 @@ in {
     ./desktop/c.nix
 
     # Window manager
-    ./extended-config/xmonad/c.nix
+    ./src/xmonad/c.nix
 
     # Terminal
-    ./extended-config/urxvt/c.nix
+    ./src/urxvt/c.nix
 
     # Shell
-    ./extended-config/zsh/c.nix
+    ./src/zsh/c.nix
 
     # Text editor
-    ./extended-config/vim/c.nix
+    ./src/vim/c.nix
 
     # Email
-    ./extended-config/mbsync/c.nix # IMAP client
-    ./extended-config/mutt/c.nix
-    ./extended-config/msmtp/c.nix # SMTP client
+    ./src/mbsync/c.nix # IMAP client
+    ./src/mutt/c.nix
+    ./src/msmtp/c.nix # SMTP client
 
     # Web browser (Vimperator)
-    ./extended-config/firefox/c.nix
+    ./src/firefox/c.nix
 
-    ./extended-config/git/c.nix
-    ./extended-config/haskell/c.nix
-    ./extended-config/networking/c.nix
-    ./extended-config/virtualbox/c.nix
+    ./src/git/c.nix
+    ./src/haskell/c.nix
+    ./src/networking/c.nix
+    ./src/virtualbox/c.nix
 
   ];
 

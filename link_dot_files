@@ -5,7 +5,7 @@ from os import listdir
 from os.path import join
 
 home = os.path.expanduser('~')
-source = "/home/traveller/config/extended-config"
+source = "/home/traveller/config/src"
 
 def main():
     dot_config = join(home, ".config")
