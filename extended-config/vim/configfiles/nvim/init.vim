@@ -24,8 +24,8 @@ set smartcase
 nmap <silent> ,/ :nohlsearch<CR>
 
 " Use vim nav keys to switch tabs.
-map  <C-l> :tabn<CR>
-map  <C-h> :tabp<CR>
+map <C-l> :tabn<CR>
+map <C-h> :tabp<CR>
 
 nnoremap ; :
 noremap j gj
@@ -58,6 +58,9 @@ set ffs=unix
 
 autocmd! BufWritePost * Neomake
 
+" fzf
+map <leader>f :GFiles?<CR>
+
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
 if has("gui_running")
@@ -73,12 +76,6 @@ let g:haskell_tabular = 1
 vmap a= :Tabularize /=<CR>
 vmap a; :Tabularize /::<CR>
 vmap a- :Tabularize /-><CR>
-
-" ctrlp
-let g:ctrlp_map = '<leader>f'
-" Show dotfiles.
-let g:ctrlp_show_hidden = 1
-set wildignore+=*/.git/*,*/.cabal-sandbox/*,*/.stack-work/*,*/dist/*
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Filetype Specific Changes

@@ -61,6 +61,7 @@ in {
     feh
     file
     ffmpeg # Dep of youtubeDL
+    fzf
     gnome3.eog
     (gnupg.override { pinentry = pinentry; })
     go
@@ -254,8 +255,8 @@ in {
     group = "users";
     extraGroups = [ "wheel" ];
     uid = 1000;
-    createHome = true;
     home = "/home/traveller";
+    createHome = true;
     shell = "${pkgs.zsh}/bin/zsh"; # Changes to this take effect on login.
     openssh.authorizedKeys.keyFiles = [
       "/home/traveller/.ssh/id_rsa.pub"

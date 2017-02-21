@@ -59,13 +59,10 @@
             # general
             ##################################################
 
-            { name = "vim-colorschemes"; }
-            { name = "neomake"; }
-            { name = "supertab"; } # Tab completion.
-            { name = "Tabular"; } # Line up text.
-            { name = "ctrlp"; }
-            { name = "vim-gitgutter"; }
-            { name = "vinegar"; }
+            # Both of these seem to be required, as well as the `fzf` package.
+            { name = "fzf-vim"; }
+            { name = "fzfWrapper"; }
+
             # Distraction-free writing in Vim. Recommended here for use with Markdown files:
             #
             #     https://news.ycombinator.com/item?id=6978563
@@ -78,6 +75,12 @@
             # vsplits uncrippled.
             { name = "goyo"; }
 
+            { name = "neomake"; }
+            { name = "supertab"; } # Tab completion.
+            { name = "Tabular"; } # Line up text.
+            { name = "vim-colorschemes"; }
+            { name = "vim-gitgutter"; }
+            { name = "vinegar"; }
 
             ##################################################
             # haskell
