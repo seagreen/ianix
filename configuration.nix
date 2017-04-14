@@ -56,7 +56,7 @@ in {
     dropbox
     dropbox-cli
     emacs
-    escoger
+    # escoger
     fasd
     feh
     file
@@ -69,8 +69,8 @@ in {
     gparted
     graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
-    haskellPackages.bench
-    haskellPackages.purescript_0_10_5
+    # not working in nixpkgs atm
+    # haskellPackages.bench
     htop
     httpie
     i3lock
@@ -230,8 +230,8 @@ in {
     # systemctl start openvpn-east
     east = {
       config = ''
-        cd /home/traveller/code/confignotes/vpn
-        config "/home/traveller/code/confignotes/vpn/US East.ovpn"
+        cd /home/traveller/code/nixnotes/vpn
+        config "/home/traveller/code/nixnotes/vpn/US East.ovpn"
       '';
       autoStart = false;
     };

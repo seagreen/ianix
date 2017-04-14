@@ -10,7 +10,7 @@
 
     haskellPackages.cabal-install
 
-    (haskell.packages.ghc801.ghcWithPackages (self : [
+    (haskell.packages.ghc802.ghcWithPackages (self : [
       self.hlint # ghc-mod installs it anyway
       self.ghc-mod
     ]))

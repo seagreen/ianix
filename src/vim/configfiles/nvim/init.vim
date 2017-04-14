@@ -59,7 +59,7 @@ set ffs=unix
 autocmd! BufWritePost * Neomake
 
 " fzf
-map <leader>f :GFiles?<CR>
+map <leader>f :GFiles<CR>
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
@@ -146,8 +146,11 @@ autocmd filetype html,xml set listchars-=tab:>.
 " colo jelleybeans
 " colo CodeFactoryv3
 " colo Tomorrow
-colo paintbox
+" colo paintbox
 " colo summerfruit256
+colo PaperColor
+
+set background=dark
 
 " Change the color of the 'airblade/vim-gitgutter' column.
 " highlight SignColumn ctermbg=black

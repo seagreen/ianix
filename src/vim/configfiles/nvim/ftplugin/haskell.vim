@@ -11,7 +11,8 @@ map <silent> ts :GhcModSplitFunCase<CR>
 map <silent> tq :GhcModType<CR>
 map <silent> te :GhcModTypeClear<CR>
 
-" Disable haskell-vim omnifunc
+" Also from here:
+" http://www.stephendiehl.com/posts/vim_2016.html
 let g:haskellmode_completion_ghc = 1
 autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 

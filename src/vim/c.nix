@@ -100,7 +100,7 @@
             ##################################################
 
             { name = "vim2nix"; }
-            { name = "exampleCustomPackage"; }
+            # { name = "exampleCustomPackage"; }
 
           ];
         };
