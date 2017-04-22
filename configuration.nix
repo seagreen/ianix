@@ -83,6 +83,7 @@ in {
     mplayer # Required for my weechat beep command.
     mumble
     nano
+    newsbeuter
     nix-repl # Basic use: nix-repl '<nixos>'
     nmap
     notmuch
