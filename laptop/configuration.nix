@@ -37,11 +37,18 @@
 
   ##################################################
 
-
-  # This is required to move the pointer with the trackpad.
+  # https://www.reddit.com/r/NixOS/comments/4nnfc9/mimicking_the_touchpad_settings_of_macos_on_my/
   services.xserver.synaptics = {
-    enable = true;
+    enable = true; # This is required to move the pointer.
     tapButtons = false;
+    twoFingerScroll = true;
+
+    # This makes two finger click into right click,
+    # without it it does something weird (maybe middle click?).
+    buttonsMap = [ 1 3 2 ]; 
+
+    # Turns out I hit the trackpad with my palm regularly.
+    palmDetect = true;
   };
 
   # root doesn't have access to traveller's aliases,
