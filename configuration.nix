@@ -18,7 +18,6 @@ in {
   # than one place or has other files associated with it gets
   # factored out to become an import.
   imports = [
-    ./desktop/c.nix
 
     # Window manager
     ./src/xmonad/c.nix
@@ -133,12 +132,6 @@ in {
     # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
     # GPG_TTY = "$(tty)";
 
-    NIX_PATH = pkgs.lib.mkForce [
-      "nixpkgs=/home/traveller/code/nixpkgs"
-      "nixos=/home/traveller/config" # Needed for `nix-repl '<nixos>'`, TODO: does this work?
-      "nixos-config=/home/traveller/config/configuration.nix"
-    ];
-
     NIXPKGS_ALLOW_UNFREE = "1";
 
     # Don't create .pyc files.
@@ -159,6 +152,15 @@ in {
   ############################################################
   # Infrastructure
   ############################################################
+
+  nix.nixPath = [
+    # Use our own nixpkgs clone. A guide to doing so is here:
+    # http://anderspapitto.com/posts/2015-11-01-nixos-with-local-nixpkgs-checkout.html
+    "nixpkgs=/home/traveller/code/nixpkgs"
+
+    # Keep the default nixos-config:
+    "nixos-config=/etc/nixos/configuration.nix"
+  ];
 
   services.xserver.desktopManager.default = "none";
 

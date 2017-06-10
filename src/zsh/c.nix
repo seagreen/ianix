@@ -115,6 +115,8 @@
       "..."  = "cd ../..";
       "...." = "cd ../../..";
 
+      mirror = "rsync --archive --delete --compress --human-readable";
+
       background-center = "feh --bg-center";
       background-max    = "feh --bg-max";
       background-fill   = "feh --bg-fill";

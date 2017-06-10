@@ -56,7 +56,8 @@ set ffs=unix
 " Plugin Specific Changes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-autocmd! BufWritePost * Neomake
+" This was making vim freeze when saving Haskell files.
+" autocmd! BufWritePost * Neomake
 
 " fzf
 map <leader>f :GFiles<CR>
