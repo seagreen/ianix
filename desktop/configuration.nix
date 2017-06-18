@@ -1,6 +1,14 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+      ./hardware-configuration.nix
+      ../shared.nix
+
+      # Backups
+      # ./../src/tarsnap/c.nix
+    ];
+
   networking.hostName = "nivian";
 
   # Use the GRUB 2 boot loader.
@@ -16,14 +24,6 @@
       name = "root"; device = "/dev/sda3"; preLVM = true;
     }
   ];
-
-  imports = [
-      # Include the results of the hardware scan. This is required.
-      ./hardware-configuration.nix
-
-      # Backups
-      # ./../src/tarsnap/c.nix
-    ];
 
   networking.nameservers = [ "8.8.8.8" ];
 

@@ -32,7 +32,16 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     git checkout 351aec7
     ```
 
-6. From root: `nixos-rebuild switch -I nixpkgs=./nixpkgs -I nixos-config=./configuration.nix`
+6. From `/etc/nixos/configuration.nix` import this repo's `./shared.nix`.
+
+Alternately if you want to add your configuration to version control, make a folder for your machine in this repo following the example of `./desktop`. Add your `configuration.nix` and `hardware-configuration.nix` to it, modify your configuration import this repo's `./shared.nix`, then change `/etc/nixos/configuration.nix` to import your machine-specific config, eg:
+```nix
+{
+  imports = [ /home/traveller/config/desktop/configuration.nix ];
+}
+```
+
+7. From root: `nixos-rebuild switch -I nixpkgs=<path_to_nixpkgs>`
 
 # Post-Install
 
