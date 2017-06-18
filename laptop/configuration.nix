@@ -51,9 +51,11 @@
     palmDetect = true;
   };
 
-  # root doesn't have access to traveller's aliases,
-  # so give it a `vim` command.
-  environment.systemPackages = with pkgs; [ vim ];
+  environment.systemPackages = with pkgs; [
+    # root doesn't have access to traveller's aliases,
+    # so give it a `vim` command:
+    vim
+  ];
 
   # The NixOS release to be compatible with for stateful data such as databases.
   system.stateVersion = "17.03";

@@ -62,6 +62,7 @@ in {
     ffmpeg # Dep of youtubeDL
     fzf
     gnome3.eog
+    gnome3.gedit
     (gnupg.override { pinentry = pinentry; })
     go
     gnumake
@@ -147,6 +148,29 @@ in {
         local    all all                trust
         host     all all 127.0.0.1/32   trust
       '';
+  };
+
+  services.nginx = {
+    enable = true;
+    config = ''
+      events {}
+      http {
+        types {
+          application/javascript js;
+          text/html              html;
+          text/css               css;
+        }
+        server {
+          location /search {
+            proxy_pass http://localhost:8080;
+          }
+          location / {
+            root /var/site;
+            try_files $uri /index.html;
+          }
+        }
+      }
+    '';
   };
 
   ############################################################
@@ -251,6 +275,8 @@ in {
   #     https://github.com/NixOS/nixpkgs/issues/3788
   #
   # users.mutableUsers = false;
+
+  security.sudo.wheelNeedsPassword = false;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.extraUsers.traveller = {
