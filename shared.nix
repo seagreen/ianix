@@ -180,6 +180,11 @@ in {
   nix.nixPath = [
     # Use our own nixpkgs clone. A guide to doing so is here:
     # http://anderspapitto.com/posts/2015-11-01-nixos-with-local-nixpkgs-checkout.html
+    #
+    # In nixpkgs (modified from the linked article):
+    # git remote add channels https://github.com/nixos/nixpkgs-channels
+    # git fetch channels
+    # git checkout channels/nixos-unstable
     "nixpkgs=/home/traveller/code/nixpkgs"
 
     # Keep the default nixos-config:
