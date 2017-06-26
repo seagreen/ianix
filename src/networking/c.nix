@@ -12,5 +12,5 @@
   networking.networkmanager.enable = true;
   users.extraGroups.networkmanager.members = [ "root" ];
 
-  # networking.wireless.enable = true;
+  networking.nameservers = [ "8.8.8.8" ];
 }

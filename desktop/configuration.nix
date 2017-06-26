@@ -25,8 +25,6 @@
     }
   ];
 
-  networking.nameservers = [ "8.8.8.8" ];
-
   networking.firewall.enable = true;
   # Note that when openssh is enabled port 22 is opened automatically.
   networking.firewall.allowedTCPPorts = [ 2213 62213 62214 ];
