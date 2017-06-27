@@ -191,23 +191,26 @@ in {
     "nixos-config=/etc/nixos/configuration.nix"
   ];
 
-  services.xserver.desktopManager.default = "none";
-
   # X11 windowing system.
-  services.xserver.enable = true;
-  services.xserver.layout = "us";
-  # setxkbmap settings:
-  services.xserver.xkbOptions = "eurosign:e, caps:none";
+  services.xserver = {
+    enable = true;
 
-  # The display manager "provides a graphical login prompt and
-  # manages the X server" (from the NixOS manual).
-  services.xserver.displayManager.lightdm.enable = true;
+    desktopManager.default = "none";
 
-  services.xserver.displayManager.sessionCommands = ''
-    sh /home/traveller/.fehbg &
-    xmobar                    &
-    dropbox                   &
-  '';
+    # The display manager "provides a graphical login prompt and
+    # manages the X server" (from the NixOS manual).
+    displayManager.lightdm.enable = true;
+
+    displayManager.sessionCommands = ''
+      sh /home/traveller/.fehbg &
+      xmobar                    &
+      dropbox                   &
+    '';
+
+    layout = "us";
+    # setxkbmap settings:
+    xkbOptions = "eurosign:e, caps:none";
+  };
 
   # Select internationalisation properties.
   i18n = {
