@@ -201,10 +201,7 @@ in {
 
   # The display manager "provides a graphical login prompt and
   # manages the X server" (from the NixOS manual).
-  services.xserver.displayManager = {
-    slim.enable = true;
-    slim.defaultUser = "traveller";
-  };
+  services.xserver.displayManager.lightdm.enable = true;
 
   services.xserver.displayManager.sessionCommands = ''
     sh /home/traveller/.fehbg &
