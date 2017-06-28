@@ -13,4 +13,4 @@ URxvt.scrollBar: false
 URxvt.font: xft:LiberationMono:pixelsize=15
 
 ! Syntax for colorschemes:
-#include "/home/traveller/code/mine/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"
+! #include "/home/traveller/code/mine/tomorrow-theme/Xdefaults/XresourceTomorrowNightBright"

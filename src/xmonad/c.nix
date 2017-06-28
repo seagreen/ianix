@@ -9,7 +9,9 @@
     scrot # For screenshots.
   ];
 
-  services.xserver.windowManager.xmonad.enable = true;
-  services.xserver.windowManager.xmonad.enableContribAndExtras = true;
-  services.xserver.windowManager.default = "xmonad";
+  services.xserver.windowManager = {
+    xmonad.enable = true;
+    xmonad.enableContribAndExtras = true;
+    default = "xmonad";
+  };
 }
