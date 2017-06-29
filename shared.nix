@@ -209,7 +209,7 @@ in {
 
     layout = "us";
     # setxkbmap settings:
-    xkbOptions = "eurosign:e, caps:none";
+    xkbOptions = "caps:none";
   };
 
   # Select internationalisation properties.
