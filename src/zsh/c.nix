@@ -139,8 +139,6 @@
       # open file below you in vim
       ev = "nvim $(find * -name .git -a -type d -prune -o -type f -print | escoger)";
 
-      emacs = "emacs --no-window-system";
-
       # Print absolute path to file.
       full = "readlink -f";
 
