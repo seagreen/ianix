@@ -28,6 +28,14 @@
 # You can bypass aliases by using backslash, eg \ls to run the unaliased ls
 
 {
+  # If in invoke a command in Zsh that doesn't exist
+  # this lists what packages provide it. It also provides
+  # a `command-not-found` command to do the same thing.
+  #
+  # Since I'm not using channels I don't think this is using
+  # the right set of packages, but it works well enough.
+  programs.command-not-found.enable = true;
+
   programs.zsh = {
     enable = true;
 
