@@ -62,6 +62,7 @@ in {
     ffmpeg # Dep of youtubeDL
     fzf
     gnome3.eog
+    gnome3.file-roller # Archive manager with a GUI.
     gnome3.gedit
     (gnupg.override { pinentry = pinentry; })
     go
@@ -71,6 +72,7 @@ in {
     haskellPackages.aeson-pretty
     # not working in nixpkgs atm
     # haskellPackages.bench
+    haskellPackages.una # CLI archive manager with a sweet UI.
     htop
     httpie
     i3lock
@@ -161,7 +163,7 @@ in {
           text/css               css;
         }
         server {
-          location /search {
+          location /api {
             proxy_pass http://localhost:8080;
           }
           location / {
