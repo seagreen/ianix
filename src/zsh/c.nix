@@ -185,10 +185,11 @@
 
       # Make a nice password.
       #
-      # --symbols : include symbols and use at least one
+      # --symbols : (not currently used)
+      #             Include symbols and use at least one.
       # first number : length of password
       # second number : number of passwords to generate
-      mkpass = "pwgen --no-capitalize --symbols 14 1";
+      mkpass = "pwgen --no-capitalize 10 1";
 
       # grep -I ignores binary files.
       mygrep = "grep -ri --binary-files=without-match";
@@ -223,8 +224,6 @@
                              # bypasses the previous alias of `nvim=nvim -p`.
 
       yt = "youtube-dl --extract-audio --audio-format vorbis";
-
-      srebuild = "stack clean; stack build";
     };
   };
 }

@@ -48,10 +48,8 @@ in {
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    camlistore
     chromium
     cloc
-    coq
     dropbox
     dropbox-cli
     emacs
@@ -88,7 +86,6 @@ in {
     nix-repl # Basic use: nix-repl '<nixos>'
     nmap
     notmuch
-    nox
     pandoc
     pass
     pciutils # for lspci
@@ -111,11 +108,10 @@ in {
     # (texLiveAggregationFun { paths = [ texLive texLiveExtra texLiveBeamer lmodern ]; })
     (transmission.override { enableGTK3 = true;})
     tree
-    unzip
+    unzip # Needed for una.
     vlc
     weechat
     wget
-    xboard
     xclip # Let pass access the clipboard.
     xvidcap # Video screenshots
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
