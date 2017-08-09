@@ -82,22 +82,6 @@ vmap a- :Tabularize /-><CR>
 " Filetype Specific Changes
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" This is for Go. It doesn't like to be run multiple times so I can't put it
-" in ftplugin/go.vim. Since it does some weird stuff I'm leaving it commented
-" out by default when not working on Go.
-"
-" " https://code.google.com/p/go/source/browse/misc/vim/readme.txt
-" "
-" " Some Linux distributions set filetype in /etc/vimrc.
-" " Clear filetype flags before changing runtimepath to force Vim to reload them.
-" filetype off
-" filetype plugin indent off
-" set runtimepath+=$GOROOT/misc/vim
-" filetype plugin indent on
-" syntax on
-" " Optional: Format on save.
-" au FileType go au BufWritePre <buffer> Fmt
-
 " Unlike the other syntax files such as 'python.vim', 'text.vim' isn't
 " automatically detected so we set it to be detected here.
 autocmd BufRead,BufNewFile *.txt set syntax=text

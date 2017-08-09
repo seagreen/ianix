@@ -65,7 +65,6 @@ in {
     gnome3.file-roller # Archive manager with a GUI.
     gnome3.gedit
     (gnupg.override { pinentry = pinentry; })
-    go
     gnumake
     gparted
     graphviz # Provides the `dot` executable.
@@ -126,10 +125,6 @@ in {
   # NOTE: changes to this take effect on login.
   environment.sessionVariables = {
     EDITOR = "nvim";
-
-    # http://golang.org/doc/install
-    GOPATH = "/home/traveller/code/go";
-    GOROOT = "${pkgs.go}/share/go";
 
     # For vim-gnupg specifically, but gpg always wants this, see:
     # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
