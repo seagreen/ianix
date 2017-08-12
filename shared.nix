@@ -166,6 +166,8 @@ in {
     '';
   };
 
+  virtualisation.docker.enable = true;
+
   ############################################################
   # Infrastructure
   ############################################################
@@ -280,7 +282,7 @@ in {
   users.extraUsers.traveller = {
     name = "traveller";
     group = "users";
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "docker" ];
     uid = 1000;
     home = "/home/traveller";
     createHome = true;
