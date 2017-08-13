@@ -67,8 +67,7 @@ in {
     gparted
     graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
-    # not working in nixpkgs atm
-    # haskellPackages.bench
+    haskellPackages.bench
     haskellPackages.una # CLI archive manager with a sweet UI.
     htop
     httpie
@@ -76,7 +75,7 @@ in {
     imagemagick
     inkscape # Edit pdfs
     jq
-    libreoffice
+    # libreoffice BROKEN
     lynx
     mosh
     mplayer # Required for my weechat beep command.

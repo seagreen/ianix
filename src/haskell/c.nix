@@ -1,10 +1,5 @@
 { config, pkgs, ... }:
 
-# Basics for Haskell dev via cabal-install sandboxes.
-#
-# This is the "Direct Install" strategy discussed here:
-#
-#     https://nixos.org/wiki/Haskell#Direct_installation
 {
   environment.systemPackages = with pkgs; [
 
