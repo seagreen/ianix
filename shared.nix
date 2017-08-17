@@ -48,7 +48,6 @@ in {
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
-    chromium
     cloc
     dropbox
     dropbox-cli
@@ -64,6 +63,7 @@ in {
     gnome3.gedit
     (gnupg.override { pinentry = pinentry; })
     gnumake
+    google-chrome
     gparted
     graphviz # Provides the `dot` executable.
     haskellPackages.aeson-pretty
