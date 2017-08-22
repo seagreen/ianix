@@ -87,6 +87,7 @@ in {
     notmuch
     pandoc
     pass
+    pavucontrol # configure PulseAudio
     pciutils # for lspci
     gnuplot
     pwgen
@@ -211,6 +212,11 @@ in {
     consoleFont = "lat9w-16";
     consoleKeyMap = "us";
     defaultLocale = "en_US.UTF-8";
+  };
+
+  hardware.pulseaudio = {
+    enable = true;
+    package = pkgs.pulseaudioFull;
   };
 
   # Use ulimit to prevent runaway programs from freezing the computer.
