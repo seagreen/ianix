@@ -122,10 +122,6 @@ in {
   environment.sessionVariables = {
     EDITOR = "nvim";
 
-    # For vim-gnupg specifically, but gpg always wants this, see:
-    # https://www.gnupg.org/documentation/manuals/gnupg-devel/Invoking-GPG_002dAGENT.html
-    # GPG_TTY = "$(tty)";
-
     NIXPKGS_ALLOW_UNFREE = "1";
 
     # Don't create .pyc files.
@@ -136,11 +132,12 @@ in {
     enable = true;
     package = pkgs.postgresql94;
     port = 5432; # Make the default explicit.
-    authentication = pkgs.lib.mkForce
-      ''
-        local    all all                trust
-        host     all all 127.0.0.1/32   trust
-      '';
+
+    # pg_hba.conf
+    authentication = pkgs.lib.mkForce ''
+      local all all           trust
+      host  all all localhost trust
+    '';
   };
 
   services.nginx = {
@@ -203,8 +200,7 @@ in {
     '';
 
     layout = "us";
-    # setxkbmap settings:
-    xkbOptions = "caps:none";
+    xkbOptions = "caps:none"; # setxkbmap settings:
   };
 
   # Select internationalisation properties.

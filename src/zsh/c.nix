@@ -92,12 +92,6 @@
           rm temp.out
       }
 
-      # TODO: without this wrapper, attempting to switch to root with `su` doesn't work.
-      # Additionally, after attempting to do so, `exit` wouldn't work either.
-      # if [ $(whoami) != "root" ]; then
-      #     eval "$(gpg-agent --daemon)"
-      # fi
-
       export POSTGRES_PATH="${pkgs.postgresql}";
       export ZLIB_PATH="${pkgs.zlib}";
       '';
