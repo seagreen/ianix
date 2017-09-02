@@ -66,7 +66,6 @@ in {
     google-chrome
     gparted
     graphviz # Provides the `dot` executable.
-    haskellPackages.aeson-pretty
     haskellPackages.bench
     haskellPackages.una # CLI archive manager with a sweet UI.
     htop
