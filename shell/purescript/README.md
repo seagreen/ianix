@@ -8,7 +8,7 @@ _Nixpkgs_ provides system dependencies like the PureScript [compiler](https://gi
 
 _psc-package_ provides language-specific dependencies.
 
-This strategy lets us avoid messing with _npm_, _Bower_, _Grunt_, _Gulp_ and _Pulp_ entirely.
+This lets us avoid messing with _npm_, _Bower_, _Grunt_, _Gulp_ and _Pulp_ entirely.
 
 The hybrid approach isn't as efficient as using _Nix_ for everything (e.g. with regards to caching), but lets us keep compatibility with the part of the ecosystem using _psc-package_.
 
