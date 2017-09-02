@@ -1,7 +1,7 @@
 let
-  _pkgs = import <nixpkgs> {};
+  unpinned = import <nixpkgs> {};
 in
-{ pkgs ? import (_pkgs.fetchFromGitHub
+{ pkgs ? import (unpinned.fetchFromGitHub
   { owner = "NixOS";
     repo = "nixpkgs-channels";
     # This is just the latest unstable `nixpkgs`, there's nothing special about it:
@@ -13,10 +13,10 @@ in
 pkgs.stdenv.mkDerivation {
   name = "none";
   buildInputs = [
-    _pkgs.psc-package
+    pkgs.psc-package
 
     # Untracked (but not unexpected) dep of psc-package.
-    _pkgs.haskellPackages.purescript
+    pkgs.haskellPackages.purescript
 
     # Untracked dep of psc-package.
     #
@@ -25,6 +25,6 @@ pkgs.stdenv.mkDerivation {
     # > 2
     # Couldn't find node.js
     # ```
-    _pkgs.nodejs
+    pkgs.nodejs
   ];
 }
