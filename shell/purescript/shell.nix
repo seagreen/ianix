@@ -3,8 +3,9 @@ let
 in
 { pkgs ? import (unpinned.fetchFromGitHub
   { owner = "NixOS";
-    repo = "nixpkgs-channels";
-    # This is just the latest unstable `nixpkgs`, there's nothing special about it:
+    repo = "nixpkgs";
+    # This is just the latest unstable Nixpkgs when I started the project,
+    # there's nothing special about it:
     rev = "799435b";
     sha256 = "1x61hpkagydrf05y0sa1ynmi8z3sm2377f4f6yiqlj9yvkg57jv3";
   }) {}
