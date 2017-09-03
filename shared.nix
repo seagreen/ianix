@@ -98,6 +98,7 @@ in {
     silver-searcher
     speedtest_cli
     stdenv # Includes `gcc` for C programming
+    stow
     telnet
     tmux
     # Pandoc doesn't allow outputing of .pdfs without this as a dep. See here:

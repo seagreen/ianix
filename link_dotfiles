@@ -1,0 +1,9 @@
+stow --dir=src --target=/home/traveller --verbose=1 firefox-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 git-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 haskell-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 mbsync-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 msmtp-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 mutt-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 urxvt-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 vim-dotfiles
+stow --dir=src --target=/home/traveller --verbose=1 xmonad-dotfiles
