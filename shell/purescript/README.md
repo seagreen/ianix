@@ -46,6 +46,12 @@ Try repeating the command a few times, it will eventually succeed.
 
 I haven't reported this issue upstream yet, if someone else does before me let me know.
 
+# Reproducibility
+
+_Nixpkgs_ is pinned, as you can see in `./shell.nix`.
+
+_psc-package_ relies on authors not changing what git tags point to. There are issues open to fix this, see [psc-package #55](https://github.com/purescript/psc-package/issues/55) and [package-sets #32](https://github.com/purescript/package-sets/issues/32).
+
 # Package set notes
 
 _psc-package_ has no equivalent to _Stack_'s `extra-deps`. If you need a package that's not in an official package set you have to make your own. To do so:
