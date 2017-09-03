@@ -40,10 +40,10 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 9. From `/etc/nixos/configuration.nix` import this repo's `./shared.nix`.
 
-    Alternately if you want to add your machine-specific configuration to version control, make a folder for your machine in this repo following the example of `./desktop`. Add your `configuration.nix` and `hardware-configuration.nix` to it, modify your configuration import this repo's `./shared.nix`, then change `/etc/nixos/configuration.nix` to import your machine-specific config, eg:
+    Alternately if you want to add your machine-specific configuration to this repo, make a folder for your machine in this repo following the example of `./desktop`. Add your `configuration.nix` and `hardware-configuration.nix` to it. Modify your configuration import this repo's `./shared.nix`, then change `/etc/nixos/configuration.nix` to import your machine-specific config, eg:
     ```nix
     {
-      imports = [ /home/traveller/config/desktop/configuration.nix ];
+      imports = [ /home/traveller/config/machine/desktop/configuration.nix ];
     }
     ```
 

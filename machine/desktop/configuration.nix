@@ -3,10 +3,10 @@
 {
   imports = [
       ./hardware-configuration.nix
-      ../shared.nix
+      ../../shared.nix
 
       # Backups
-      # ./../src/tarsnap/c.nix
+      # ../../src/tarsnap/c.nix
     ];
 
   networking.hostName = "nivian";
