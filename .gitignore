@@ -1,2 +1,2 @@
-src/xmonad-dotfiles/.xmonad/*
-!src/xmonad-dotfiles/.xmonad/xmonad.hs
+src/xmonad/dotfiles/.xmonad/*
+!src/xmonad/dotfiles/.xmonad/xmonad.hs
