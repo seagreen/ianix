@@ -14,13 +14,19 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 1. [Install NixOS](http://nixos.org/nixos/manual/#sec-installation).
 
-2. Download this repo and symlink `~/config` to it.
+2. Download this repo.
 
-3. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be.
+3. Grep this repo for `traveller` (my username) and change it to what's appropriate for your computer. This is a very rough project and `/home/traveller` is hardcoded far more than it needs to be. You may also want to place this repo at `~/config` or have a symlink from there pointed at this repo, some code may assume that's where the repo is located.
 
 4. (optional) Grep the config files for "cron" and remove any cron jobs you don't want.
 
-5. Setup nixpkgs:
+5. Install `stow`.
+
+6. `./link_dotfiles`
+
+7. `./link_bin`
+
+8. Setup nixpkgs:
 
     ```
     cat version.txt
@@ -32,25 +38,21 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
     git checkout 351aec7
     ```
 
-6. From `/etc/nixos/configuration.nix` import this repo's `./shared.nix`.
+9. From `/etc/nixos/configuration.nix` import this repo's `./shared.nix`.
 
-Alternately if you want to add your configuration to version control, make a folder for your machine in this repo following the example of `./desktop`. Add your `configuration.nix` and `hardware-configuration.nix` to it, modify your configuration import this repo's `./shared.nix`, then change `/etc/nixos/configuration.nix` to import your machine-specific config, eg:
-```nix
-{
-  imports = [ /home/traveller/config/desktop/configuration.nix ];
-}
-```
+    Alternately if you want to add your machine-specific configuration to version control, make a folder for your machine in this repo following the example of `./desktop`. Add your `configuration.nix` and `hardware-configuration.nix` to it, modify your configuration import this repo's `./shared.nix`, then change `/etc/nixos/configuration.nix` to import your machine-specific config, eg:
+    ```nix
+    {
+      imports = [ /home/traveller/config/desktop/configuration.nix ];
+    }
+    ```
 
-7. From root: `nixos-rebuild switch -I nixpkgs=<path_to_nixpkgs>`
+10. From root: `nixos-rebuild switch -I nixpkgs=<path_to_nixpkgs>`
 
 # Post-Install
 
-1. `./link_dotfiles`
+1. (optional) Download the urxvt colorscheme you'd like to use, update the path to it in ~/.Xdefaults, and reload .Xdefaults (reload instructions are in a comment at the top of the file).
 
-2. `./link_bin_files`
+2. Make sure your shell aliases are loaded with `exec zsh`, then run `background-fill wallpaper.png`.
 
-3. Download the urxvt colorscheme you'd like to use, update the path to it in ~/.Xdefaults, and reload .Xdefaults (reload instructions are in a comment at the top of the file).
-
-4. Make sure your shell aliases are loaded with `exec zsh`, then run `background-fill wallpaper.png`.
-
-5. `mkdir ~/screenshots`
+3. `mkdir ~/screenshots`
