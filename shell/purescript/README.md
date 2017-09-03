@@ -26,6 +26,26 @@ $ ./repl
 
 Note that even though `Main.hello` will autocomplete as soon as the REPL starts, the command won't work until you actually import `Main`.
 
+### Webapp
+
+```
+$ nix-shell
+$ ./build
+$ firefox src/index.html
+```
+
+## Issues
+
+You'll regularly see this error (for instance after running `./build`):
+
+```
+psc-package: failed to create OS thread: Cannot allocate memory
+```
+
+Try repeating the command a few times, it will eventually succeed.
+
+I haven't reported this issue upstream yet, if someone else does before me let me know.
+
 # Package set notes
 
 _psc-package_ has no equivalent to _Stack_'s `extra-deps`. If you need a package that's not in an official package set you have to make your own. To do so:

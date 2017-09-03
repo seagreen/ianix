@@ -1,3 +1,4 @@
 .psc-package/
 .psci_modules/
 output/
+main.js

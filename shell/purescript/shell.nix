@@ -16,6 +16,8 @@ pkgs.stdenv.mkDerivation {
     pkgs.psc-package
 
     # Untracked (but not unexpected) dep of psc-package.
+    #
+    # We also need it directly for `purs bundle`.
     pkgs.haskellPackages.purescript
 
     # Untracked dep of psc-package.
