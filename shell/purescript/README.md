@@ -44,7 +44,7 @@ psc-package: failed to create OS thread: Cannot allocate memory
 
 Try repeating the command a few times, it will eventually succeed.
 
-I haven't reported this issue upstream yet, if someone else does before me let me know.
+I reported this upstream as [psc-package #59](https://github.com/purescript/psc-package/issues/59).
 
 # Reproducibility
 
