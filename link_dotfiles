@@ -1,3 +1,4 @@
+stow --verbose --target=/home/traveller --dir=src/emacs   dotfiles
 stow --verbose --target=/home/traveller --dir=src/firefox dotfiles
 stow --verbose --target=/home/traveller --dir=src/git     dotfiles
 stow --verbose --target=/home/traveller --dir=src/haskell dotfiles

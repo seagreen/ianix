@@ -28,7 +28,8 @@ in {
     # Shell
     ./src/zsh/c.nix
 
-    # Text editor
+    # Text editors
+    ./src/emacs/c.nix
     ./src/vim/c.nix
 
     # Email
@@ -51,7 +52,6 @@ in {
     cloc
     dropbox
     dropbox-cli
-    emacs
     # escoger
     fasd
     feh
