@@ -18,3 +18,7 @@ local-bin-path:
 
 # https://docs.haskellstack.org/en/stable/yaml_configuration/#rebuild-ghc-options
 rebuild-ghc-options: true
+
+nix:
+  enable: true
+  shell-file: shell.nix
