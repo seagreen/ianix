@@ -1,2 +1,2 @@
 psc-package build
-purs bundle output/**/*.js --module Main --main Main > ./main.js
+purs bundle 'output/**/*.js' --module Main --main Main > ./main.js
