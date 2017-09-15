@@ -54,6 +54,7 @@ in {
     dropbox-cli
     # escoger
     fasd
+    fd
     feh
     file
     ffmpeg # Dep of youtubeDL
