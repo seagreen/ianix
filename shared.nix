@@ -52,7 +52,6 @@ in {
     ascii
     cloc
     dropbox
-    dropbox-cli
     # escoger
     fasd
     fd
@@ -63,6 +62,7 @@ in {
     gnome3.eog
     gnome3.file-roller # Archive manager with a GUI.
     gnome3.gedit
+    gnome3.nautilus # file manager
     (gnupg.override { pinentry = pinentry; })
     gnumake
     google-chrome
@@ -81,7 +81,6 @@ in {
     mosh
     mplayer # Required for my weechat beep command.
     mumble
-    nano
     newsbeuter
     nix-repl # Basic use: nix-repl '<nixos>'
     nmap
