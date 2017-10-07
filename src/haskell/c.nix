@@ -23,6 +23,7 @@
     haskellPackages.hoogle
     haskellPackages.packdeps
     haskellPackages.stylish-haskell
+    multi-ghc-travis
 
     # # for the ihaskell-notebook executable, used with
     # #

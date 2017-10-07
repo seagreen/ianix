@@ -27,8 +27,8 @@
 
   networking.firewall.enable = true;
   # Note that when openssh is enabled port 22 is opened automatically.
-  networking.firewall.allowedTCPPorts = [ 2213 62213 62214 ];
-  networking.firewall.allowedUDPPorts = [ 2213 62213 62214 ];
+  networking.firewall.allowedTCPPorts = [ 2213 60213 60214 ];
+  networking.firewall.allowedUDPPorts = [ 2213 60213 60214 ];
 
   # Enable the OpenSSH daemon.
   services.openssh = {

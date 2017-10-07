@@ -22,12 +22,19 @@ import           XMonad.Operations        (windows)
 import qualified XMonad.StackSet          as W
 import           XMonad.Util.EZConfig     (additionalKeysP)
 
--- | The available layouts. Note that each layout is separated by |||,
--- which denotes layout choice.
-myLayout = avoidStruts (spacingWithEdge 5 tiled)
-       ||| tiled
-       ||| avoidStruts (spacingWithEdge 5 (Mirror tiled))
-       ||| noBorders Full
+-- | 'avoidStruts' prevents windows from overlaying xmobar.
+myLayout =
+        -- Vertical split with room between windows and for xmobar.
+        avoidStruts (spacingWithEdge 5 tiled)
+
+        -- Vertical split.
+    ||| tiled
+
+        -- Horizontal split with room between windows and for xmobar.
+    ||| avoidStruts (spacingWithEdge 5 (Mirror tiled))
+
+        -- One window fullscreen, others hidden.
+    ||| noBorders Full
   where
     -- Default tiling algorithm partitions the screen into two panes.
     tiled = Tall nmaster delta ratio

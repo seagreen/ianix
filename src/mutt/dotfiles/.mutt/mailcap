@@ -1,4 +1,4 @@
 image/png; eog %s
 image/jpeg; eog %s
-application/pdf; evince %s
+application/pdf; zathura %s
 application/msword; libreoffice %s

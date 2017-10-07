@@ -76,7 +76,7 @@ in {
     imagemagick
     inkscape # Edit pdfs
     jq
-    # libreoffice BROKEN
+    libreoffice
     lynx
     mosh
     mplayer # Required for my weechat beep command.
