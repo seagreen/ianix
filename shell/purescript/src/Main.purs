@@ -10,5 +10,5 @@ import Prelude
 hello :: String
 hello = "Hello world."
 
-main :: ∀ a. Eff ( dom :: DOM, alert :: ALERT | a) Unit
+main :: ∀ a. Eff (alert :: ALERT, dom :: DOM | a) Unit
 main = window >>= alert hello
