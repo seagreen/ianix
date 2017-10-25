@@ -201,7 +201,7 @@ in {
     '';
 
     layout = "us";
-    xkbOptions = "caps:none"; # setxkbmap settings:
+    xkbOptions = "caps:super"; # setxkbmap settings:
   };
 
   # Select internationalisation properties.
