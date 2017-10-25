@@ -67,13 +67,11 @@ hotkeysToWorkspaces =
   , ("0", "0")
   ]
 
-myConfig comp =
+myConfig =
   defaultConfig
     { borderWidth     = 1
     , layoutHook      = myLayout
-    , modMask         = case comp of
-                          MacLaptop -> mod4Mask -- command / ⌘
-                          OtherComp -> mod1Mask -- alt (default)
+    , modMask         = mod4Mask -- super (command or ⌘ on macOS)
     , handleEventHook = myEventHook
     , terminal        = "urxvt"
     , workspaces      = snd <$> hotkeysToWorkspaces
@@ -90,29 +88,9 @@ myConfig comp =
          -- This is usually better if you have a central, main monitor.
          -- If you're using multiple monitors equally you may want
          -- @W.view@.
-      <> ((\(x,y) -> ("M-" <> x, windows $ W.greedyView y)) <$> hotkeysToWorkspaces)
-      <> ((\(x,y) -> ("M-S-" <> x, windows $ W.shift y)) <$> hotkeysToWorkspaces)
+      <> ((\(x,y) -> ("M-" <> x, windows (W.greedyView y))) <$> hotkeysToWorkspaces)
+      <> ((\(x,y) -> ("M-S-" <> x, windows (W.shift y))) <$> hotkeysToWorkspaces)
       )
 
--- | So we can give my laptop a different mod key.
-data Computer
-  = MacLaptop
-  | OtherComp
-  deriving (Eq, Show)
-
-getComp :: IO Computer
-getComp = do
-  let infoFile = "/etc/nixos/computer"
-  exists <- doesFileExist infoFile
-  if exists
-    then btsToComp <$> BS.readFile infoFile
-    else pure OtherComp
-  where
-    btsToComp :: ByteString -> Computer
-    btsToComp "maclaptop\n" = MacLaptop
-    btsToComp _ = OtherComp
-
 main :: IO ()
-main = do
-  comp <- getComp
-  xmonad (myConfig comp)
+main = xmonad myConfig
