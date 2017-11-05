@@ -55,6 +55,7 @@
     # root doesn't have access to traveller's aliases,
     # so give it a `vim` command:
     vim
+    xorg.xbacklight
   ];
 
   # The NixOS release to be compatible with for stateful data such as databases.
