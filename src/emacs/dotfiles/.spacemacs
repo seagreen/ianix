@@ -33,8 +33,11 @@ This function should only modify configuration layer settings."
    ;; List of configuration layers to load.
    dotspacemacs-configuration-layers
    '(
+     shell-scripts
      python
-     elm
+     (elm :variables
+          elm-format-command "elm-format-0.18"
+          elm-format-on-save t)
      javascript
      yaml
      (auto-completion :variables
