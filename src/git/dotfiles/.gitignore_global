@@ -5,7 +5,4 @@
 *.dia~
 .DS_Store
 .cabal-sandbox
-cabal.sandbox.config
-dist
-.HTF
 .stack-work

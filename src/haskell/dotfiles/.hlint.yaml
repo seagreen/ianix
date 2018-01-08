@@ -1,0 +1,25 @@
+# HLint configuration file
+# https://github.com/ndmitchell/hlint
+
+- ignore: {name: "Avoid lambda"}
+- ignore: {name: "Redundant do"}
+- ignore: {name: "Use lambda-case"}
+
+# - ignore: {name: "Use section"}
+# - ignore: {name: "Use camelCase"}
+# - ignore: {name: "Use list comprehension"}
+# - ignore: {name: "Redundant if"}
+# - ignore: {name: "Eta reduce"}
+# - ignore: {name: "Parse error"}
+# - ignore: {name: "Evaluate"}
+# - ignore: {name: "Use &&&"}
+# - ignore: {name: "Redundant compare"}
+
+# ignore "Redundant as"
+# ignore "Reduce duplication"
+# ignore "Use if"
+# ignore "Use import/export shortcut"
+# ignore "Use infix"
+# ignore "Use isNothing"
+# ignore "Use section"
+# ignore "Use String"

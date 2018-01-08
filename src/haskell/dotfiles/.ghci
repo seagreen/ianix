@@ -1,0 +1,4 @@
+:set -XOverloadedStrings
+:set -XScopedTypeVariables
+
+:set prompt "λ> "
