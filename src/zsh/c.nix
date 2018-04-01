@@ -73,24 +73,14 @@
       ############################################################
 
 
+      # Since aliases can't take arguments, you can use functions instead. E.g.:
+      #
+      # foo() {
+      #     echo $1
+      # }
 
       # This is required for fasd. It runs once per command executed.
       eval "$(fasd --init auto)"
-
-      arch() {
-          firefox -new-window "https://wiki.archlinux.org/index.php?title=Special%3ASearch&search=$1&go=Go" > /dev/null 2>&1
-      }
-
-      hgl() {
-          hoogle search --count=15 -- $1
-      }
-
-      # Using a function because alias doesn't take parameters.
-      rungcc() {
-          gcc -o temp.out $1
-          ./temp.out
-          rm temp.out
-      }
 
       export POSTGRES_PATH="${pkgs.postgresql}";
       export ZLIB_PATH="${pkgs.zlib}";

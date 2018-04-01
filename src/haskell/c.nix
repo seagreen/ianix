@@ -7,7 +7,7 @@
 
     (haskell.packages.ghc802.ghcWithPackages (self : [
       self.hlint # ghc-mod installs it anyway
-      self.ghc-mod
+      # self.ghc-mod
     ]))
 
     gcc
@@ -20,6 +20,7 @@
 
     # Tooling
     haskellPackages.cabal2nix
+    haskellPackages.ghcid
     haskellPackages.hoogle
     haskellPackages.packdeps
     haskellPackages.stylish-haskell

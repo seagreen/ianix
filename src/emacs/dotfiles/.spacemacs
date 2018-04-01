@@ -34,6 +34,7 @@ This function should only modify configuration layer settings."
    dotspacemacs-configuration-layers
    '(
      shell-scripts
+     common-lisp
      python
      (elm :variables
           elm-format-command "elm-format-0.18"

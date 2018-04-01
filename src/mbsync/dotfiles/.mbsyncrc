@@ -25,6 +25,7 @@ Account ian_house
 MaildirStore ian_house-local
 Path ~/mail/ian_house/
 Inbox ~/mail/ian_house/Inbox
+SubFolders Verbatim
 
 Channel ian_house
 Master :ian_house-remote:
@@ -36,28 +37,9 @@ Expunge Both
 
 
 
-
-IMAPAccount fanjam
-Host imap.gmail.com
-User ian@fanjam.com
-PassCmd "pass-plain fanjam-gmail"
-SSLType IMAPS
-CertificateFile /etc/ssl/certs/ca-bundle.crt
-
-IMAPStore fanjam-remote
-Account fanjam
-
 MaildirStore fanjam-local
 Path ~/mail/fanjam/
 Inbox ~/mail/fanjam/Inbox
-
-Channel fanjam
-Master :fanjam-remote:
-Slave :fanjam-local:
-Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
-Create Both
-SyncState *
-Expunge Both
 
 
 
@@ -74,6 +56,7 @@ Account ianspiral
 MaildirStore ianspiral-local
 Path ~/mail/ianspiral/
 Inbox ~/mail/ianspiral/Inbox
+SubFolders Verbatim
 
 Channel ianspiral
 Master :ianspiral-remote:

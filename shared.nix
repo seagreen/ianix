@@ -38,7 +38,7 @@ in {
     ./src/msmtp/c.nix # SMTP client
 
     # Web browser (Vimperator)
-    ./src/firefox/c.nix
+    # ./src/firefox/c.nix
 
     ./src/git/c.nix
     ./src/haskell/c.nix
@@ -51,6 +51,7 @@ in {
   environment.systemPackages = with pkgs; [
     ascii
     cloc
+    cool-retro-term
     dropbox
     # escoger
     fasd
@@ -80,14 +81,16 @@ in {
     lynx
     mosh
     mplayer # Required for my weechat beep command.
-    mumble
-    newsbeuter
+    # mumble
+    # newsbeuter
     nix-repl # Basic use: nix-repl '<nixos>'
     nmap
     notmuch
     pandoc
     pass
-    pavucontrol # configure PulseAudio
+    # Configure PulseAudio.
+    # Run and mess with the settings here if the computer isn't picking up your mic.
+    pavucontrol
     pciutils # for lspci
     gnuplot
     pwgen
@@ -265,6 +268,9 @@ in {
       autoStart = false;
     };
   };
+
+  networking.enableIPv6 = false;
+  boot.kernel.sysctl."net.ipv6.conf.eth0.disable_ipv6" = true;
 
   time.timeZone = "America/New_York";
   services.ntp = {
