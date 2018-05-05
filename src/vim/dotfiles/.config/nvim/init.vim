@@ -11,6 +11,8 @@ set autoindent
 " Show line numbers.
 set number
 
+set nofoldenable
+
 " " Don't wrap lines.
 " set nowratp
 
@@ -60,7 +62,7 @@ set ffs=unix
 " autocmd! BufWritePost * Neomake
 
 " fzf
-map <leader>f :GFiles<CR>
+map <space>pf :GFiles<CR>
 
 " supertab
 let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
