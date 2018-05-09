@@ -37,7 +37,7 @@ This function should only modify configuration layer settings."
      common-lisp
      python
      (elm :variables
-          elm-format-command "elm-format-0.18"
+          elm-format-command "/home/traveller/elm-format/bin/elm-format-0.18"
           elm-format-on-save t)
      javascript
      yaml
