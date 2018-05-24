@@ -99,6 +99,7 @@ in {
     redis
     rsync
     shotwell
+    signal-desktop
     silver-searcher
     speedtest_cli
     stdenv # Includes `gcc` for C programming
@@ -200,6 +201,7 @@ in {
     displayManager.sessionCommands = ''
       sh /home/traveller/.fehbg &
       xmobar                    &
+      xset m 5/2 4              &
       dropbox                   &
     '';
 
