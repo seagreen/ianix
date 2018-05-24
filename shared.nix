@@ -198,6 +198,7 @@ in {
     # manages the X server" (from the NixOS manual).
     displayManager.lightdm.enable = true;
 
+    # xset m sets mouse sensativity.
     displayManager.sessionCommands = ''
       sh /home/traveller/.fehbg &
       xmobar                    &
