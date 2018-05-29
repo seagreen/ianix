@@ -5,6 +5,15 @@
 - ignore: {name: "Redundant do"}
 - ignore: {name: "Use lambda-case"}
 
+# From: https://gist.github.com/roman/2f6855d747457ce4c22cd64f5dc2996b
+- modules:
+  # - {name: Control.Arrow, within: []} # Can ban modules
+  - {name: [Data.HashMap.Strict], as: HM}
+  - {name: [Data.ByteString], as: BS}
+  - {name: [Data.ByteString.Lazy], as: LBS}
+  - {name: [Data.Text], as: T}
+  - {name: [Data.Text.IO], as: TIO}
+
 # - ignore: {name: "Use section"}
 # - ignore: {name: "Use camelCase"}
 # - ignore: {name: "Use list comprehension"}
