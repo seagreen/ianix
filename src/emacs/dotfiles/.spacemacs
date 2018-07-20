@@ -368,6 +368,17 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+
+  ;; Prevent these prompts when switching themes:
+  ;;
+  ;;     Loading a theme can run Lisp code. Really load? (y or n)
+  ;;     Treat this theme as safe in future sessions? (y or n)
+  (setq custom-safe-themes t)
+
+  ;; temp fix for M-x not working issue
+  (with-eval-after-load 'helm
+    (setq helm-display-function 'helm-default-display-buffer))
+
   (add-to-list 'exec-path "~/.local/bin/")
   (add-to-load-path "~/.spacemacs.d/")
 
