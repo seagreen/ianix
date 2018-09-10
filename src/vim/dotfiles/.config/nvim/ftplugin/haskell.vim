@@ -4,18 +4,6 @@ set tabstop=2
 " Place a line at the 80th column.
 set colorcolumn=80
 
-" From here:
-" http://www.stephendiehl.com/posts/vim_2016.html
-map <silent> tw :GhcModTypeInsert<CR>
-map <silent> ts :GhcModSplitFunCase<CR>
-map <silent> tq :GhcModType<CR>
-map <silent> te :GhcModTypeClear<CR>
-
-" Also from here:
-" http://www.stephendiehl.com/posts/vim_2016.html
-let g:haskellmode_completion_ghc = 1
-autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
-
 " We use :command! instead of :command to define commands because
 " the haskell.vim file is being sourced twice at startup and once
 " each time a vim file is opened in a new tab -- if we don't use

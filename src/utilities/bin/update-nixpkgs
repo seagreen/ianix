@@ -5,4 +5,4 @@
 cd ~/code/nixpkgs
 git fetch origin
 git fetch channels
-git pull channels nixos-unstable
+git pull channels nixos-18.03

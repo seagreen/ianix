@@ -16,8 +16,6 @@
     haskellPackages.happy
     haskellPackages.zlib
 
-    haskellPackages.stack
-
     # Tooling
     haskellPackages.cabal2nix
     haskellPackages.ghcid

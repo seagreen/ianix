@@ -83,19 +83,6 @@
             { name = "vinegar"; }
 
             ##################################################
-            # haskell
-            ##################################################
-
-            { name = "syntastic"; }
-
-            { name = "ghcmod"; ft_regex = "^haskell\$"; }
-            { name = "vimproc"; } # Required by ghcmod.
-            # A completion plugin for haskell using ghc-mod:
-            { name = "neco-ghc"; ft_regex = "^haskell\$"; }
-
-            # { name = "intero-neovim"; }
-
-            ##################################################
             # other
             ##################################################
 

@@ -6,7 +6,21 @@
 
 let
   escoger = pkgs.haskellPackages.callPackage ./extended-nixpkgs/escoger { };
+
+# https://functor.tokyo/blog/2018-02-18-install-packages-from-nixos-unstable
+in let
+  unstableTarball =
+    fetchTarball
+      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
 in {
+
+  nixpkgs.config = {
+    packageOverrides = pkgs: {
+      unstable = import unstableTarball {
+        config = config.nixpkgs.config;
+      };
+    };
+  };
 
   ############################################################
   # Applications
@@ -49,10 +63,16 @@ in {
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
+    unstable.stack
+
+    anki
     ascii
     cloc
     cool-retro-term
+    unstable.dhall-text
+    docker_compose
     dropbox
+    elmPackages.elm
     # escoger
     fasd
     fd
@@ -70,12 +90,12 @@ in {
     gparted
     graphviz # Provides the `dot` executable.
     haskellPackages.bench
+    # haskellPackages.steeloverseer
     haskellPackages.una # CLI archive manager with a sweet UI.
     htop
     httpie
     i3lock
     imagemagick
-    inkscape # Edit pdfs
     jq
     libreoffice
     lynx
@@ -85,6 +105,8 @@ in {
     # newsbeuter
     nix-repl # Basic use: nix-repl '<nixos>'
     nmap
+    nodejs
+    nodePackages.npm
     notmuch
     pandoc
     pass
@@ -118,6 +140,7 @@ in {
     weechat
     wget
     xclip # Let pass access the clipboard.
+    xournal # Edit pdfs. inkscape can only work on single pages.
     xvidcap # Video screenshots
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
     zathura
@@ -136,7 +159,8 @@ in {
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql94;
-    port = 5432; # Make the default explicit.
+    port = 5836;
+    # port = 5432; # Make the default explicit.
 
     # pg_hba.conf
     authentication = pkgs.lib.mkForce ''
@@ -145,28 +169,28 @@ in {
     '';
   };
 
-  services.nginx = {
-    enable = true;
-    config = ''
-      events {}
-      http {
-        types {
-          application/javascript js;
-          text/html              html;
-          text/css               css;
-        }
-        server {
-          location /api {
-            proxy_pass http://localhost:8080;
-          }
-          location / {
-            root /var/site;
-            try_files $uri /index.html;
-          }
-        }
-      }
-    '';
-  };
+  # services.nginx = {
+  #   enable = true;
+  #   config = ''
+  #     events {}
+  #     http {
+  #       types {
+  #         application/javascript js;
+  #         text/html              html;
+  #         text/css               css;
+  #       }
+  #       server {
+  #         location /api {
+  #           proxy_pass http://localhost:8080;
+  #         }
+  #         location / {
+  #           root /var/site;
+  #           try_files $uri /index.html;
+  #         }
+  #       }
+  #     }
+  #   '';
+  # };
 
   virtualisation.docker.enable = true;
 
@@ -272,8 +296,10 @@ in {
     };
   };
 
+  # This doesn't seem to work:
   networking.enableIPv6 = false;
-  boot.kernel.sysctl."net.ipv6.conf.eth0.disable_ipv6" = true;
+  # This works via /proc/sys/net/ipv6/conf/all/disable_ipv6
+  boot.kernel.sysctl."net.ipv6.conf.all.disable_ipv6" = true;
 
   time.timeZone = "America/New_York";
   services.ntp = {

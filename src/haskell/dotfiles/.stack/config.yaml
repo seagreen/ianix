@@ -4,6 +4,6 @@ local-bin-path: ./bin
 rebuild-ghc-options: true
 
 nix:
-  pure: false
+#   pure: false
   enable: true
-  shell-file: shell.nix
+#   shell-file: shell.nix

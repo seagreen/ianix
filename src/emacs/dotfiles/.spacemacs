@@ -61,7 +61,8 @@ This function should only modify configuration layer settings."
      syntax-checking
      html
      purescript
-     (haskell :variables haskell-completion-backend 'intero))
+     (haskell :variables haskell-completion-backend 'intero)
+     )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
    ;; packages, then consider creating a layer. You can also put the
@@ -388,6 +389,9 @@ you should place your code here."
   ;; Also in visual mode
   (define-key evil-visual-state-map "j" 'evil-next-visual-line)
   (define-key evil-visual-state-map "k" 'evil-previous-visual-line)
+
+  ;; HACK
+  (setq inferior-lisp-program "/nix/store/las7pwkf1mfsmpy5kila99d6y5pvk21v-sbcl-1.4.4/bin/sbcl")
 
   (require 'moe-theme)
   ;; Disable all previously selected themes
