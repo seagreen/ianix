@@ -7,11 +7,12 @@
 let
   escoger = pkgs.haskellPackages.callPackage ./extended-nixpkgs/escoger { };
 
-# https://functor.tokyo/blog/2018-02-18-install-packages-from-nixos-unstable
 in let
-  unstableTarball =
-    fetchTarball
-      https://github.com/NixOS/nixpkgs-channels/archive/nixos-unstable.tar.gz;
+  unstableTarball = builtins.fetchGit {
+    url = https://github.com/nixos/nixpkgs/;
+    # `git ls-remote https://github.com/nixos/nixpkgs-channels nixos-unstable`
+    rev = "46651b82b87318e37440c15a639d49ec05e79b79";
+  };
 in {
 
   nixpkgs.config = {
@@ -91,6 +92,7 @@ in {
     graphviz # Provides the `dot` executable.
     haskellPackages.bench
     # haskellPackages.steeloverseer
+    haskellPackages.multi-ghc-travis
     haskellPackages.una # CLI archive manager with a sweet UI.
     htop
     httpie
@@ -99,6 +101,7 @@ in {
     jq
     libreoffice
     lynx
+    mnemosyne
     mosh
     mplayer # Required for my weechat beep command.
     # mumble
@@ -222,11 +225,11 @@ in {
     # manages the X server" (from the NixOS manual).
     displayManager.lightdm.enable = true;
 
-    # xset m sets mouse sensativity.
+    # xset m sets mouse sensativity (acceleration/threshold).
     displayManager.sessionCommands = ''
       sh /home/traveller/.fehbg &
       xmobar                    &
-      xset m 5/2 4              &
+      xset mouse 10 2           &
       dropbox                   &
     '';
 
