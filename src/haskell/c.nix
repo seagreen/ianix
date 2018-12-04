@@ -3,11 +3,9 @@
 {
   environment.systemPackages = with pkgs; [
 
-    haskellPackages.cabal-install
+    # haskellPackages.cabal-install
 
-    (haskell.packages.ghc802.ghcWithPackages (self : [
-      self.hlint # ghc-mod installs it anyway
-      # self.ghc-mod
+    (haskell.packages.ghc843.ghcWithPackages (self : [
     ]))
 
     gcc
@@ -17,12 +15,14 @@
     haskellPackages.zlib
 
     # Tooling
+    haskellPackages.brittany
     haskellPackages.cabal2nix
     haskellPackages.ghcid
+    haskellPackages.hlint
     haskellPackages.hoogle
+    haskellPackages.multi-ghc-travis
     haskellPackages.packdeps
-    haskellPackages.stylish-haskell
-    multi-ghc-travis
+    haskellPackages.weeder
 
     # # for the ihaskell-notebook executable, used with
     # #

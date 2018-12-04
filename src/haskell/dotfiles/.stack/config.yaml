@@ -6,5 +6,5 @@ rebuild-ghc-options: true
 nix:
 #   pure: false
   enable: true
-#   shell-file: shell.nix
-  packages: [zlib]
+#  shell-file: shell.nix
+#  packages: [zlib]

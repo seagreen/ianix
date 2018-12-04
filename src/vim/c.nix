@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 
-# See here for details on Vim in NixOS:
-# https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/vim-utils.nix
+# Resources:
 #
-# It uses VAM (Vim Addon Manager) internally:
-# https://github.com/MarcWeber/vim-addon-manager
+# https://github.com/NixOS/nixpkgs/blob/master/doc/languages-frameworks/vim.section.md
+#
+# https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/vim-utils.nix
 {
   environment.systemPackages = with pkgs; [
     (neovim.override {
@@ -29,16 +29,6 @@
               dependencies = [];
             };
 
-            # intero = vimUtils.buildVimPluginFrom2Nix {
-            #   name = "intero";
-            #   src = fetchgit {
-            #     url = "git://github.com/myfreeweb/intero.nvim";
-            #     rev = "2ab44a0dd4d34bc7c210b8b7db8b01a28827a28f";
-            #     sha256 = "1rycsppq5m06bqnd4zi9k969iapddf7yq1dnaphpzf1zj710pbzx";
-            #   };
-            #   dependencies = [];
-            # };
-
             intero-neovim = vimUtils.buildVimPluginFrom2Nix {
               name = "intero-neovim";
               src = fetchgit {
@@ -54,41 +44,45 @@
           # There's a list of available plugins here:
           # https://github.com/NixOS/nixpkgs/blob/master/pkgs/misc/vim-plugins/vim-plugin-names
           pluginDictionaries = [
+            { "names" = [
+                ##################################################
+                # general
+                ##################################################
 
-            ##################################################
-            # general
-            ##################################################
+                "elm-vim"
 
-            # Both of these seem to be required, as well as the `fzf` package.
-            { name = "fzf-vim"; }
-            { name = "fzfWrapper"; }
+                # Both of these seem to be required, as well as the `fzf` package.
+                "fzf-vim"
+                "fzfWrapper"
 
-            # Distraction-free writing in Vim. Recommended here for use with Markdown files:
-            #
-            #     https://news.ycombinator.com/item?id=6978563
-            #
-            # The same author also wrote this:
-            #
-            #     https://github.com/bilalq/lite-dfm
-            #
-            # which he uses for coding (it doesn't line up as well but keeps support for
-            # vsplits uncrippled.
-            { name = "goyo"; }
+                # Distraction-free writing in Vim. Recommended here for use with Markdown files:
+                #
+                #     https://news.ycombinator.com/item?id=6978563
+                #
+                # The same author also wrote this:
+                #
+                #     https://github.com/bilalq/lite-dfm
+                #
+                # which he uses for coding (it doesn't line up as well but keeps support for
+                # vsplits uncrippled.
+                "goyo"
 
-            { name = "neomake"; }
-            { name = "supertab"; } # Tab completion.
-            { name = "Tabular"; } # Line up text.
-            { name = "vim-colorschemes"; }
-            { name = "vim-gitgutter"; }
-            { name = "vinegar"; }
+                "nerdtree"
+                # "neomake"
+                # "supertab" # Tab completion.
+                # "Tabular" # Line up text.
+                "vim-colorschemes"
+                "vim-gitgutter"
+                # "vinegar"
 
-            ##################################################
-            # other
-            ##################################################
+                ##################################################
+                # other
+                ##################################################
 
-            { name = "vim2nix"; }
-            # { name = "exampleCustomPackage"; }
-
+                "vim2nix"
+                # "exampleCustomPackage"
+              ];
+            }
           ];
         };
         customRC = ''

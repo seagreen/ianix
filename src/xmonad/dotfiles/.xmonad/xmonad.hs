@@ -1,10 +1,14 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- | Make changes to this file go live:
+-- | Make changes to this file go live (by recompiling and restarting):
 --     mod+q
 --
 -- If you need more error information (NOTE: This doesn't make changes go live):
 --     $ xmonad --recompile
+--
+-- mod+q is handled in the source code here:
+--
+--     https://github.com/xmonad/xmonad/blob/bb13853929f8f6fc59b526bcc10631e1bac309ad/src/XMonad/Config.hs#L222
 
 module Main where
 
@@ -73,12 +77,14 @@ myConfig =
     , layoutHook      = myLayout
     , modMask         = mod4Mask -- super (command or ⌘ on macOS)
     , handleEventHook = myEventHook
-    , terminal        = "urxvt"
+    , terminal        = "alacritty --command fish"
     , workspaces      = snd <$> hotkeysToWorkspaces
     }
   `additionalKeysP`
       (  [ ("M-s", spawn "screenshot")
          , ("M-e", spawn "screenshot-select")
+
+         , ("M-b", spawn "urxvt -e sh") -- Backup in case normal terminal isn't working.
          ]
          -- @W.greedyView@ means that if you have two monitors A and B with
          -- A focused and workspace 2 open in B, and you switch to

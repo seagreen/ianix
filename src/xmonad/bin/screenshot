@@ -2,6 +2,6 @@ sleep 0.2
 filename="$HOME/screenshots/$(date --utc +%FT%TZ).png"
 
 # Order matters in these commands so eog doesn't block cp.
-scrot -m "$filename"
+scrot --multidisp "$filename"
 cp "$filename" "$HOME/screenshots/screenshot.png"
 eog "$filename"

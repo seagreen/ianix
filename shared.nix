@@ -11,7 +11,7 @@ in let
   unstableTarball = builtins.fetchGit {
     url = https://github.com/nixos/nixpkgs/;
     # `git ls-remote https://github.com/nixos/nixpkgs-channels nixos-unstable`
-    rev = "46651b82b87318e37440c15a639d49ec05e79b79";
+    rev = "0a7e258012b60cbe530a756f09a4f2516786d370";
   };
 in {
 
@@ -40,9 +40,6 @@ in {
     # Terminal
     ./src/urxvt/c.nix
 
-    # Shell
-    ./src/zsh/c.nix
-
     # Text editors
     ./src/emacs/c.nix
     ./src/vim/c.nix
@@ -52,33 +49,39 @@ in {
     ./src/mutt/c.nix
     ./src/msmtp/c.nix # SMTP client
 
-    # Web browser (Vimperator)
-    # ./src/firefox/c.nix
-
+    ./src/firefox/c.nix
     ./src/git/c.nix
     ./src/haskell/c.nix
     ./src/networking/c.nix
     ./src/virtualbox/c.nix
 
+    # NOTE: Not version controlled.
+    ./nginx.nix
   ];
 
   # List packages installed in system profile.
   environment.systemPackages = with pkgs; [
     unstable.stack
+    unstable.haskellPackages.cabal-install
+    unstable.sqlint
+    unstable.haskellPackages.stylish-haskell
 
+    unstable.alacritty
     anki
     ascii
     cloc
     cool-retro-term
-    unstable.dhall-text
+    # unstable.dhall-text
     docker_compose
     dropbox
     elmPackages.elm
     # escoger
+    evince
     fasd
     fd
     feh
     file
+    fish
     ffmpeg # Dep of youtubeDL
     fzf
     gnome3.eog
@@ -92,7 +95,6 @@ in {
     graphviz # Provides the `dot` executable.
     haskellPackages.bench
     # haskellPackages.steeloverseer
-    haskellPackages.multi-ghc-travis
     haskellPackages.una # CLI archive manager with a sweet UI.
     htop
     httpie
@@ -143,6 +145,7 @@ in {
     weechat
     wget
     xclip # Let pass access the clipboard.
+    xorg.xhost # for graphical docker
     xournal # Edit pdfs. inkscape can only work on single pages.
     xvidcap # Video screenshots
     youtubeDL # ffmpeg is a dep if used with "--audio-format vorbis"
@@ -162,8 +165,7 @@ in {
   services.postgresql = {
     enable = true;
     package = pkgs.postgresql94;
-    port = 5836;
-    # port = 5432; # Make the default explicit.
+    port = 5432; # Make the default explicit.
 
     # pg_hba.conf
     authentication = pkgs.lib.mkForce ''
@@ -171,29 +173,6 @@ in {
       host  all all localhost trust
     '';
   };
-
-  # services.nginx = {
-  #   enable = true;
-  #   config = ''
-  #     events {}
-  #     http {
-  #       types {
-  #         application/javascript js;
-  #         text/html              html;
-  #         text/css               css;
-  #       }
-  #       server {
-  #         location /api {
-  #           proxy_pass http://localhost:8080;
-  #         }
-  #         location / {
-  #           root /var/site;
-  #           try_files $uri /index.html;
-  #         }
-  #       }
-  #     }
-  #   '';
-  # };
 
   virtualisation.docker.enable = true;
 
@@ -326,7 +305,7 @@ in {
     uid = 1000;
     home = "/home/traveller";
     createHome = true;
-    shell = "${pkgs.zsh}/bin/zsh"; # Changes to this take effect on login.
+    shell = "/bin/sh"; # Changes to this take effect on login.
     openssh.authorizedKeys.keyFiles = [
       "/home/traveller/.ssh/id_rsa.pub"
     ];

@@ -2,6 +2,10 @@ sleep 0.2
 filename="$HOME/screenshots/$(date --utc +%FT%TZ).png"
 
 # Order matters in these commands so eog doesn't block cp.
-scrot -s "$filename"
+#
+# --delay is to prevent the border scrot draws from
+# showing up in the resulting shot, see:
+# https://github.com/dreamer/scrot/issues/2
+scrot --delay 1 --select "$filename"
 cp "$filename" "$HOME/screenshots/screenshot.png"
 eog "$filename"
