@@ -12,6 +12,10 @@ alias sbt "stack build --ghc-options=-O0 --test --test-arguments '--rerun --fail
 
 alias sclean "stack clean; stack build --ghc-options=-O0 --ghc-options=-Werror --file-watch"
 
+alias background-center "feh --bg-center"
+alias background-max    "feh --bg-max"
+alias background-fill   "feh --bg-fill"
+
 alias mirror "rsync --archive --delete --compress --human-readable"
 
 alias cal "cal -3 --monday"

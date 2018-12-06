@@ -51,8 +51,6 @@ For info on the background image try Googling "Makoto Shinkai The Place Promised
 
 # Post-Install
 
-1. (optional) Download the urxvt colorscheme you'd like to use, update the path to it in ~/.Xdefaults, and reload .Xdefaults (reload instructions are in a comment at the top of the file).
+1. Make sure your shell aliases are loaded with `exec fish`, then run `background-fill wallpaper.png`.
 
-2. Make sure your shell aliases are loaded with `exec zsh`, then run `background-fill wallpaper.png`.
-
-3. `mkdir ~/screenshots`
+2. `mkdir ~/screenshots`

@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Strategy:
 #
 # https://blog.interlinked.org/tutorials/rsync_time_machine.html

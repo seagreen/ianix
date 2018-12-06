@@ -22,6 +22,7 @@
     haskellPackages.hoogle
     haskellPackages.multi-ghc-travis
     haskellPackages.packdeps
+    # haskellPackages.visualize-cbn
     haskellPackages.weeder
 
     # # for the ihaskell-notebook executable, used with
